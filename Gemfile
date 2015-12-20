@@ -1,0 +1,28 @@
+source "https://rubygems.org"
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem "rails", "4.2.5"
+gem "haml-rails"
+gem "sqlite3"
+gem "baza", path: "/home/kaspernj/Dev/Ruby/baza"
+gem "baza_migrations", path: "/home/kaspernj/Dev/Ruby/baza_migrations"
+gem "baza_models", path: "/home/kaspernj/Dev/Ruby/baza_models"
+gem "cancancan"
+gem "devise"
+
+gem "sass-rails", "~> 5.0"
+gem "coffee-rails", "~> 4.1.0"
+gem "jquery-rails"
+gem "sdoc", "~> 0.4.0", group: :doc
+
+group :development, :test do
+  gem "best_practice_project", github: "kaspernj/best_practice_project", require: false
+  gem "rubocop", require: false
+  gem "scss-lint", require: false
+  gem "coffeelint", require: false
+  gem "rails_best_practices", require: false
+end
+
+group :development do
+  gem "spring"
+end
