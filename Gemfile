@@ -9,6 +9,10 @@ gem "baza_migrations", path: "/home/kaspernj/Dev/Ruby/baza_migrations"
 gem "baza_models", path: "/home/kaspernj/Dev/Ruby/baza_models"
 gem "cancancan"
 gem "devise"
+gem "twitter-bootstrap-rails"
+gem "ransack"
+gem "will_paginate"
+gem "simple_form"
 
 gem "sass-rails", "~> 5.0"
 gem "coffee-rails", "~> 4.1.0"
@@ -16,9 +20,10 @@ gem "jquery-rails"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 group :development, :test do
-  gem "best_practice_project", github: "kaspernj/best_practice_project", require: false
+  gem "best_practice_project", require: false, path: "/home/kaspernj/Dev/Ruby/best_practice_project" #, github: "kaspernj/best_practice_project"
   gem "rubocop", require: false
   gem "scss-lint", require: false
+  gem "haml_lint", require: false
   gem "coffeelint", require: false
   gem "rails_best_practices", require: false
 end

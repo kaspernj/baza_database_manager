@@ -1,0 +1,30 @@
+!!! %
+%html
+  %head
+    %title BazaDatabaseManager
+
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: false, controls: "navbar"}}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to "Project name", "#", class: "navbar-brand"
+        #navbar.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active= link_to "Home", "#"
+            - if can? :index, Profile
+              %li= link_to Profile.model_name.human(count: 2), profiles_path
+            %li= link_to "Contact", "#contact"
+    .container
+      .starter_template
+        - if content_for?(:header_title)
+          %h1= content_for(:header_title)
+
+        = yield

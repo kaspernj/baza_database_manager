@@ -1,0 +1,17 @@
+- content_for(:header_title) { Profile.model_name.human(count: 2) }
+
+= link_to t("add_new"), [:new, :profile], class: ["btn", "btn-default"]
+
+%table.table.table-bordered.table-striped.table-hover
+  %thead
+    %tr
+      %th- #= sort_link @ransack, :name
+  %tbody
+    - @profiles.each do |profile|
+      %tr
+        %td= link_to profile.name, profile
+    - if @profiles.empty?
+      %tr
+        %td= t("no_results")
+
+= will_paginate @profiles
