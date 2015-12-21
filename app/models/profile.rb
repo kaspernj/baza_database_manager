@@ -45,8 +45,6 @@ class Profile < BazaModels::Model
       type: database_type
     }.merge(parsed_connect_options.symbolize_keys)
 
-    puts "DbArgs: #{db_args}"
-
     Baza::Db.new(db_args) do |db|
       yield db
     end
