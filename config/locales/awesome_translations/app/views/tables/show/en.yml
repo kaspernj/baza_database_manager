@@ -1,0 +1,9 @@
+---
+en:
+  tables:
+    show:
+      show_table: 'Show table: %{name}'
+      columns: Columns
+      name: Name
+      type: Type
+      indexes: Indexes

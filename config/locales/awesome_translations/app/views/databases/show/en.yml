@@ -1,0 +1,7 @@
+---
+en:
+  databases:
+    show:
+      show_database: 'Show database: %{name}'
+      tables: Tables
+      name: Name

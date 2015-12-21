@@ -6,3 +6,5 @@ BazaModels.primary_db = Baza::Db.new(
   type_translation: true
 )
 Baza.default_db = BazaModels.primary_db
+
+BazaModels.load_can_can

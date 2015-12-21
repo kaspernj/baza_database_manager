@@ -1,0 +1,7 @@
+---
+da:
+  databases:
+    show:
+      show_database: 'Vis database: %{name}'
+      tables: Tabeller
+      name: Navn

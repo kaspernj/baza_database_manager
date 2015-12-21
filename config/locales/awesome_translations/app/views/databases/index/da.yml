@@ -1,0 +1,6 @@
+---
+da:
+  databases:
+    index:
+      databases: Databaser
+      name: Navn

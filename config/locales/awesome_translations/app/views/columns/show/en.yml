@@ -1,0 +1,7 @@
+---
+en:
+  columns:
+    show:
+      show_column: 'Show column: %{name}'
+      database: Database
+      table: Table

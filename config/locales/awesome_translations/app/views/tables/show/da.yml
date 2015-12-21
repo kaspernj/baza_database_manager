@@ -1,0 +1,9 @@
+---
+da:
+  tables:
+    show:
+      show_table: 'Vis tabel: %{name}'
+      columns: Kolonner
+      name: Navn
+      type: Type
+      indexes: Indekser

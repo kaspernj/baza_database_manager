@@ -1,0 +1,4 @@
+- content_for(:header_title) { t(".edit_profile", name: @profile.name) }
+- content_for(:header_right) { link_to t("cancel"), @profile, class: ["btn", "btn-default", "btn-xs"] if can? :show, @profile }
+
+= render "form", profile: @profile

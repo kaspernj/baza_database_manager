@@ -1,0 +1,13 @@
+- content_for(:header_title) { t(".databases") }
+
+%table.table.table-bordered.table-striped.table-hover
+  %thead
+    %tr
+      %th= t(".name")
+  %tbody
+    - @profile.databases.each do |database|
+      %tr
+        %td= link_to database.name, profile_database_path(@profile, database.name)
+    - if @profile.databases.empty?
+      %tr
+        %td{colspan: 1}= t("no_results")

@@ -1,0 +1,15 @@
+- content_for(:header_title) { t(".show_index", name: @index.name) }
+
+%table.table.table-bordered.table-striped.table-hover
+  %tbody
+    %tr
+      %th= t(".database")
+      %td= link_to @database.name, profile_database_path(@profile, @database.name)
+    %tr
+      %th= t(".table")
+      %td= link_to @table.name, profile_database_table_path(@profile, @database.name, @table.name)
+
+    - @index.data.each do |key, value|
+      %tr
+        %th= key
+        %td= value

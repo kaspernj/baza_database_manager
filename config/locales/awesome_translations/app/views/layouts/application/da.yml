@@ -1,0 +1,6 @@
+---
+da:
+  layouts:
+    application:
+      baza_database_manager: BazaDatabaseManager
+      home: Hjem

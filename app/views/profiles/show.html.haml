@@ -1,0 +1,21 @@
+- content_for(:header_title) { t(".show_profile", name: @profile.name) }
+- content_for(:header_right) do
+  = link_to t(".databases"), [@profile, :databases], class: ["btn", "btn-default", "btn-xs"]
+  = link_to t("edit"), [:edit, @profile], class: ["btn", "btn-default", "btn-xs"]
+
+%table.table.table-hover.table-striped.table-bordered
+  %tbody
+    %tr
+      %th= Profile.human_attribute_name(:database_type)
+      %td= @profile.translated_database_type
+    %tr
+      %th= Profile.human_attribute_name(:created_at)
+      %td= l(@profile.created_at, format: :long)
+    - @profile.parsed_connect_options.each do |key, value|
+      %tr
+        %th= key
+        %td
+          - if key == "password" || key == "pass"
+            [HIDDEN]
+          - else
+            = value

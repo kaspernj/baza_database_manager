@@ -1,0 +1,6 @@
+---
+en:
+  profiles:
+    show:
+      show_profile: 'Show profile: %{name}'
+      databases: Databases

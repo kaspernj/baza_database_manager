@@ -1,0 +1,7 @@
+---
+da:
+  columns:
+    show:
+      show_column: 'Vis kolonne: %{name}'
+      database: Database
+      table: Tabel

@@ -1,0 +1,7 @@
+---
+da:
+  indexes:
+    show:
+      show_index: 'Vis index: %{name}'
+      database: Database
+      table: Tabel

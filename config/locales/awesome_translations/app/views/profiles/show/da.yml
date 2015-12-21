@@ -1,0 +1,6 @@
+---
+da:
+  profiles:
+    show:
+      show_profile: 'Vis profil: %{name}'
+      databases: Databaser

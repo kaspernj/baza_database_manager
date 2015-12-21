@@ -1,0 +1,5 @@
+---
+da:
+  profiles:
+    edit:
+      edit_profile: 'Rediger profil: %{name}'

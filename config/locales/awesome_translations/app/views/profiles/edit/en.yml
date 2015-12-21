@@ -1,0 +1,5 @@
+---
+en:
+  profiles:
+    edit:
+      edit_profile: 'Edit profile: %{name}'

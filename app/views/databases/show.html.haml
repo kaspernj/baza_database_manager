@@ -1,0 +1,24 @@
+- content_for(:header_title) { t(".show_database", name: @database.name) }
+
+.row
+  .col-md-8
+    %h2= t(".tables")
+  .col-md-4
+    .pull-right
+      = link_to t("add_new"), new_profile_database_table_path(@profile, @database.name), class: ["btn", "btn-default"]
+
+%table.table.table-bordered.table-striped.table-hover
+  %thead
+    %tr
+      %th= t(".name")
+      %th= t("actions")
+  %tbody
+    - @database.tables.each do |table|
+      %tr
+        %td= link_to table.name, profile_database_table_path(@profile, @database.name, table.name)
+        %td
+          = link_to t("edit"), edit_profile_database_table_path(@profile, @database.name, table.name), class: ["btn", "btn-default", "btn-xs"]
+          = link_to t("delete"), profile_database_table_path(@profile, @database.name, table.name), method: :delete, class: ["btn", "btn-danger", "btn-xs"], data: {confirm: t("are_you_sure")}
+    - if @database.tables.empty?
+      %tr
+        %td{colspan: 2}= t("no_results")

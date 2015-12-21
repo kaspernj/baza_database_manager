@@ -16,10 +16,10 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    puts "Profile: #{@profile.inspect}"
+    assign_driver_options
 
     if @profile.save
-      redirect_to profile
+      redirect_to @profile
     else
       flash[:error] = @profile.errors.full_messages.join(". ")
       render :new
@@ -30,6 +30,14 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    assign_driver_options
+
+    if @profile.update_attributes(profile_params)
+      redirect_to @profile
+    else
+      flash[:error] = @profile.errors.full_messages.join(". ")
+      render :edit
+    end
   end
 
   def destroy
@@ -38,6 +46,11 @@ class ProfilesController < ApplicationController
 private
 
   def profile_params
-    params.require(:profile).permit(:name, :database_type, :connect_options)
+    params.require(:profile).permit(:name, :database_type)
+  end
+
+  def assign_driver_options
+    return unless params[:database_options]
+    @profile.connect_options = YAML.dump(params[:database_options].to_hash)
   end
 end

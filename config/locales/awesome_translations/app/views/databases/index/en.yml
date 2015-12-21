@@ -1,0 +1,6 @@
+---
+en:
+  databases:
+    index:
+      databases: Databases
+      name: Name
