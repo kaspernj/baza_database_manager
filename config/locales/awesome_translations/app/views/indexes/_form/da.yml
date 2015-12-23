@@ -1,0 +1,5 @@
+---
+da:
+  indexes:
+    form:
+      column_name: Kolonnenavn

@@ -1,0 +1,5 @@
+---
+en:
+  indexes:
+    form:
+      column_name: Column name

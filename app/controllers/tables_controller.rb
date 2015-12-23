@@ -2,11 +2,74 @@ class TablesController < ApplicationController
   load_and_authorize_resource :profile
 
   def show
-    @profile.with_db do |db|
-      @database = db.database(params[:database_id])
-      @table = @database.table(params[:id])
-
+    with_db do
       render
     end
+  end
+
+  def new
+    with_db do
+      render
+    end
+  end
+
+  def create
+    with_db do
+      @db.tables.create(params[:table][:name], columns: columns)
+      redirect_to profile_database_table_path(@profile, @database.name, params[:table][:name])
+    end
+  end
+
+  def edit
+    with_db do
+      render
+    end
+  end
+
+  def update
+    with_db do
+      @table.rename(params[:table][:name]) unless params[:table][:name] == @table.name
+      columns_data = columns
+
+      count = 0
+      @table.columns do |column|
+        column_data = columns_data[count]
+        column.change(column_data)
+        count += 1
+      end
+
+      redirect_to profile_database_table_path(@profile, @database.name, @table.name)
+    end
+  end
+
+  def destroy
+    with_db do
+      @table.drop
+      flash[:notice] = controller_t(".table_was_dropped")
+      redirect_to profile_database_path(@profile, @database.name)
+    end
+  end
+
+private
+
+  def columns
+    columns = []
+    params[:columns].each_value do |column_data|
+      next unless column_data.fetch(:name).present?
+
+      column = {
+        name: column_data.fetch(:name),
+        type: column_data.fetch(:type)
+      }
+
+      column[:default] = column_data.fetch(:default) if column_data.fetch(:default).present?
+      column[:primarykey] = true if column_data.fetch(:primarykey) == "1"
+      column[:autoincr] = true if column_data.fetch(:autoincr) == "1"
+      column[:maxlength] = column_data.fetch(:maxlength) if column_data.fetch(:maxlength).present?
+
+      columns << column
+    end
+
+    columns
   end
 end

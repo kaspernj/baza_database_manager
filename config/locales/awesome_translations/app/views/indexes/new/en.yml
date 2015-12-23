@@ -1,0 +1,5 @@
+---
+en:
+  indexes:
+    new:
+      create_new_index: Create new index

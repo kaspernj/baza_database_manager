@@ -1,0 +1,16 @@
+= simple_form_for :table, method: @table ? "patch" : "post", url: @table ? profile_database_table_path(@profile, @database.name, @table.name) : profile_database_tables_path(@profile, @database.name) do |f|
+  = f.input :name, autofocus: true, input_html: {value: @table.try(:name)}
+
+  = simple_fields_for :columns do |f_columns|
+    - (@table.try(:columns).try(:count) || 2).times do |count|
+      %h4= t(".column_number_x", number: count)
+      .row
+        = f_columns.simple_fields_for "column_#{count}" do |f_column|
+          .col-md-2= f_column.input :name, input_html: {value: @table.try(:columns).try(:[], count).try(:name)}
+          .col-md-2= f_column.input :type, selected: @table.try(:columns).try(:[], count).try(:type).to_s, collection: %w(int varchar text datetime date)
+          .col-md-2= f_column.input :default
+          .col-md-2= f_column.input :maxlength
+          .col-md-2= f_column.input :primarykey, as: :boolean
+          .col-md-2= f_column.input :autoincr, as: :boolean
+
+  = f.button :submit

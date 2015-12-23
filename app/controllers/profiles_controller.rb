@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     assign_driver_options
 
     if @profile.save
-      redirect_to @profile
+      redirect_to [:edit, @profile]
     else
       flash[:error] = @profile.errors.full_messages.join(". ")
       render :new
@@ -41,6 +41,11 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
+    unless @profile.destroy
+      flash[:error] = @profile.errors.full_messages.join(". ")
+    end
+
+    redirect_to :profiles
   end
 
 private

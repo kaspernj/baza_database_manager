@@ -1,0 +1,5 @@
+---
+da:
+  indexes:
+    edit:
+      edit_index: 'Rediger index: %{name}'

@@ -27,7 +27,7 @@ group :development, :test do
   gem "capybara"
   gem "factory_girl_rails"
   gem "forgery"
-  gem "best_practice_project", require: false, path: "/home/kaspernj/Dev/Ruby/best_practice_project" #, github: "kaspernj/best_practice_project"
+  gem "best_practice_project", require: false, path: "/home/kaspernj/Dev/Ruby/best_practice_project" # , github: "kaspernj/best_practice_project"
   gem "rubocop", require: false
   gem "scss-lint", require: false
   gem "haml_lint", require: false

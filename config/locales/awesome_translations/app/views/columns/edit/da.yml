@@ -1,0 +1,5 @@
+---
+da:
+  columns:
+    edit:
+      edit_column: 'Rediger kolonne: %{name}'

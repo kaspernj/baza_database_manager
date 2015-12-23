@@ -3,8 +3,8 @@
   %head
     %title BazaDatabaseManager
 
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
     = csrf_meta_tags
   %body
     %nav.navbar.navbar-inverse.navbar-fixed-top
@@ -16,14 +16,14 @@
             %span.icon-bar
             %span.icon-bar
           = link_to t(".baza_database_manager"), root_url, class: "navbar-brand"
-        #navbar.collapse.navbar-collapse
+        .collapse.navbar-collapse#navbar
           %ul.nav.navbar-nav
             %li.active= link_to t(".home"), root_url
             - if can? :index, Profile
               %li= link_to Profile.model_name.human(count: 2), profiles_path
     .container
       .starter-template
-        - flash.each do |key, value|
+        - flash.to_hash.each_value do |value|
           .alert.alert-dismissible.alert-danger= value
 
         - if content_for?(:header_title)

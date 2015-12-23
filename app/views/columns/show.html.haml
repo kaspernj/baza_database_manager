@@ -1,4 +1,7 @@
 - content_for(:header_title) { t(".show_column", name: @column.name) }
+- content_for(:header_right) do
+  = link_to t("edit"), edit_profile_database_table_column_path(@profile, @database.name, @table.name, @column.name), class: ["btn", "btn-default", "btn-xs"] if can? :edit, @column
+  = link_to t("delete"), profile_database_table_column_path(@profile, @database.name, @table.name, @column.name), method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-column-btn"] if can? :destroy, @column
 
 %table.table.table-bordered.table-striped.table-hover
   %tbody

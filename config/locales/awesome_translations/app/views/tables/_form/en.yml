@@ -1,0 +1,5 @@
+---
+en:
+  tables:
+    form:
+      column_number_x: Column %{number}

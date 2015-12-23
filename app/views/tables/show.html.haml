@@ -1,11 +1,12 @@
 - content_for(:header_title) { t(".show_table", name: @table.name) }
+- content_for(:header_right) { link_to t("edit"), edit_profile_database_table_path(@profile, @database.name, @table.name), class: ["btn", "btn-default", "btn-xs"] }
 
 .row
-  .col-md-8
+  .col-md-9
     %h2= t(".columns")
-  .col-md-4
+  .col-md-3
     .pull-right
-      = link_to t("add_new"), new_profile_database_table_column_path(@profile, @database.name, @table.name), class: ["btn", "btn-default"]
+      = link_to t("add_new"), new_profile_database_table_column_path(@profile, @database.name, @table.name), class: ["btn", "btn-default"] if can? :new, Baza::Column
 
 %table.table.table-bordered.table-striped.table-hover
   %thead
@@ -14,7 +15,7 @@
       %th= t(".type")
       %th= t("actions")
   %tbody
-    - @table.columns.each do |_name, column|
+    - @table.columns do |column|
       %tr
         %td= link_to column.name, profile_database_table_column_path(@profile, @database.name, @table.name, column.name)
         %td= column.type
@@ -25,7 +26,13 @@
       %tr
         %td{colspan: 2}= t("no_results")
 
-%h2= t(".indexes")
+.row
+  .col-md-9
+    %h2= t(".indexes")
+  .col-md-3
+    .pull-right
+      = link_to t("add_new"), new_profile_database_table_index_path(@profile, @database.name, @table.name), class: ["btn", "btn-default"] if can? :new, Baza::Index
+
 %table.table.table-bordered.table-striped.table-hover
   %thead
     %tr
@@ -33,7 +40,7 @@
       %th= t(".columns")
       %th= t("actions")
   %tbody
-    - @table.indexes.each do |_name, index|
+    - @table.indexes do |index|
       %tr
         %td= link_to index.name, profile_database_table_index_path(@profile, @database.name, @table.name, index.name)
         %td

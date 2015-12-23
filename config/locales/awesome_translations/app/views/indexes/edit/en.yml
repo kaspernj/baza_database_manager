@@ -1,0 +1,5 @@
+---
+en:
+  indexes:
+    edit:
+      edit_index: 'Edit index: %{name}'

@@ -1,0 +1,5 @@
+---
+da:
+  tables:
+    form:
+      column_number_x: 'Kolonne #{number}'

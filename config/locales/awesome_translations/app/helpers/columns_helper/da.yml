@@ -1,0 +1,9 @@
+---
+da:
+  helpers:
+    columns_helper:
+      varchar: Varchar
+      text: Tekst
+      integer: Integer
+      date: Dato
+      datetime: Datotid

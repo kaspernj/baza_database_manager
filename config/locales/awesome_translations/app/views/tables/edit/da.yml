@@ -1,0 +1,5 @@
+---
+da:
+  tables:
+    edit:
+      edit_table: 'Rediger tabel: %{name}'

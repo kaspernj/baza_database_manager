@@ -1,0 +1,5 @@
+---
+en:
+  tables:
+    edit:
+      edit_table: 'Edit table: %{name}'

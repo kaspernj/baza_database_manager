@@ -1,0 +1,9 @@
+---
+da:
+  columns:
+    form:
+      name: Navn
+      type: Type
+      default: Standard
+      auto_increment: Automatisk forøgelse
+      primary_key: Primær nøgle

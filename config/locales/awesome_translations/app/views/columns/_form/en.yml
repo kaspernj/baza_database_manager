@@ -1,0 +1,9 @@
+---
+en:
+  columns:
+    form:
+      name: Name
+      type: Type
+      default: Default
+      auto_increment: Auto increment
+      primary_key: Primary key

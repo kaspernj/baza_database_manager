@@ -1,0 +1,7 @@
+= simple_form_for :column, method: @column ? "patch" : "post", url: @column ? profile_database_table_column_path(@profile, @database.name, @table.name, @column.name) : profile_database_table_columns_path(@profile, @database.name, @table.name) do |f|
+  = f.input :name, label: t(".name")
+  = f.input :type, label: t(".type"), collection: column_types_collection
+  = f.input :default, label: t(".default"), required: false
+  = f.input :autoincr, label: t(".auto_increment"), as: :boolean, input_html: {checked: @column.try(:autoincr?)}
+  = f.input :primarykey, label: t(".primary_key"), as: :boolean, input_html: {checked: @column.try(:primarykey?)}
+  = f.button :submit
