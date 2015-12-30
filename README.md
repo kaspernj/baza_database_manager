@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/shippable/5676f3b41895ca447466ade8.svg)](https://app.shippable.com/projects/5676f3b41895ca447466ade8/builds/latest)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
