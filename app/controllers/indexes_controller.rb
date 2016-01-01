@@ -34,7 +34,13 @@ class IndexesController < ApplicationController
 
   def update
     with_db do
-      @index.rename(params[:index][:name]) unless @index.name == params[:index][:name]
+      @index.drop
+      @table.create_indexes([
+        {
+          name: params[:index][:name],
+          columns: column_names_array
+        }
+      ])
 
       redirect_to profile_database_table_index_path(@profile, @database.name, @table.name, params[:index][:name])
     end
@@ -43,7 +49,7 @@ class IndexesController < ApplicationController
   def destroy
     with_db do
       @index.drop
-      redirect_to profile_database_table_path(@profile, @database.name, @table.name)
+      redirect_to [@profile, @database, @table]
     end
   end
 
@@ -52,6 +58,7 @@ private
   def column_names_array
     column_names = []
     params[:columns].each_value do |column_name|
+      next unless column_name.present?
       column_names << column_name
     end
 

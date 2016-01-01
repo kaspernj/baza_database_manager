@@ -1,4 +1,4 @@
-= simple_form_for :index, method: @index ? "patch" : "post", url: @index ? profile_database_table_index_path(@profile, @database.name, @table.name, @index.name) : profile_database_table_indexes_path do |f|
+= simple_form_for :index, method: @index ? "patch" : "post", url: @index ? [@profile, @database, @table, @index] : [@profile, @database, @table, :indexes] do |f|
   = f.input :name, autofocus: true
 
   = simple_fields_for :columns do |f_columns|

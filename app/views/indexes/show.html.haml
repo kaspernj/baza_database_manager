@@ -1,18 +1,26 @@
+
 - content_for(:header_title) { t(".show_index", name: @index.name) }
 - content_for(:header_right) do
-  = link_to t("edit"), edit_profile_database_table_index_path(@profile, @database.name, @table.name, @index.name), class: ["btn", "btn-default", "btn-xs"] if can? :edit, @index
+  = link_to t("edit"), [:edit, @profile, @database, @table, @index], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @index
   = link_to t("delete"), profile_database_table_index_path(@profile, @database.name, @table.name, @index.name), method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-index"], data: {confirm: t("are_you_sure")} if can? :destroy, @index
 
 %table.table.table-bordered.table-striped.table-hover
   %tbody
     %tr
       %th= t(".database")
-      %td= link_to @database.name, profile_database_path(@profile, @database.name)
+      %td= link_to @database.name, [@profile, @database]
     %tr
       %th= t(".table")
-      %td= link_to @table.name, profile_database_table_path(@profile, @database.name, @table.name)
+      %td= link_to @table.name, [@profile, @database, @table]
 
     - @index.data.each do |key, value|
+      - next if key == :columns
       %tr
         %th= key
         %td= value
+
+    %tr
+      %th= t(".columns")
+      %td
+        - @index.columns.each do |column|
+          = link_to column, [@profile, @database, @table, :column, id: column]

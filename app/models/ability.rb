@@ -13,6 +13,7 @@ private
     can :manage, Baza::Database
     can :manage, Baza::Column
     can :manage, Baza::Index
+    can :manage, Baza::Row
     can :manage, Baza::Table
 
     can :manage, Profile

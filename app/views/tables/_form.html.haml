@@ -1,4 +1,4 @@
-= simple_form_for :table, method: @table ? "patch" : "post", url: @table ? profile_database_table_path(@profile, @database.name, @table.name) : profile_database_tables_path(@profile, @database.name) do |f|
+= simple_form_for :table, method: @table ? "patch" : "post", url: @table ? [@profile, @database, @table] : [@profile, @database, :tables] do |f|
   = f.input :name, autofocus: true, input_html: {value: @table.try(:name)}
 
   = simple_fields_for :columns do |f_columns|

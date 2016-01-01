@@ -38,7 +38,7 @@ class TablesController < ApplicationController
         count += 1
       end
 
-      redirect_to profile_database_table_path(@profile, @database.name, @table.name)
+      redirect_to [@profile, @database, @table]
     end
   end
 
@@ -46,7 +46,7 @@ class TablesController < ApplicationController
     with_db do
       @table.drop
       flash[:notice] = controller_t(".table_was_dropped")
-      redirect_to profile_database_path(@profile, @database.name)
+      redirect_to [@profile, @database]
     end
   end
 

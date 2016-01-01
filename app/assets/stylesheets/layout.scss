@@ -5,3 +5,16 @@ body {
 .starter-template {
   padding: 40px 15px;
 }
+
+table.tables-quick-menu {
+  table-layout: fixed;
+
+  td.table-show-icon {
+    width: 30px;
+  }
+
+  td.table-name {
+    width: 100%;
+    overflow: hidden;
+  }
+}

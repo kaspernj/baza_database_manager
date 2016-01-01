@@ -1,0 +1,8 @@
+- content_for(:header_title) { t(".show_row") }
+
+%table.table.table-bordered.table-striped.table-hover
+  %tbody
+    - @row.data.each do |key, value|
+      %tr
+        %th= key
+        %td= value

@@ -1,0 +1,19 @@
+- content_for(:header_title) { t(".rows") }
+- content_for(:header_right) do
+  = link_to t("add_new"), [:new, @profile, @database, @table, :row], class: ["btn", "btn-default", "btn-xs"] if can? :new, Baza::Row
+
+%table.table.table-bordered.table-striped.table-hover
+  %thead
+    %tr
+      - @table.columns.each do |column|
+        %td= column.name
+      %td= t("actions")
+  %tbody
+    - @table.rows({}, limit: 30).each do |row|
+      %tr
+        - row.each_value do |value|
+          %td= value
+
+        %td
+          = link_to t("edit"), [:edit, @profile, @database, @table, :row, id: row.id], class: ["btn", "btn-default", "btn-xs"] if can? :edit, Baza::Row
+          = link_to t("delete"), [@profile, @database, @table, :row, id: row.id], method: :delete, class: ["btn", "btn-danger", "btn-xs"], data: {confirm: t("are_you_sure")} if can? :destroy, Baza::Row

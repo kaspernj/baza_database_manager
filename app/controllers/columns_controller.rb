@@ -2,9 +2,7 @@ class ColumnsController < ApplicationController
   load_and_authorize_resource :profile
 
   def show
-    @profile.with_db do |db|
-      @db = db
-      set_database_table_and_column
+    with_db do
       render
     end
   end
@@ -18,7 +16,7 @@ class ColumnsController < ApplicationController
   def create
     with_db do
       @table.create_columns([column_hash])
-      redirect_to profile_database_table_column_path(@profile, @database.name, @table.name, params[:column][:name])
+      redirect_to [@profile, @database, @table, :column, id: params[:column][:name]]
     end
   end
 
@@ -31,24 +29,18 @@ class ColumnsController < ApplicationController
   def update
     with_db do
       @column.change(column_hash)
-      redirect_to profile_database_table_column_path(@profile, @database.name, @table.name, params[:column][:name])
+      redirect_to [@profile, @database, @table, :column, id: params[:column][:name]]
     end
   end
 
   def destroy
     with_db do
       @column.drop
-      redirect_to profile_database_table_path(@profile, @database.name, @table.name)
+      redirect_to [@profile, @database, @table]
     end
   end
 
 private
-
-  def set_database_table_and_column
-    @database = @db.database(params[:database_id])
-    @table = @database.table(params[:table_id])
-    @column = @table.column(params[:id])
-  end
 
   def column_hash
     {

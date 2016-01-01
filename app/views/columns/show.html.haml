@@ -1,16 +1,16 @@
 - content_for(:header_title) { t(".show_column", name: @column.name) }
 - content_for(:header_right) do
-  = link_to t("edit"), edit_profile_database_table_column_path(@profile, @database.name, @table.name, @column.name), class: ["btn", "btn-default", "btn-xs"] if can? :edit, @column
-  = link_to t("delete"), profile_database_table_column_path(@profile, @database.name, @table.name, @column.name), method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-column-btn"] if can? :destroy, @column
+  = link_to t("edit"), [:edit, @profile, @database, @table, @column], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @column
+  = link_to t("delete"), [@profile, @database, @table, @column], method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-column-btn"] if can? :destroy, @column
 
 %table.table.table-bordered.table-striped.table-hover
   %tbody
     %tr
       %th= t(".database")
-      %td= link_to @database.name, profile_database_path(@profile, @database.name)
+      %td= link_to @database.name, [@profile, @database]
     %tr
       %th= t(".table")
-      %td= link_to @table.name, profile_database_table_path(@profile, @database.name, @table.name)
+      %td= link_to @table.name, [@profile, @database, @table]
 
     - @column.data.each do |key, value|
       %tr

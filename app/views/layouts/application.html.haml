@@ -26,11 +26,24 @@
         - flash.to_hash.each_value do |value|
           .alert.alert-dismissible.alert-danger= value
 
-        - if content_for?(:header_title)
-          .row
-            .col-md-8
-              %h1= content_for(:header_title)
-            .col-md-4
-              .pull-right= content_for(:header_right)
+        .row
+          .col-md-2
+            - if @database && !(controller_name == "databases" && action_name == "show")
+              %h1= link_to t(".tables"), [@profile, @database]
+              %table.table.table-bordered.table-striped.table-hover.tables-quick-menu
+                %tbody
+                  - @database.tables.each do |table|
+                    %tr
+                      %td.table-show-icon
+                        = link_to [@profile, @database, table] do
+                          %i.fa.fa-wrench
+                      %td.table-name= link_to table.name, [@profile, @database, table, :rows]
+          .col-md-10
+            - if content_for?(:header_title)
+              .row
+                .col-md-8
+                  %h1= content_for(:header_title)
+                .col-md-4
+                  .pull-right= content_for(:header_right)
 
-        = yield
+            = yield

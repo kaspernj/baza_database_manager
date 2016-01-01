@@ -22,7 +22,19 @@ class Profile < BazaModels::Model
     driver = Baza.drivers.detect { |driver_i| driver_i.fetch(:snake_name) == database_type }
 
     if driver
-      driver.fetch(:class).args
+      driver.fetch(:class).args.map do |argument|
+        argument[:input_html] ||= {}
+        argument[:input_html][:autocomplete] = "off"
+        argument[:input_html][:value] = connect_option_value(argument.fetch(:name))
+
+        if argument.fetch(:name) == "pass"
+          argument[:as] = :password
+        else
+          argument[:as] = :string
+        end
+
+        argument
+      end
     else
       []
     end
@@ -61,7 +73,7 @@ class Profile < BazaModels::Model
   def databases
     ArrayEnumerator.new do |yielder|
       with_db do |db|
-        db.databases.each do |database|
+        db.databases.list.each do |database|
           yielder << database
         end
       end
