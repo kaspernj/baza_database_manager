@@ -2,6 +2,18 @@
 
 # README
 
+## Install
+
+```bash
+git clone https://github.com/kaspernj/baza_database_manager.git
+cd baza_database_manager
+bundle
+bundle exec rails s
+```
+
+Go to `http://localhost:300` in your browser.
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
