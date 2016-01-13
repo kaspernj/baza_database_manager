@@ -2,6 +2,8 @@
 
 # README
 
+A database management tool written in Ruby on Rails with Bootstrap for the UI and Baza as the framework for communicating with the databases.
+
 ## Install
 
 ```bash
