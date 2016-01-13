@@ -13,7 +13,7 @@
         %td= link_to profile.name, profile
         %td
           = link_to t("edit"), edit_profile_path(profile), class: ["btn", "btn-default", "btn-xs"] if can? :edit, profile
-          = link_to t("delete"), profile_path(profile), method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-profile-#{profile.id}"] if can? :destroy, profile
+          = link_to t("delete"), profile_path(profile), method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-profile-#{profile.id}"], data: {confirm: t("are_you_sure")} if can? :destroy, profile
     - if @profiles.empty?
       %tr
         %td{colspan: 2}= t("no_results")

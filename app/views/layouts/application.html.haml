@@ -6,7 +6,7 @@
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+  %body{class: ["controller_#{controller_name}", "action_#{action_name}"]}
     %nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
@@ -21,6 +21,10 @@
             %li.active= link_to t(".home"), root_url
             - if can? :index, Profile
               %li= link_to Profile.model_name.human(count: 2), profiles_path
+            - if signed_in?
+              %li= link_to t(".sign_out"), destroy_user_session_path, method: :delete
+            - else
+              %li= link_to t(".sign_in"), new_user_session_path
     .container
       .starter-template
         - flash.to_hash.each_value do |value|
@@ -28,16 +32,20 @@
 
         .row
           .col-md-2
-            - if @database && !(controller_name == "databases" && action_name == "show")
-              %h1= link_to t(".tables"), [@profile, @database]
-              %table.table.table-bordered.table-striped.table-hover.tables-quick-menu
-                %tbody
-                  - @database.tables.each do |table|
-                    %tr
-                      %td.table-show-icon
-                        = link_to [@profile, @database, table] do
-                          %i.fa.fa-wrench
-                      %td.table-name= link_to table.name, [@profile, @database, table, :rows]
+            - if @database
+              .panel.panel-default
+                .panel-heading.clearfix
+                  .panel-title.pull-left= link_to t(".tables"), [@profile, @database]
+                  .pull-right= link_to t("add_new"), [:new, @profile, @database, :table], class: ["btn", "btn-default", "btn-xs"]
+                .table-responsive
+                  %table.table.table-bordered.table-striped.table-hover.tables-quick-menu
+                    %tbody
+                      - @database.tables.each do |table|
+                        %tr
+                          %td.table-show-icon
+                            = link_to [@profile, @database, table] do
+                              %i.fa.fa-wrench
+                          %td.table-name= link_to table.name, [@profile, @database, table, :rows]
           .col-md-10
             - if content_for?(:header_title)
               .row

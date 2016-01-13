@@ -7,6 +7,7 @@ gem "sqlite3"
 gem "mysql2"
 gem "mysql"
 gem "pg"
+gem "auto_autoloader", "0.0.4"
 gem "baza", path: "/home/kaspernj/Dev/Ruby/baza"
 gem "baza_migrations", path: "/home/kaspernj/Dev/Ruby/baza_migrations"
 gem "baza_models", path: "/home/kaspernj/Dev/Ruby/baza_models"
@@ -28,7 +29,7 @@ group :development, :test do
   gem "capybara"
   gem "factory_girl_rails"
   gem "forgery"
-  gem "best_practice_project", require: false, path: "/home/kaspernj/Dev/Ruby/best_practice_project" # , github: "kaspernj/best_practice_project"
+  gem "best_practice_project", github: "kaspernj/best_practice_project"
   gem "rubocop", require: false
   gem "scss-lint", require: false
   gem "haml_lint", require: false

@@ -2,6 +2,19 @@
 - content_for(:header_right) do
   = link_to t("add_new"), [:new, @profile, @database, @table, :row], class: ["btn", "btn-default", "btn-xs"] if can? :new, Baza::Row
 
+.rows-filter
+  %h2= t("filter")
+  = simple_form_for :filter, url: [@profile, @database, @table, :rows], method: :get do |f|
+    - @table.columns.each_with_index do |column, index|
+      .row
+        = f.simple_fields_for "filter#{index}" do |f_col|
+          .col-md-2= f_col.input :column, collection: @table.columns.map(&:name), selected: column.name
+          .col-md-2= f_col.input :type, collection: RowsController::ALLOWED_FILTERS, selected: params[:filter].try(:[], "filter#{index}").try(:[], :type), include_blank: true
+          .col-md-4= f_col.input :value, input_html: {value: params[:filter].try(:[], "filter#{index}").try(:[], :value)}
+
+    = f.button :submit, t("search")
+
+%h2= t("list")
 %table.table.table-bordered.table-striped.table-hover
   %thead
     %tr
@@ -9,11 +22,12 @@
         %td= column.name
       %td= t("actions")
   %tbody
-    - @table.rows({}, limit: 30).each do |row|
+    - @query.each_row do |row|
       %tr
         - row.each_value do |value|
           %td= value
 
         %td
-          = link_to t("edit"), [:edit, @profile, @database, @table, :row, id: row.id], class: ["btn", "btn-default", "btn-xs"] if can? :edit, Baza::Row
-          = link_to t("delete"), [@profile, @database, @table, :row, id: row.id], method: :delete, class: ["btn", "btn-danger", "btn-xs"], data: {confirm: t("are_you_sure")} if can? :destroy, Baza::Row
+          - if row.id.present? && can?(:edit, Baza::Row)
+            = link_to t("edit"), [:edit, @profile, @database, @table, :row, id: row.id], class: ["btn", "btn-default", "btn-xs"]
+            = link_to t("delete"), [@profile, @database, @table, :row, id: row.id], method: :delete, class: ["btn", "btn-danger", "btn-xs"], data: {confirm: t("are_you_sure")} if can? :destroy, Baza::Row

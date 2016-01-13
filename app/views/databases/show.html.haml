@@ -1,25 +1,13 @@
 - content_for(:header_title) { t(".show_database", name: @database.name) }
-- content_for(:header_right) { link_to t("edit"), [:edit, @profile, @database], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @database }
 
-.row
-  .col-md-8
-    %h2= t(".tables")
-  .col-md-4
+.panel.panel-default
+  .panel-heading.clearfix
+    .panel-title.pull-left= t("database")
     .pull-right
-      = link_to t("add_new"), [:new, @profile, @database, :table], class: ["btn", "btn-default"]
-
-%table.table.table-bordered.table-striped.table-hover
-  %thead
-    %tr
-      %th= t(".name")
-      %th= t("actions")
-  %tbody
-    - @database.tables.each do |table|
-      %tr
-        %td= link_to table.name, [@profile, @database, table]
-        %td
-          = link_to t("edit"), [:edit, @profile, @database, table], class: ["btn", "btn-default", "btn-xs"]
-          = link_to t("delete"), [@profile, @database, table], method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-table-#{table.name}"], data: {confirm: t("are_you_sure")}
-    - if @database.tables.empty?
-      %tr
-        %td{colspan: 2}= t("no_results")
+      = link_to t("edit"), [:edit, @profile, @database], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @database
+  .table-responsive
+    %table.table.table-bordered.table-striped.table-hover
+      %tbody
+        %tr
+          %th= t("name")
+          %td= @database.name

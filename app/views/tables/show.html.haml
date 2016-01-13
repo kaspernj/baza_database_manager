@@ -1,5 +1,8 @@
 - content_for(:header_title) { t(".show_table", name: @table.name) }
-- content_for(:header_right) { link_to t("edit"), [:edit, @profile, @database, @table], class: ["btn", "btn-default", "btn-xs"] }
+- content_for(:header_right) do
+  = link_to t("rows"), [@profile, @database, @table, :rows], class: ["btn", "btn-default", "btn-xs"] if can? :index, Baza::Row
+  = link_to t("edit"), [:edit, @profile, @database, @table], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @table
+  = link_to t("delete"), [@profile, @database, @table], method: :delete, class: ["btn", "btn-danger", "btn-xs"], data: {confirm: t("are_you_sure")}
 
 %table.table.table-bordered.table-striped.table-hover
   %tbody
