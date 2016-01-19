@@ -1,7 +1,7 @@
 - content_for(:header_title) { t(".show_column", name: @column.name) }
 - content_for(:header_right) do
   = link_to t("edit"), [:edit, @profile, @database, @table, @column], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @column
-  = link_to t("delete"), [@profile, @database, @table, @column], method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-column-btn"] if can? :destroy, @column
+  = link_to t("delete"), [@profile, @database, @table, @column], method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-column-btn"], data: {confirm: t("are_you_sure")} if can? :destroy, @column
 
 %table.table.table-bordered.table-striped.table-hover
   %tbody
