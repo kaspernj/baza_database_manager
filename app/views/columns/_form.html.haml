@@ -1,7 +1,12 @@
 = simple_form_for :column, method: @column ? "patch" : "post", url: @column ? [@profile, @database, @table, @column] : [@profile, @database, @table, :columns] do |f|
-  = f.input :name, label: t(".name")
-  = f.input :type, label: t(".type"), collection: column_types_collection
-  = f.input :default, label: t(".default"), required: false
-  = f.input :autoincr, label: t(".auto_increment"), as: :boolean, input_html: {checked: @column.try(:autoincr?)}
-  = f.input :primarykey, label: t(".primary_key"), as: :boolean, input_html: {checked: @column.try(:primarykey?)}
+  .row
+    .col-md-4= f.input :name, label: t(".name")
+    .col-md-2= f.input :type, label: t(".type"), collection: column_types_collection
+    .col-md-4= f.input :default, label: t(".default"), required: false
+
+  .row
+    .col-md-4= f.input :after, label: t(".after"), collection: @table.columns.map(&:name)
+    .col-md-2= f.input :autoincr, label: t(".auto_increment"), as: :boolean, input_html: {checked: @column.try(:autoincr?)}
+    .col-md-2= f.input :primarykey, label: t(".primary_key"), as: :boolean, input_html: {checked: @column.try(:primarykey?)}
+
   = f.button :submit

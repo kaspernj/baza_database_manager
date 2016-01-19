@@ -43,13 +43,20 @@ class ColumnsController < ApplicationController
 private
 
   def column_hash
-    {
-      name: params[:column][:name],
-      type: params[:column][:type],
-      default: params[:column][:default].present? ? params[:column][:default] : nil,
-      maxlength: params[:column][:maxlength].present? ? params[:column][:maxlength] : nil,
-      autoincr: params[:column][:autoincr] == "1" ? true : false,
-      primarykey: params[:column][:primarykey] == "1" ? true : false
+    hash = {
+      name: column_params[:name],
+      type: column_params[:type],
+      default: column_params[:default].present? ? column_params[:default] : nil,
+      maxlength: column_params[:maxlength].present? ? column_params[:maxlength] : nil,
+      autoincr: column_params[:autoincr] == "1" ? true : false,
+      primarykey: column_params[:primarykey] == "1" ? true : false,
     }
+
+    hash[:after] = column_params[:after] if column_params[:after].present?
+    hash
+  end
+
+  def column_params
+    @column_params ||= params.require(:column).permit(:name, :type, :default, :maxlength, :autoincr, :primarykey, :after)
   end
 end

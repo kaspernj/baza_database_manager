@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 private
 
   def with_db
-    args = {debug: false}
+    args = {debug: true}
     args[:db] = params[:database_id] if params[:database_id]
 
     @profile.with_db(args) do |db|
