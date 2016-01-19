@@ -1,10 +1,14 @@
 !!! %
 %html
   %head
-    %title BazaDatabaseManager
+    %title
+      - if content_for?(:header_title)
+        = content_for(:header_title)
+      - else
+        BazaDatabaseManager
 
     = stylesheet_link_tag "application", media: "all"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", defer: true
     = csrf_meta_tags
   %body{class: ["controller_#{controller_name}", "action_#{action_name}"]}
     %nav.navbar.navbar-inverse.navbar-fixed-top
