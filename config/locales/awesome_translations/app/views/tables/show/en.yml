@@ -8,3 +8,4 @@ en:
       type: Type
       indexes: Indexes
       database: Database
+      rows: Rows
