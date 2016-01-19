@@ -5,3 +5,4 @@ en:
       show_index: 'Show index: %{name}'
       database: Database
       table: Table
+      columns: Columns

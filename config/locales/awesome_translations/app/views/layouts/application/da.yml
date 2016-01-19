@@ -4,3 +4,6 @@ da:
     application:
       baza_database_manager: BazaDatabaseManager
       home: Hjem
+      sign_out: Log ud
+      sign_in: Log ind
+      tables: Tabeller

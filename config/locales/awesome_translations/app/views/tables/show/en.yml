@@ -7,3 +7,4 @@ en:
       name: Name
       type: Type
       indexes: Indexes
+      database: Database

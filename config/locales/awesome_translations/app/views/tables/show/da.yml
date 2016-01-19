@@ -7,3 +7,4 @@ da:
       name: Navn
       type: Type
       indexes: Indekser
+      database: Database
