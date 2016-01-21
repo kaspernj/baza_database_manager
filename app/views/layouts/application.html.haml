@@ -37,19 +37,12 @@
         .row
           .col-md-2
             - if @database
-              .panel.panel-default
-                .panel-heading.clearfix
-                  .panel-title.pull-left= link_to t(".tables"), [@profile, @database]
-                  .pull-right= link_to t("add_new"), [:new, @profile, @database, :table], class: ["btn", "btn-default", "btn-xs"]
-                .table-responsive
-                  %table.table.table-bordered.table-striped.table-hover.tables-quick-menu
-                    %tbody
-                      - @database.tables.each do |table|
-                        %tr
-                          %td.table-show-icon
-                            = link_to [@profile, @database, table] do
-                              %i.fa.fa-wrench
-                          %td.table-name= link_to table.name, [@profile, @database, table, :rows]
+              = bs_box link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu", right: bs_new_button(url: [:new, @profile, @database, :table], mini: true, label: false, can: Baza::Table) do
+                %tbody
+                  - @database.tables.each do |table|
+                    %tr
+                      %td.table-show-icon= bs_edit_button(url: [@profile, @database, table], mini: true, label: false)
+                      %td.table-name= link_to table.name, [@profile, @database, table, :rows]
           .col-md-10
             - if content_for?(:header_title)
               .row

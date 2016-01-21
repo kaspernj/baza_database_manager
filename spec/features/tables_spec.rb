@@ -60,8 +60,8 @@ describe TablesController do
   end
 
   it "#destroy" do
-    visit profile_database_path(profile, db)
-    find(".delete-table-#{table.name}").click
+    visit profile_database_table_path(profile, db, table)
+    find(".pull-right a.btn-danger").click
     expect { table.reload }.to raise_error(Baza::Errors::TableNotFound)
   end
 end

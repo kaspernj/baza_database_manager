@@ -1,6 +1,6 @@
 - content_for(:header_title) { t(".rows") }
 - content_for(:header_right) do
-  = link_to t("add_new"), [:new, @profile, @database, @table, :row], class: ["btn", "btn-default", "btn-xs"] if can? :new, Baza::Row
+  = bs_new_button url: [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true
 
 .rows-filter
   %h2= t("filter")
@@ -15,7 +15,7 @@
     = f.button :submit, t("search")
 
 %h2= t("list")
-%table.table.table-bordered.table-striped.table-hover
+= bs_table do
   %thead
     %tr
       - @table.columns.each do |column|
@@ -29,5 +29,5 @@
 
         %td
           - if row.id.present? && can?(:edit, Baza::Row)
-            = link_to t("edit"), [:edit, @profile, @database, @table, :row, id: row.id], class: ["btn", "btn-default", "btn-xs"]
-            = link_to t("delete"), [@profile, @database, @table, :row, id: row.id], method: :delete, class: ["btn", "btn-danger", "btn-xs"], data: {confirm: t("are_you_sure")} if can? :destroy, Baza::Row
+            = bs_edit_button label: false, mini: true, url: [:edit, @profile, @database, @table, :row, id: row.id], can: Baza::Row
+            = bs_destroy_button label: false, mini: true, url: [@profile, @database, @table, :row, id: row.id], can: Baza::Row

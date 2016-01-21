@@ -1,13 +1,18 @@
 - content_for(:header_title) { t(".databases") }
+- content_for(:header_right) { bs_new_button url: [:new, @profile, :database], can: Baza::Database, mini: true }
 
-%table.table.table-bordered.table-striped.table-hover
+= bs_box t(".databases"), table: true do
   %thead
     %tr
       %th= t(".name")
+      %th= t("actions")
   %tbody
     - @databases.each do |database|
       %tr
         %td= link_to database.name, profile_database_path(@profile, database.name)
+        %td
+          = bs_edit_button url: [:edit, @profile, database], label: false, mini: true
+          = bs_destroy_button url: [@profile, database], label: false, mini: true
     - if @databases.empty?
       %tr
-        %td{colspan: 1}= t("no_results")
+        %td{colspan: 2}= t("no_results")

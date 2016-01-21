@@ -5,6 +5,13 @@ GIT
     best_practice_project (0.0.8)
       auto_autoloader
 
+GIT
+  remote: git://github.com/kaspernj/bootstrap_builders.git
+  revision: a7391b10b51a56dc280d9a9393539d1bc0f3f3f6
+  specs:
+    bootstrap_builders (0.0.3)
+      html_gen (>= 0.0.11)
+
 PATH
   remote: /home/kaspernj/Dev/Ruby/baza_migrations
   specs:
@@ -143,6 +150,8 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    html_gen (0.0.11)
+      string-cases
     i18n (0.7.0)
     jquery-rails (4.1.0)
       rails-dom-testing (~> 1.0)
@@ -306,6 +315,7 @@ DEPENDENCIES
   baza_migrations!
   baza_models!
   best_practice_project!
+  bootstrap_builders!
   cancancan
   capybara
   coffee-rails (~> 4.1.0)

@@ -1,8 +1,7 @@
 - content_for(:header_title) { Profile.model_name.human(count: 2) }
+- content_for(:header_right) { bs_new_button url: [:new, :profile], can: Profile, mini: true }
 
-= link_to t("add_new"), [:new, :profile], class: ["btn", "btn-default"]
-
-%table.table.table-bordered.table-striped.table-hover
+= bs_box Profile.model_name.human(count: 2), table: true do
   %thead
     %tr
       %th= Profile.human_attribute_name(:name)
@@ -12,8 +11,8 @@
       %tr
         %td= link_to profile.name, profile
         %td
-          = link_to t("edit"), edit_profile_path(profile), class: ["btn", "btn-default", "btn-xs"] if can? :edit, profile
-          = link_to t("delete"), profile_path(profile), method: :delete, class: ["btn", "btn-danger", "btn-xs", "delete-profile-#{profile.id}"], data: {confirm: t("are_you_sure")} if can? :destroy, profile
+          = bs_edit_button url: [:edit, profile], mini: true, label: false
+          = bs_destroy_button url: profile, mini: true, label: false, class: "delete-profile-#{profile.id}"
     - if @profiles.empty?
       %tr
         %td{colspan: 2}= t("no_results")

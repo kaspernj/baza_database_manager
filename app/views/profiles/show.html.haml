@@ -1,10 +1,10 @@
 - content_for(:header_title) { t(".show_profile", name: @profile.name) }
 - content_for(:header_right) do
   = link_to t(".databases"), [@profile, :databases], class: ["btn", "btn-default", "btn-xs"]
-  = link_to t("delete"), profile_path(@profile), method: :delete, class: ["btn", "btn-danger", "btn-xs"], data: {confirm: t("are_you_sure")} if can? :destroy, @profile
-  = link_to t("edit"), [:edit, @profile], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @profile
+  = bs_destroy_button url: @profile, mini: true
+  = bs_edit_button url: [:edit, @profile], mini: true
 
-%table.table.table-hover.table-striped.table-bordered
+= bs_box t("details"), table: true do
   %tbody
     %tr
       %th= Profile.human_attribute_name(:database_type)

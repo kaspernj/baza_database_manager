@@ -1,13 +1,7 @@
 - content_for(:header_title) { t(".show_database", name: @database.name) }
 
-.panel.panel-default
-  .panel-heading.clearfix
-    .panel-title.pull-left= t("database")
-    .pull-right
-      = link_to t("edit"), [:edit, @profile, @database], class: ["btn", "btn-default", "btn-xs"] if can? :edit, @database
-  .table-responsive
-    %table.table.table-bordered.table-striped.table-hover
-      %tbody
-        %tr
-          %th= t("name")
-          %td= @database.name
+= bs_box t("database"), table: true, right: bs_edit_button(url: [:edit, @profile, @database], mini: true) do
+  %tbody
+    %tr
+      %th= t("name")
+      %td= @database.name
