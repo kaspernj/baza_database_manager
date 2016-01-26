@@ -16,6 +16,7 @@ gem "will_paginate"
 gem "simple_form"
 gem "awesome_translations"
 gem "bootstrap_builders", github: "kaspernj/bootstrap_builders"
+gem "puma"
 
 gem "sass-rails", "~> 5.0"
 gem "coffee-rails", "~> 4.1.0"
