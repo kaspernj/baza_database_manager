@@ -1,7 +1,7 @@
 - content_for(:header_title) { t(".show_column", name: @column.name) }
 - content_for(:header_right) do
-  = bs_edit_button url: [:edit, @profile, @database, @table, @column], mini: true
-  = bs_destroy_button url: [@profile, @database, @table, @column], mini: true, class: "delete-column-btn"
+  = bs_edit_btn url: [:edit, @profile, @database, @table, @column], mini: true
+  = bs_destroy_btn url: [@profile, @database, @table, @column], mini: true, class: "delete-column-btn"
 
 = bs_box t("details"), table: true do
   %tbody

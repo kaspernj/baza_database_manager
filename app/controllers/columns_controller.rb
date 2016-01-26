@@ -49,7 +49,7 @@ private
       default: column_params[:default].present? ? column_params[:default] : nil,
       maxlength: column_params[:maxlength].present? ? column_params[:maxlength] : nil,
       autoincr: column_params[:autoincr] == "1" ? true : false,
-      primarykey: column_params[:primarykey] == "1" ? true : false,
+      primarykey: column_params[:primarykey] == "1" ? true : false
     }
 
     hash[:after] = column_params[:after] if column_params[:after].present?

@@ -1,5 +1,5 @@
 - content_for(:header_title) { Profile.model_name.human(count: 2) }
-- content_for(:header_right) { bs_new_button url: [:new, :profile], can: Profile, mini: true }
+- content_for(:header_right) { bs_new_btn url: [:new, :profile], can: Profile, mini: true }
 
 = bs_box Profile.model_name.human(count: 2), table: true do
   %thead
@@ -11,8 +11,8 @@
       %tr
         %td= link_to profile.name, profile
         %td
-          = bs_edit_button url: [:edit, profile], mini: true, label: false
-          = bs_destroy_button url: profile, mini: true, label: false, class: "delete-profile-#{profile.id}"
+          = bs_edit_btn url: [:edit, profile], mini: true, label: false
+          = bs_destroy_btn url: profile, mini: true, label: false, class: "delete-profile-#{profile.id}"
     - if @profiles.empty?
       %tr
         %td{colspan: 2}= t("no_results")

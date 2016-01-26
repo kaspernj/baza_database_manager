@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  rescue_from CanCan::AccessDenied, with: :can_can_access_denied
+
 private
 
   def with_db
@@ -39,6 +41,17 @@ private
       @index = @table.index(params[:id])
     elsif controller_name == "rows"
       @row = @table.row(params[:id])
+    end
+  end
+
+  def can_can_access_denied
+    if signed_in?
+      flash[:error] = controller_t(".you_dont_have_access_to_that_page")
+      redirect_to :back
+    else
+      flash[:notice] = controller_t(".please_sign_in_first")
+      session[:user_return_to] = request.original_url
+      redirect_to new_user_session_url
     end
   end
 end

@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/kaspernj/bootstrap_builders.git
-  revision: a7391b10b51a56dc280d9a9393539d1bc0f3f3f6
+  revision: 74d5d44d35d10407f24c90ce1939226fcf5640ad
   specs:
     bootstrap_builders (0.0.3)
       html_gen (>= 0.0.11)

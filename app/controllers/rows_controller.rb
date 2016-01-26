@@ -67,7 +67,12 @@ private
       next if !column.present? || !type.present? || !value.present?
       next unless ALLOWED_FILTERS.include?(type)
 
-      @query = @query.where("#{@db.sep_table}#{@db.escape_table(@table.name)}#{@db.sep_table}.#{@db.sep_col}#{@db.escape_column(column)}#{@db.sep_col} #{type} ?", value)
+      sql = "#{@db.sep_table}#{@db.escape_table(@table.name)}#{@db.sep_table}"
+      sql << "."
+      sql << "#{@db.sep_col}#{@db.escape_column(column)}#{@db.sep_col}"
+      sql << " #{type} ?"
+
+      @query = @query.where(sql, value)
     end
   end
 end

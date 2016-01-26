@@ -37,11 +37,11 @@
         .row
           .col-md-2
             - if @database
-              = bs_box link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu", right: bs_new_button(url: [:new, @profile, @database, :table], mini: true, label: false, can: Baza::Table) do
+              = bs_box link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu", right: bs_new_btn(url: [:new, @profile, @database, :table], mini: true, label: false, can: Baza::Table) do
                 %tbody
                   - @database.tables.each do |table|
                     %tr
-                      %td.table-show-icon= bs_edit_button(url: [@profile, @database, table], mini: true, label: false)
+                      %td.table-show-icon= bs_edit_btn(url: [@profile, @database, table], mini: true, label: false)
                       %td.table-name= link_to table.name, [@profile, @database, table, :rows]
           .col-md-10
             - if content_for?(:header_title)

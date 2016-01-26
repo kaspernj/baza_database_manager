@@ -1,4 +1,4 @@
 module ApplicationHelper
   include AwesomeTranslations::ApplicationHelper
-  include BootstrapBuilders::ApplicationHelpers
+  include BootstrapBuilders::ApplicationHelper
 end

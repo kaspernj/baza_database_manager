@@ -1,6 +1,6 @@
 - content_for(:header_title) { t(".rows") }
 - content_for(:header_right) do
-  = bs_new_button url: [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true
+  = bs_new_btn url: [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true
 
 .rows-filter
   %h2= t("filter")
@@ -29,5 +29,5 @@
 
         %td
           - if row.id.present? && can?(:edit, Baza::Row)
-            = bs_edit_button label: false, mini: true, url: [:edit, @profile, @database, @table, :row, id: row.id], can: Baza::Row
-            = bs_destroy_button label: false, mini: true, url: [@profile, @database, @table, :row, id: row.id], can: Baza::Row
+            = bs_edit_btn label: false, mini: true, url: [:edit, @profile, @database, @table, :row, id: row.id], can: Baza::Row
+            = bs_destroy_btn label: false, mini: true, url: [@profile, @database, @table, :row, id: row.id], can: Baza::Row
