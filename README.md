@@ -10,6 +10,10 @@ A database management tool written in Ruby on Rails with Bootstrap for the UI an
 git clone https://github.com/kaspernj/baza_database_manager.git
 cd baza_database_manager
 bundle
+
+!!! FIXME: MAKE MIGRATE COMMAND WORK !!!
+bundle exec rake baza_migrations:migrate
+
 bundle exec rails s
 ```
 
