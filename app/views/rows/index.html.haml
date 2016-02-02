@@ -1,4 +1,4 @@
-- content_for(:header_title) { t(".rows") }
+- content_for(:header_title) { t(".rows_for_table", table_name: @table.name) }
 - content_for(:header_right) do
   = bs_new_btn url: [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true
 
