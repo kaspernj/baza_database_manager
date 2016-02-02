@@ -1,4 +1,34 @@
 GIT
+  remote: git://github.com/kaspernj/baza.git
+  revision: bd7fd0c193a518b0328009eef86c59b0812e9217
+  specs:
+    baza (0.0.20)
+      array_enumerator (~> 0.0.10)
+      datet (~> 0.0.25)
+      event_handler (~> 0.0.0)
+      string-cases (~> 0.0.1)
+      wref (~> 0.0.8)
+
+GIT
+  remote: git://github.com/kaspernj/baza_migrations.git
+  revision: 61d84b6198484f315fc792a3f14da4dbc6535337
+  specs:
+    baza_migrations (0.0.1)
+      auto_autoloader
+      baza (~> 0.0.20)
+      string-cases (~> 0.0.1)
+
+GIT
+  remote: git://github.com/kaspernj/baza_models.git
+  revision: f0b3434a34b592b3dc07278971eda4c12a6eef23
+  specs:
+    baza_models (0.0.3)
+      array_enumerator (>= 0.0.10)
+      auto_autoloader (>= 0.0.1)
+      baza (~> 0.0.20)
+      string-cases (>= 0.0.3)
+
+GIT
   remote: git://github.com/kaspernj/best_practice_project.git
   revision: 85edcdab3e63de1374de10f01fcf4a621099aae2
   specs:
@@ -11,33 +41,6 @@ GIT
   specs:
     bootstrap_builders (0.0.3)
       html_gen (>= 0.0.11)
-
-PATH
-  remote: /home/kaspernj/Dev/Ruby/baza_migrations
-  specs:
-    baza_migrations (0.0.1)
-      auto_autoloader
-      baza (~> 0.0.20)
-      string-cases (~> 0.0.1)
-
-PATH
-  remote: /home/kaspernj/Dev/Ruby/baza_models
-  specs:
-    baza_models (0.0.3)
-      array_enumerator (>= 0.0.10)
-      auto_autoloader (>= 0.0.1)
-      baza (~> 0.0.20)
-      string-cases (>= 0.0.3)
-
-PATH
-  remote: /home/kaspernj/Dev/Ruby/baza
-  specs:
-    baza (0.0.20)
-      array_enumerator (~> 0.0.10)
-      datet (~> 0.0.25)
-      event_handler (~> 0.0.0)
-      string-cases (~> 0.0.1)
-      wref (~> 0.0.8)
 
 GEM
   remote: https://rubygems.org/
