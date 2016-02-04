@@ -15,7 +15,7 @@ gem "ransack"
 gem "will_paginate"
 gem "simple_form"
 gem "awesome_translations"
-gem "bootstrap_builders", github: "kaspernj/bootstrap_builders"
+gem "bootstrap_builders", path: "/home/kaspernj/Dev/Ruby/bootstrap_builders" # github: "kaspernj/bootstrap_builders"
 gem "puma"
 
 gem "sass-rails", "~> 5.0"
@@ -23,7 +23,7 @@ gem "coffee-rails", "~> 4.1.0"
 gem "jquery-rails"
 gem "sdoc", "~> 0.4.0", group: :doc
 
-path = ["/home/kaspernj/Dev/Ruby", "/Users/kaspernj/Dev/Ruby"].find { |path| File.exist?(path) }
+# path = ["/home/kaspernj/Dev/Ruby", "/Users/kaspernj/Dev/Ruby"].find { |path| File.exist?(path) }
 # if path
 #  gem "baza", path: "#{path}/baza"
 #  gem "baza_migrations", path: "#{path}/baza_migrations"

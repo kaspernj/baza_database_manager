@@ -1,4 +1,6 @@
 - content_for(:header_title) { t(".show_database", name: @database.name) }
+- content_for(:header_right) do
+  = bs_index_btn(url: [@profile, @database, :exports], mini: true, can: Export)
 
 = bs_box t("database"), table: true, right: bs_edit_btn(url: [:edit, @profile, @database], mini: true) do
   %tbody

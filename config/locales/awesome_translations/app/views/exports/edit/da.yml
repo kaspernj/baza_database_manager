@@ -1,0 +1,5 @@
+---
+da:
+  exports:
+    edit:
+      edit_export: 'Rediger eksport: %{id}'

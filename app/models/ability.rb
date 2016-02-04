@@ -16,6 +16,7 @@ private
     can :manage, Baza::Row
     can :manage, Baza::Table
 
+    can :manage, Export
     can :manage, Profile
   end
 end

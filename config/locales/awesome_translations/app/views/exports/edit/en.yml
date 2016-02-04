@@ -1,0 +1,5 @@
+---
+en:
+  exports:
+    edit:
+      edit_export: 'Edit export: %{id}'

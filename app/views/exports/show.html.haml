@@ -1,0 +1,5 @@
+- content_for(:header_title) { t(".show_export", id: @export.id) }
+
+= box t("details"), table: true do
+  %tbody
+    = bs_attribute_rows :database_name

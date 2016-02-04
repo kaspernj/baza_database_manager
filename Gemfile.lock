@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git://github.com/kaspernj/baza_models.git
-  revision: f0b3434a34b592b3dc07278971eda4c12a6eef23
+  revision: 540fe5e800c675e09f04f1054f34a46c87860d17
   specs:
     baza_models (0.0.3)
       array_enumerator (>= 0.0.10)
@@ -35,9 +35,8 @@ GIT
     best_practice_project (0.0.8)
       auto_autoloader
 
-GIT
-  remote: git://github.com/kaspernj/bootstrap_builders.git
-  revision: 74d5d44d35d10407f24c90ce1939226fcf5640ad
+PATH
+  remote: /home/kaspernj/Dev/Ruby/bootstrap_builders
   specs:
     bootstrap_builders (0.0.3)
       html_gen (>= 0.0.11)
@@ -153,7 +152,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    html_gen (0.0.11)
+    html_gen (0.0.12)
       string-cases
     i18n (0.7.0)
     jquery-rails (4.1.0)
