@@ -10,6 +10,7 @@
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application", defer: true
     = csrf_meta_tags
+
   %body{class: ["controller_#{controller_name}", "action_#{action_name}"]}
     %nav.navbar.navbar-inverse.navbar-fixed-top
       .container
@@ -33,6 +34,30 @@
       .starter-template
         - flash.to_hash.each_value do |value|
           .alert.alert-dismissible.alert-danger= value
+
+        - if @profile
+          = bs_box t(".sitemap"), table: true, class: "layout-sitemap" do
+            %tbody
+              %tr
+                %td.layout-sitemap-profile
+                  = "#{Profile.model_name.human}: "
+                  = link_to @profile.name, @profile
+                %td.layout-sitemap-database
+                  - if @database
+                    = "DB: "
+                    = link_to @database.name, [@profile, @database]
+
+                %td.layout-sitemap-table
+                  - if @table
+                    = "#{@table.model_name.human}: "
+                    = link_to @table.name, [@profile, @database, @table]
+                %td.layout-sitemap-column-or-index
+                  - if @column
+                    = "#{@column.model_name.human}: "
+                    = link_to @column.name, [@profile, @database, @table, @column]
+                  - if @index
+                    = "#{@index.model_name.human}: "
+                    = link_to @index.name, [@profile, @database, @table, @index]
 
         .row
           .col-md-2

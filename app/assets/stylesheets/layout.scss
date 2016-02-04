@@ -18,3 +18,21 @@ body {
     overflow: hidden;
   }
 }
+
+.layout-sitemap {
+  td.layout-sitemap-profile {
+    width: 18%;
+  }
+
+  td.layout-sitemap-database {
+    width: 28%;
+  }
+
+  td.layout-sitemap-table {
+    width: 25%;
+  }
+
+  td.layout-sitemap-column-or-index {
+    width: 25%;
+  }
+}
