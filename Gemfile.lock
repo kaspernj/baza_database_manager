@@ -35,8 +35,9 @@ GIT
     best_practice_project (0.0.8)
       auto_autoloader
 
-PATH
-  remote: /home/kaspernj/Dev/Ruby/bootstrap_builders
+GIT
+  remote: git://github.com/kaspernj/bootstrap_builders.git
+  revision: a243b4597c4ccb30f1a1ae2bac3a522d658fbc74
   specs:
     bootstrap_builders (0.0.3)
       html_gen (>= 0.0.11)

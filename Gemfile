@@ -15,7 +15,6 @@ gem "ransack"
 gem "will_paginate"
 gem "simple_form"
 gem "awesome_translations"
-gem "bootstrap_builders", path: "/home/kaspernj/Dev/Ruby/bootstrap_builders" # github: "kaspernj/bootstrap_builders"
 gem "puma"
 
 gem "sass-rails", "~> 5.0"
@@ -28,10 +27,12 @@ gem "sdoc", "~> 0.4.0", group: :doc
 #  gem "baza", path: "#{path}/baza"
 #  gem "baza_migrations", path: "#{path}/baza_migrations"
 #  gem "baza_models", path: "#{path}/baza_models"
+#  gem "bootstrap_builders", path: "#{path}/bootstrap_builders" # github: "kaspernj/bootstrap_builders"
 # else
   gem "baza", github: "kaspernj/baza"
   gem "baza_migrations", github: "kaspernj/baza_migrations"
   gem "baza_models", github: "kaspernj/baza_models"
+  gem "bootstrap_builders", github: "kaspernj/bootstrap_builders"
 # end
 
 group :development, :test do
