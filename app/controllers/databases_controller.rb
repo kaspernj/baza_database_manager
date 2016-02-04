@@ -25,6 +25,11 @@ class DatabasesController < ApplicationController
   end
 
   def create
+    with_db do
+      @db.databases.create(database_params)
+      database = @db.databases[database_params[:name]]
+      redirect_to [@profile, database]
+    end
   end
 
   def edit
