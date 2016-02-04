@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :profiles do
     resources :databases do
+      resources :exports
+
       resources :tables do
         resources :columns
         resources :indexes
