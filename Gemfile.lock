@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/kaspernj/baza_migrations.git
-  revision: 61d84b6198484f315fc792a3f14da4dbc6535337
+  revision: a566fac7c2b218562779339a41d7bd28cdc80fb6
   specs:
     baza_migrations (0.0.1)
       auto_autoloader

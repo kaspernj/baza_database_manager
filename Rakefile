@@ -5,5 +5,8 @@ require File.expand_path("../config/application", __FILE__)
 
 Rails.application.load_tasks
 
+require "baza_migrations"
+BazaMigrations.load_tasks
+
 require "best_practice_project"
 BestPracticeProject.load_tasks
