@@ -32,8 +32,7 @@
               %li= link_to t(".sign_in"), new_user_session_path
     .container
       .starter-template
-        - flash.to_hash.each_value do |value|
-          .alert.alert-dismissible.alert-danger= value
+        = bootstrap_flash
 
         - if @profile
           = bs_box t(".sitemap"), table: true, class: "layout-sitemap" do
