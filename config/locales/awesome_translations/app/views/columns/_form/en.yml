@@ -7,3 +7,4 @@ en:
       default: Default
       auto_increment: Auto increment
       primary_key: Primary key
+      after: After

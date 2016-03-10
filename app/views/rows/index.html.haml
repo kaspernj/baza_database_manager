@@ -1,6 +1,7 @@
 - content_for(:header_title) { t(".rows_for_table", table_name: @table.name) }
 - content_for(:header_right) do
   = bs_new_btn url: [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true
+  = bs_show_btn [@profile, @database, @table], mini: true, label: t(".table")
 
 .rows-filter
   %h2= t("filter")

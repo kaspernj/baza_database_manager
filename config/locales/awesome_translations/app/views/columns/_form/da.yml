@@ -7,3 +7,4 @@ da:
       default: Standard
       auto_increment: Automatisk forøgelse
       primary_key: Primær nøgle
+      after: Efter

@@ -4,3 +4,4 @@ da:
     index:
       rows: Rækker
       rows_for_table: Rækker i %{table_name}
+      table: Tabel
