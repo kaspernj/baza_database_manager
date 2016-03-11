@@ -1,7 +1,7 @@
 - content_for(:header_title) { t(".rows_for_table", table_name: @table.name) }
 - content_for(:header_right) do
-  = bs_new_btn url: [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true
-  = bs_show_btn [@profile, @database, @table], mini: true, label: t(".table")
+  = bb_new_btn [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true
+  = bb_show_btn [@profile, @database, @table], mini: true, label: t(".table")
 
 .rows-filter
   %h2= t("filter")
@@ -16,7 +16,7 @@
     = f.button :submit, t("search")
 
 %h2= t("list")
-= bs_table do
+= bb_table do
   %thead
     %tr
       - @table.columns.each do |column|
@@ -30,5 +30,5 @@
 
         %td
           - if row.id.present? && can?(:edit, Baza::Row)
-            = bs_edit_btn label: false, mini: true, url: [:edit, @profile, @database, @table, :row, id: row.id], can: Baza::Row
-            = bs_destroy_btn label: false, mini: true, url: [@profile, @database, @table, :row, id: row.id], can: Baza::Row
+            = bb_edit_btn [:edit, @profile, @database, @table, :row, id: row.id], mini: true, can: Baza::Row
+            = bb_destroy_btn [@profile, @database, @table, :row, id: row.id], mini: true, can: Baza::Row

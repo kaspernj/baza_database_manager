@@ -1,6 +1,6 @@
 - content_for(:header_title) { t(".show_database", name: @database.name) }
 
-= bs_box t("database"), table: true, right: bs_edit_btn(url: [:edit, @profile, @database], mini: true) do
+= bb_panel t("database"), table: true, right: bb_edit_btn([:edit, @profile, @database], mini: true) do
   %tbody
     %tr
       %th= t("name")

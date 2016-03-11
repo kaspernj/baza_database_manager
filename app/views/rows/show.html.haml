@@ -1,6 +1,6 @@
 - content_for(:header_title) { t(".show_row") }
 
-= bs_box t("details"), table: true do
+= bb_panel t("details"), table: true do
   %tbody
     - @row.data.each do |key, value|
       %tr

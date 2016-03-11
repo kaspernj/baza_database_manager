@@ -2,7 +2,7 @@
 
 .row
   .col-md-6
-    = bs_box t("details") do
+    = bb_panel t("details") do
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         = f.input :email, required: false, autofocus: true
         = f.input :password, required: false

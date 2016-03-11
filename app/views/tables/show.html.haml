@@ -1,16 +1,16 @@
 - content_for(:header_title) { t(".show_table", name: @table.name) }
 - content_for(:header_right) do
   = link_to t(".rows"), [@profile, @database, @table, :rows], class: ["btn", "btn-default", "btn-xs"] if can? :index, Baza::Row
-  = bs_edit_btn url: [:edit, @profile, @database, @table], mini: true, can: @table
-  = bs_destroy_btn url: [@profile, @database, @table], mini: true, can: @table
+  = bb_edit_btn [:edit, @profile, @database, @table], mini: true, can: @table
+  = bb_destroy_btn [@profile, @database, @table], mini: true, can: @table
 
-= bs_box t(".details"), table: true do
+= bb_panel t(".details"), table: true do
   %tbody
     %tr
       %th= t(".database")
       %td= link_to @database.name, profile_database_path(@profile, @database.name)
 
-= bs_box t(".columns"), right: bs_new_btn(url: [:new, @profile, @database, @table, :column], can: Baza::Column, mini: true), table: true do
+= bb_panel t(".columns"), right: bb_new_btn([:new, @profile, @database, @table, :column], can: Baza::Column, mini: true), table: true do
   %thead
     %tr
       %th= t(".name")
@@ -22,13 +22,13 @@
         %td= link_to column.name, [@profile, @database, @table, column]
         %td= column.type
         %td
-          = bs_edit_btn label: false, mini: true, url: [:edit, @profile, @database, @table, column]
-          = bs_destroy_btn label: false, mini: true, url: [@profile, @database, @table, column]
+          = bb_edit_btn [:edit, @profile, @database, @table, column], mini: true
+          = bb_destroy_btn [@profile, @database, @table, column], mini: true
     - if @table.columns.empty?
       %tr
         %td{colspan: 3}= t("no_results")
 
-= bs_box t(".indexes"), right: bs_new_btn(url: [:new, @profile, @database, @table, :index], can: Baza::Index, mini: true), table: true do
+= bb_panel t(".indexes"), right: bb_new_btn([:new, @profile, @database, @table, :index], can: Baza::Index, mini: true), table: true do
   %thead
     %tr
       %th= t(".name")
@@ -42,8 +42,8 @@
           - index.columns.each do |column_name|
             = link_to column_name, [@profile, @database, @table, :column, id: column_name], class: ["btn", "btn-default", "btn-xs"]
         %td
-          = bs_edit_btn label: false, mini: true, url: [:edit, @profile, @database, @table, index]
-          = bs_destroy_btn label: false, mini: true, url: [@profile, @database, @table, index]
+          = bb_edit_btn [:edit, @profile, @database, @table, index], mini: true
+          = bb_destroy_btn [@profile, @database, @table, index], mini: true
     - if @table.indexes.empty?
       %tr
         %td{colspan: 3}= t("no_results")
