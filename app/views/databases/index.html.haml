@@ -5,12 +5,12 @@
   %thead
     %tr
       %th= t(".name")
-      %th= t("actions")
+      %th.text-right= t("actions")
   %tbody
     - @databases.each do |database|
       %tr
         %td= link_to database.name, profile_database_path(@profile, database.name)
-        %td
+        %td.text-right
           = bb_edit_btn [:edit, @profile, database], mini: true
           = bb_destroy_btn [@profile, database], mini: true
     - if @databases.empty?

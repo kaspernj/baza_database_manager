@@ -15,13 +15,13 @@
     %tr
       %th= t(".name")
       %th= t(".type")
-      %th= t("actions")
+      %th.text-right= t("actions")
   %tbody
     - @table.columns do |column|
       %tr
         %td= link_to column.name, [@profile, @database, @table, column]
         %td= column.type
-        %td
+        %td.text-right
           = bb_edit_btn [:edit, @profile, @database, @table, column], mini: true
           = bb_destroy_btn [@profile, @database, @table, column], mini: true
     - if @table.columns.empty?
@@ -33,7 +33,7 @@
     %tr
       %th= t(".name")
       %th= t(".columns")
-      %th= t("actions")
+      %th.text-right= t("actions")
   %tbody
     - @table.indexes do |index|
       %tr
@@ -41,7 +41,7 @@
         %td
           - index.columns.each do |column_name|
             = link_to column_name, [@profile, @database, @table, :column, id: column_name], class: ["btn", "btn-default", "btn-xs"]
-        %td
+        %td.text-right
           = bb_edit_btn [:edit, @profile, @database, @table, index], mini: true
           = bb_destroy_btn [@profile, @database, @table, index], mini: true
     - if @table.indexes.empty?

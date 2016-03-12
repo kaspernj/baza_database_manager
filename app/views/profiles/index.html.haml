@@ -5,12 +5,12 @@
   %thead
     %tr
       %th= Profile.human_attribute_name(:name)
-      %th= t("actions")
+      %th.text-right= t("actions")
   %tbody
     - @profiles.each do |profile|
       %tr
         %td= link_to profile.name, [profile, :databases]
-        %td
+        %td.text-right
           = bb_show_btn profile, mini: true
           = bb_edit_btn [:edit, profile], mini: true
           = bb_destroy_btn profile, mini: true, class: "delete-profile-#{profile.id}"
