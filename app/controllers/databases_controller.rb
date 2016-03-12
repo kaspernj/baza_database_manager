@@ -46,6 +46,10 @@ class DatabasesController < ApplicationController
   end
 
   def destroy
+    with_db do
+      @database.drop
+      redirect_to [@profile, :databases]
+    end
   end
 
 private
