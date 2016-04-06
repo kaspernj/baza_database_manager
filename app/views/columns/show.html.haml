@@ -1,9 +1,9 @@
-- content_for(:header_title) { t(".show_column", name: @column.name) }
+- content_for(:header_title_only) { t(".show_column", name: @column.name) }
 - content_for(:header_right) do
   = bb_edit_btn [:edit, @profile, @database, @table, @column], mini: true
   = bb_destroy_btn [@profile, @database, @table, @column], mini: true, class: "delete-column-btn"
 
-= bb_panel t("details"), table: true do
+= bb_panel t(".show_column", name: @column.name), table: true do
   %tbody
     %tr
       %th= t(".database")

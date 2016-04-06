@@ -1,26 +1,28 @@
-- content_for(:header_title) { t(".show_table", name: @table.name) }
+- content_for(:header_title_only) { t(".show_table", name: @table.name) }
 - content_for(:header_right) do
   = link_to t(".rows"), [@profile, @database, @table, :rows], class: ["btn", "btn-default", "btn-xs"] if can? :index, Baza::Row
   = bb_edit_btn [:edit, @profile, @database, @table], mini: true, can: @table
   = bb_destroy_btn [@profile, @database, @table], mini: true, can: @table
 
-= bb_panel t(".details"), table: true do
+= bb_panel t(".show_table", name: @table.name), table: true do
   %tbody
     %tr
       %th= t(".database")
       %td= link_to @database.name, profile_database_path(@profile, @database.name)
 
-= bb_panel t(".columns"), right: bb_new_btn([:new, @profile, @database, @table, :column], can: Baza::Column, mini: true), table: true do
+= bb_panel t(".columns"), controls: bb_new_btn([:new, @profile, @database, @table, :column], can: Baza::Column, mini: true), table: true do
   %thead
     %tr
       %th= t(".name")
-      %th= t(".type")
+      %th.hidden-xs-down= t(".type")
+      %th.hidden-md-down= t(".maxlength")
       %th.text-right= t("actions")
   %tbody
     - @table.columns do |column|
       %tr
         %td= link_to column.name, [@profile, @database, @table, column]
-        %td= column.type
+        %td.hidden-xs-down= column.type
+        %td.hidden-md-down= column.maxlength
         %td.text-right
           = bb_edit_btn [:edit, @profile, @database, @table, column], mini: true
           = bb_destroy_btn [@profile, @database, @table, column], mini: true
@@ -28,7 +30,7 @@
       %tr
         %td{colspan: 3}= t("no_results")
 
-= bb_panel t(".indexes"), right: bb_new_btn([:new, @profile, @database, @table, :index], can: Baza::Index, mini: true), table: true do
+= bb_panel t(".indexes"), controls: bb_new_btn([:new, @profile, @database, @table, :index], can: Baza::Index, mini: true), table: true do
   %thead
     %tr
       %th= t(".name")

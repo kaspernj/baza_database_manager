@@ -4,6 +4,8 @@
     %title
       - if content_for?(:header_title)
         = content_for(:header_title)
+      - elsif content_for?(:header_title_only)
+        = content_for(:header_title_only)
       - else
         BazaDatabaseManager
 
@@ -40,7 +42,7 @@
               %tr
                 %td.layout-sitemap-profile
                   = "#{Profile.model_name.human}: "
-                  = link_to @profile.name, @profile
+                  = link_to @profile.name, [@profile, :databases]
                 %td.layout-sitemap-database
                   - if @database
                     = "DB: "
@@ -61,7 +63,7 @@
         .row
           .col-md-2
             - if @database
-              = bb_panel link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu", right: bb_new_btn([:new, @profile, @database, :table], mini: true, can: Baza::Table) do
+              = bb_panel link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu", controls: bb_new_btn([:new, @profile, @database, :table], mini: true, can: Baza::Table) do
                 %tbody
                   - @database.tables.each do |table|
                     %tr
