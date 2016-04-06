@@ -41,8 +41,9 @@
             %tbody
               %tr
                 %td.layout-sitemap-profile
-                  = "#{Profile.model_name.human}: "
-                  = link_to @profile.name, [@profile, :databases]
+                  - if @profile.persisted?
+                    = "#{Profile.model_name.human}: "
+                    = link_to @profile.name, [@profile, :databases]
                 %td.layout-sitemap-database
                   - if @database
                     = "DB: "
