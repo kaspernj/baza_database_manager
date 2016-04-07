@@ -24,15 +24,14 @@ gem "jquery-rails"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 path = ["/home/kaspernj/Dev/Ruby", "/Users/kaspernj/Dev/Ruby"].find { |path| File.exist?(path) }
-# if path
+
 #  gem "baza", path: "#{path}/baza"
 #  gem "baza_migrations", path: "#{path}/baza_migrations"
 #  gem "baza_models", path: "#{path}/baza_models"
-# else
-  gem "baza", github: "kaspernj/baza"
-  gem "baza_migrations", github: "kaspernj/baza_migrations"
-  gem "baza_models", github: "kaspernj/baza_models"
-# end
+
+gem "baza", github: "kaspernj/baza"
+gem "baza_migrations", github: "kaspernj/baza_migrations"
+gem "baza_models", github: "kaspernj/baza_models"
 
 group :development, :test do
   gem "rspec-rails"

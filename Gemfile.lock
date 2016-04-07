@@ -37,9 +37,9 @@ GIT
 
 GIT
   remote: git://github.com/kaspernj/bootstrap_builders.git
-  revision: 7d5750d4073e4841516008f3886f594f05782a47
+  revision: 0fc47d423d461eac0c4330c096ab2715d4bcaed6
   specs:
-    bootstrap_builders (0.0.4)
+    bootstrap_builders (0.0.6)
       html_gen (>= 0.0.11)
       rails (>= 4.0.0)
 
@@ -288,7 +288,7 @@ GEM
       spring (>= 0.9.1)
     spring-commands-rubocop (0.1.0)
       spring (~> 1.0)
-    sprockets (3.5.2)
+    sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.0.4)
