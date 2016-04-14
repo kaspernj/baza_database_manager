@@ -1,15 +1,4 @@
 GIT
-  remote: git://github.com/kaspernj/baza.git
-  revision: bd7fd0c193a518b0328009eef86c59b0812e9217
-  specs:
-    baza (0.0.20)
-      array_enumerator (~> 0.0.10)
-      datet (~> 0.0.25)
-      event_handler (~> 0.0.0)
-      string-cases (~> 0.0.1)
-      wref (~> 0.0.8)
-
-GIT
   remote: git://github.com/kaspernj/baza_migrations.git
   revision: a566fac7c2b218562779339a41d7bd28cdc80fb6
   specs:
@@ -42,6 +31,18 @@ GIT
     bootstrap_builders (0.0.6)
       html_gen (>= 0.0.11)
       rails (>= 4.0.0)
+
+PATH
+  remote: /Users/kaspernj/Dev/Ruby/baza
+  specs:
+    baza (0.0.21)
+      array_enumerator (~> 0.0.10)
+      auto_autoloader (~> 0.0.1)
+      datet (~> 0.0.25)
+      event_handler (~> 0.0.0)
+      simple_delegate (~> 0.0.2)
+      string-cases (~> 0.0.4)
+      wref (~> 0.0.8)
 
 GEM
   remote: https://rubygems.org/
@@ -280,6 +281,7 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.6.0)
+    simple_delegate (0.0.2)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)

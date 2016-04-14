@@ -12,6 +12,8 @@ Rails.application.routes.draw do
         resources :indexes
         resources :rows
       end
+
+      resources :sql_executions, only: [:new, :create]
     end
   end
 

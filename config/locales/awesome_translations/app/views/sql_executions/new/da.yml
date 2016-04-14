@@ -1,0 +1,5 @@
+---
+da:
+  sql_executions:
+    new:
+      execute_sql: Kør SQL

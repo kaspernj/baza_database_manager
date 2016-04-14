@@ -1,0 +1,6 @@
+---
+da:
+  sql_executions:
+    form:
+      sql: SQL
+      execute: Kør

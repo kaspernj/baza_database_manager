@@ -10,3 +10,4 @@ en:
       database: Database
       rows: Rows
       details: Details
+      maxlength: Max length

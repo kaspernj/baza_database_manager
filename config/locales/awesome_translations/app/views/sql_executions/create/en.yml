@@ -1,0 +1,6 @@
+---
+en:
+  sql_executions:
+    create:
+      execute_sql: Execute SQL
+      query_was_interruped_after_30_results: Query was interrupted after 30 results.
