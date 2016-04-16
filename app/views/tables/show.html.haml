@@ -1,10 +1,11 @@
 - content_for(:header_title_only) { t(".show_table", name: @table.name) }
-- content_for(:header_right) do
-  = link_to t(".rows"), [@profile, @database, @table, :rows], class: ["btn", "btn-default", "btn-xs"] if can? :index, Baza::Row
-  = bb_edit_btn [:edit, @profile, @database, @table], mini: true, can: @table
-  = bb_destroy_btn [@profile, @database, @table], mini: true, can: @table
 
-= bb_panel t(".show_table", name: @table.name), table: true do
+- controls = []
+- controls << link_to(t(".rows"), [@profile, @database, @table, :rows], class: ["btn", "btn-default", "btn-xs"]) if can? :index, Baza::Row
+- controls << bb_edit_btn([:edit, @profile, @database, @table], mini: true, can: @table)
+- controls << bb_destroy_btn([@profile, @database, @table], mini: true, can: @table)
+
+= bb_panel t(".show_table", name: @table.name), table: true, controls: controls do
   %tbody
     %tr
       %th= t(".database")
