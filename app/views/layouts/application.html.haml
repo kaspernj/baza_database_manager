@@ -71,7 +71,7 @@
                       %td.table-show-icon= bb_edit_btn [@profile, @database, table], mini: true
                       %td.table-name= link_to table.name, [@profile, @database, table, :rows]
           .col-md-10
-            - if content_for?(:header_title)
+            - if content_for?(:header_title) || content_for?(:header_right)
               .row
                 .col-md-8
                   %h1= content_for(:header_title)
