@@ -36,6 +36,7 @@
     %tr
       %th= t(".name")
       %th= t(".columns")
+      %th.hidden-xs-down= t(".unique")
       %th.text-right= t("actions")
   %tbody
     - @table.indexes do |index|
@@ -44,6 +45,7 @@
         %td
           - index.columns.each do |column_name|
             = link_to column_name, [@profile, @database, @table, :column, id: column_name], class: ["btn", "btn-default", "btn-xs"]
+        %td.hidden-xs-down= index.unique? ? t(".yes") : t(".no")
         %td.text-right
           = bb_edit_btn [:edit, @profile, @database, @table, index], mini: true
           = bb_destroy_btn [@profile, @database, @table, index], mini: true
