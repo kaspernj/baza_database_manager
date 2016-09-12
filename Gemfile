@@ -15,7 +15,7 @@ gem "ransack"
 gem "will_paginate"
 gem "simple_form"
 gem "awesome_translations"
-gem "bootstrap_builders", github: "kaspernj/bootstrap_builders"
+gem "bootstrap_builders", "0.0.17"
 gem "puma"
 
 gem "sass-rails", "~> 5.0"

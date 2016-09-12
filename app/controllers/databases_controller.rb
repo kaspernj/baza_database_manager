@@ -3,7 +3,7 @@ class DatabasesController < ApplicationController
 
   def index
     with_db do
-      @databases = @profile.databases.to_a
+      @databases = @profile.databases.to_a.sort_by { |db| db.name.downcase }
 
       redirect_to [@profile, @databases.first] if !@db.supports_multiple_databases? && @databases.length == 1
     end
