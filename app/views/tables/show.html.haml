@@ -17,6 +17,7 @@
       %th.hidden-xs-down= t(".type")
       %th.hidden-md-down= t(".maxlength")
       %th.hidden-xs-down= t(".null")
+      %th.hidden-md-down= t(".default")
       %th.text-right= t("actions")
   %tbody
     - @table.columns do |column|
@@ -25,6 +26,7 @@
         %td.hidden-xs-down= column.type
         %td.hidden-md-down= column.maxlength
         %td.hidden-xs-down= column.null? ? t("yes") : t("no")
+        %td.hidden-md-down= column.default
         %td.text-right
           = bb_edit_btn [:edit, @profile, @database, @table, column], mini: true
           = bb_destroy_btn [@profile, @database, @table, column], mini: true
