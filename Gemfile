@@ -25,11 +25,11 @@ gem "sdoc", "~> 0.4.0", group: :doc
 
 path = ["/home/kaspernj/Dev/Ruby", "/Users/kaspernj/Dev/Ruby"].find { |path_i| File.exist?(path_i) }
 
-gem "baza", path: "#{path}/baza"
+# gem "baza", path: "#{path}/baza"
 #  gem "baza_migrations", path: "#{path}/baza_migrations"
 #  gem "baza_models", path: "#{path}/baza_models"
 
-# gem "baza", github: "kaspernj/baza"
+gem "baza", github: "kaspernj/baza"
 gem "baza_migrations", github: "kaspernj/baza_migrations"
 gem "baza_models", github: "kaspernj/baza_models"
 

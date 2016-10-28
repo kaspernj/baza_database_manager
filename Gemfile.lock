@@ -1,4 +1,17 @@
 GIT
+  remote: git://github.com/kaspernj/baza.git
+  revision: 032444506b00fabf188d47e67a4e62be4d84813a
+  specs:
+    baza (0.0.21)
+      array_enumerator (~> 0.0.10)
+      auto_autoloader (~> 0.0.1)
+      datet (~> 0.0.25)
+      event_handler (~> 0.0.0)
+      simple_delegate (~> 0.0.2)
+      string-cases (~> 0.0.4)
+      wref (~> 0.0.8)
+
+GIT
   remote: git://github.com/kaspernj/baza_migrations.git
   revision: a566fac7c2b218562779339a41d7bd28cdc80fb6
   specs:
@@ -23,18 +36,6 @@ GIT
   specs:
     best_practice_project (0.0.8)
       auto_autoloader
-
-PATH
-  remote: /home/kaspernj/Dev/Ruby/baza
-  specs:
-    baza (0.0.21)
-      array_enumerator (~> 0.0.10)
-      auto_autoloader (~> 0.0.1)
-      datet (~> 0.0.25)
-      event_handler (~> 0.0.0)
-      simple_delegate (~> 0.0.2)
-      string-cases (~> 0.0.4)
-      wref (~> 0.0.8)
 
 GEM
   remote: https://rubygems.org/
@@ -355,4 +356,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
