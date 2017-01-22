@@ -1,0 +1,6 @@
+---
+da:
+  foreign_keys:
+    the_foreign_key_was_created: Fremmednøglen blev oprettet
+    no_such_table: 'Tabel kunne ikke findes: %{table_name}'
+    no_such_column: 'Kolonne kunne ikke findes: %{column_name}'

@@ -1,0 +1,6 @@
+---
+en:
+  foreign_keys:
+    the_foreign_key_was_created: The foreign key was created
+    no_such_table: 'No such table: %{table_name}'
+    no_such_column: 'No such column: %{column_name}'
