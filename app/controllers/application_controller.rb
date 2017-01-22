@@ -19,6 +19,7 @@ private
       @database = @db.databases[params[:database_id]] if params[:database_id]
       @table = @database.table(params[:table_id]) if params[:table_id]
       @column = @table.column(params[:column_id]) if params[:column_id]
+      @foreign_key = @table.foreign_key(params[:foreign_key_id]) if params[:foreign_key_id]
       @index = @table.index(params[:index_id]) if params[:index_id]
       @row = @table.row(params[:row_id]) if params[:row_id]
 
@@ -37,6 +38,8 @@ private
       @table = @database.table(params[:id])
     elsif controller_name == "columns"
       @column = @table.column(params[:id])
+    elsif controller_name == "foreign_keys"
+      @foreign_key = @table.foreign_key(params[:id])
     elsif controller_name == "indexes"
       @index = @table.index(params[:id])
     elsif controller_name == "rows"

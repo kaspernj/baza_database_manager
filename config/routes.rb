@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :databases do
       resources :tables do
         resources :columns
+        resources :foreign_keys
         resources :indexes
         resources :rows
       end

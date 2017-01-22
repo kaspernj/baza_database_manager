@@ -11,3 +11,10 @@ da:
       rows: Rækker
       details: Detaljer
       maxlength: Maks. længde
+      default: Standard
+      unique: Unik
+      'yes': Ja
+      'no': Nej
+      foreign_keys: Fremmede nøgler
+      table: Tabel
+      column: Kolonne

@@ -55,3 +55,19 @@
     - if @table.indexes.empty?
       %tr
         %td{colspan: 4}= t("no_results")
+
+= bb_panel t(".foreign_keys"), table: true do
+  %thead
+    %tr
+      %th= t(".name")
+      %th= t(".table")
+      %th= t(".column")
+      %th
+  - @table.foreign_keys do |foreign_key|
+    %tr
+      %td= link_to foreign_key.name, [@profile, @database, @table, foreign_key]
+      %td= link_to foreign_key.table_name, [@profile, @database, foreign_key.table]
+      %td= link_to foreign_key.column_name, [@profile, @database, foreign_key.table, foreign_key.column]
+      %td.text-nowrap.text-right
+        = bb_edit_btn [:edit, @profile, @database, @table, foreign_key], :mini
+        = bb_destroy_btn [@profile, @database, @table, foreign_key], :mini

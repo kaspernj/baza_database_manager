@@ -11,3 +11,11 @@ en:
       rows: Rows
       details: Details
       maxlength: Max length
+      'null': 'Null'
+      default: Default
+      unique: Unique
+      'yes': 'Yes'
+      'no': 'No'
+      foreign_keys: Foreign keys
+      table: Table
+      column: Column
