@@ -42,7 +42,7 @@ class Profile < BazaModels::Model
 
   def parsed_connect_options
     if connect_options?
-      YAML.load(connect_options).to_hash
+      YAML.load(connect_options) || {}
     else
       {}
     end

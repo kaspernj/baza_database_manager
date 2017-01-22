@@ -27,7 +27,7 @@ gem "will_paginate", "3.1.5"
 # gem "baza_migrations", path: "#{path}/baza_migrations"
 # gem "baza_models", path: "#{path}/baza_models"
 
-gem "baza", "0.0.22"
+gem "baza", "0.0.23"
 gem "baza_migrations", github: "kaspernj/baza_migrations"
 gem "baza_models", github: "kaspernj/baza_models"
 

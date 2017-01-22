@@ -81,7 +81,7 @@ GEM
       simple_form
       simple_form_ransack (>= 0.0.18)
       string-cases (>= 0.0.3)
-    baza (0.0.22)
+    baza (0.0.23)
       array_enumerator (~> 0.0.10)
       auto_autoloader (~> 0.0.1)
       datet (~> 0.0.25)
@@ -328,7 +328,7 @@ PLATFORMS
 DEPENDENCIES
   auto_autoloader (= 0.0.5)
   awesome_translations (= 0.0.38)
-  baza (= 0.0.22)
+  baza (= 0.0.23)
   baza_migrations!
   baza_models!
   best_practice_project (= 0.0.10)
