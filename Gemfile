@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "auto_autoloader", "0.0.5"
 gem "awesome_translations", "0.0.38"
-gem "bootstrap_builders", "0.0.28"
+gem "bootstrap_builders", "0.0.30"
 gem "cancancan", "1.15.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "devise"
@@ -14,12 +14,12 @@ gem "mysql2", "0.4.5"
 gem "pg", "0.19.0"
 gem "puma", "3.6.2"
 gem "rails", "4.2.7.1"
-gem "ransack"
+gem "ransack", "1.8.2"
 gem "sass-rails", "~> 5.0"
-gem "simple_form"
+gem "simple_form", "3.3.1"
 gem "sqlite3", "1.3.12"
 gem "twitter-bootstrap-rails"
-gem "will_paginate"
+gem "will_paginate", "3.1.5"
 
 # path = ["/Users/kaspernj/Ruby"].find { |path_i| File.exist?(path_i) }
 
@@ -33,10 +33,10 @@ gem "baza_models", github: "kaspernj/baza_models"
 
 group :development, :test do
   gem "best_practice_project", "0.0.10"
-  gem "capybara"
-  gem "factory_girl_rails"
-  gem "forgery"
-  gem "rspec-rails"
+  gem "capybara", "2.11.0"
+  gem "factory_girl_rails", "4.8.0"
+  gem "forgery", "0.6.0"
+  gem "rspec-rails", "3.5.2"
   gem "sdoc", "~> 0.4.0", group: :doc
 
   gem "coffeelint", require: false
@@ -47,8 +47,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "spring", "1.7.2"
+  gem "spring", "2.0.1"
   gem "spring-commands-rails_server", "0.0.1"
   gem "spring-commands-rspec", "1.0.4"
-  gem "spring-commands-rubocop", "0.1.0"
+  gem "spring-commands-rubocop", "0.2.0"
 end
