@@ -21,13 +21,13 @@ gem "sqlite3", "1.3.12"
 gem "twitter-bootstrap-rails"
 gem "will_paginate"
 
-path = ["/Users/kaspernj/Ruby"].find { |path_i| File.exist?(path_i) }
+# path = ["/Users/kaspernj/Ruby"].find { |path_i| File.exist?(path_i) }
 
-gem "baza", path: "#{path}/baza"
+# gem "baza", path: "#{path}/baza"
 # gem "baza_migrations", path: "#{path}/baza_migrations"
 # gem "baza_models", path: "#{path}/baza_models"
 
-# gem "baza", github: "kaspernj/baza"
+gem "baza", "0.0.22"
 gem "baza_migrations", github: "kaspernj/baza_migrations"
 gem "baza_models", github: "kaspernj/baza_models"
 
