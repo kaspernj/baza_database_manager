@@ -1,8 +1,9 @@
-- content_for(:header_title_only) { t(".show_database", name: @database.name) }
+:ruby
+  content_for(:header_title_only) { t(".show_database", name: @database.name) }
 
-- icons = []
-- icons << bb_btn([:new, @profile, @database, :sql_execution], title: t(".execute_sql"), icon: "retweet", mini: true)
-- icons << bb_edit_btn([:edit, @profile, @database], mini: true)
+  icons = []
+  icons << bb_btn([:new, @profile, @database, :sql_execution], title: t(".execute_sql"), icon: "retweet", mini: true)
+  icons << bb_edit_btn([:edit, @profile, @database], mini: true)
 
 = bb_panel t(".show_database", name: @database.name), table: true, controls: icons do
   %tbody

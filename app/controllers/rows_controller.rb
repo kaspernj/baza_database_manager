@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RowsController < ApplicationController
   load_and_authorize_resource :profile
 
@@ -55,7 +56,7 @@ class RowsController < ApplicationController
 
 private
 
-  ALLOWED_FILTERS = ["=", "!=", ">=", "<=", ">", "<"]
+  ALLOWED_FILTERS = ["=", "!=", ">=", "<=", ">", "<"].freeze
   def apply_filters
     return unless params[:filter]
 

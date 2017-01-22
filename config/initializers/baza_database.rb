@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 BazaModels.primary_db = Baza::Db.new(
   type: :sqlite3,
   path: "#{File.dirname(__FILE__)}/../../db/baza_#{Rails.env}.sqlite3",

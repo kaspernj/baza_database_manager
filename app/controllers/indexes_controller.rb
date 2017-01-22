@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class IndexesController < ApplicationController
   load_and_authorize_resource :profile
 
@@ -16,11 +17,11 @@ class IndexesController < ApplicationController
   def create
     with_db do
       @table.create_indexes([
-        {
-          name: params[:index][:name],
-          columns: column_names_array
-        }
-      ])
+                              {
+                                name: params[:index][:name],
+                                columns: column_names_array
+                              }
+                            ])
 
       redirect_to profile_database_table_index_path(@profile, @database.name, @table.name, params[:index][:name])
     end
@@ -36,11 +37,11 @@ class IndexesController < ApplicationController
     with_db do
       @index.drop
       @table.create_indexes([
-        {
-          name: params[:index][:name],
-          columns: column_names_array
-        }
-      ])
+                              {
+                                name: params[:index][:name],
+                                columns: column_names_array
+                              }
+                            ])
 
       redirect_to profile_database_table_index_path(@profile, @database.name, @table.name, params[:index][:name])
     end

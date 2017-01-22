@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ColumnsHelper
   def column_types_collection
     {

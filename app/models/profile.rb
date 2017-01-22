@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Profile < BazaModels::Model
   validates :name, :database_type, presence: true
 
@@ -27,11 +28,11 @@ class Profile < BazaModels::Model
         argument[:input_html][:autocomplete] = "off"
         argument[:input_html][:value] = connect_option_value(argument.fetch(:name))
 
-        if argument.fetch(:name) == "pass"
-          argument[:as] = :password
-        else
-          argument[:as] = :string
-        end
+        argument[:as] = if argument.fetch(:name) == "pass"
+                          :password
+                        else
+                          :string
+                        end
 
         argument
       end

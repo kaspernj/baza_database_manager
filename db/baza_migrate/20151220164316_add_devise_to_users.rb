@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddDeviseToUsers < BazaMigrations::Migration
   def change
     create_table :users do |t|
