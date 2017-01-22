@@ -18,3 +18,4 @@ da:
       foreign_keys: Fremmede nøgler
       table: Tabel
       column: Kolonne
+      'null': Ingenting

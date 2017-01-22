@@ -56,7 +56,9 @@
       %tr
         %td{colspan: 4}= t("no_results")
 
-= bb_panel t(".foreign_keys"), table: true do
+= bb_panel t(".foreign_keys"), table: true do |panel|
+  - panel.controls << bb_new_btn([:new, @profile, @database, @table, :foreign_key], :mini)
+
   %thead
     %tr
       %th= t(".name")
