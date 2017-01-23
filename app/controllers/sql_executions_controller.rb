@@ -1,7 +1,7 @@
 class SqlExecutionsController < ApplicationController
   load_and_authorize_resource :profile
 
-  before_filter :set_values
+  before_action :set_values
 
   def new
     with_db do

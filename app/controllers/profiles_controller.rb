@@ -9,11 +9,9 @@ class ProfilesController < ApplicationController
       .page(params[:page])
   end
 
-  def show
-  end
+  def show; end
 
-  def new
-  end
+  def new; end
 
   def create
     assign_driver_options
@@ -26,8 +24,7 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     assign_driver_options

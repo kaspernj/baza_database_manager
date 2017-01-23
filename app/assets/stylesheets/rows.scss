@@ -2,8 +2,8 @@ body.controller_rows {
   &.action_index {
     .rows-filter {
       max-height: 350px;
-      overflow-y: auto;
       overflow-x: hidden;
+      overflow-y: auto;
     }
   }
 }

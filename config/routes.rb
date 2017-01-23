@@ -7,17 +7,16 @@ Rails.application.routes.draw do
 
   resources :profiles do
     resources :databases do
-      resources :tables do
-        resources :columns
-        resources :indexes
+      resources :tables, except: :index do
+        resources :columns, except: :index
+        resources :foreign_keys, except: :index
+        resources :indexes, except: :index
         resources :rows
       end
 
       resources :sql_executions, only: [:new, :create]
     end
   end
-
-  resources :users
 
   root "dashboards#index"
 end

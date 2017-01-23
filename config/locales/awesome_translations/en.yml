@@ -10,3 +10,7 @@ en:
   filter: Filter
   search: Search
   list: List
+  details: Details
+  'yes': 'Yes'
+  'no': 'No'
+  name: Name

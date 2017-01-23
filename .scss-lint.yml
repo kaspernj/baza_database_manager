@@ -1,0 +1,8 @@
+---
+linters:
+  QualifyingElement:
+    enabled: false
+  SelectorFormat:
+    enabled: false
+  StringQuotes:
+    enabled: false

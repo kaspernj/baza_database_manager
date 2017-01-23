@@ -3,4 +3,4 @@ linters:
     style: no_space
 
   LineLength:
-    max: 160
+    max: 188

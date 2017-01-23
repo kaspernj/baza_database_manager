@@ -1,0 +1,6 @@
+---
+en:
+  foreign_keys:
+    show:
+      table: Table
+      column: Column

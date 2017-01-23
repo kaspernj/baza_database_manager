@@ -43,30 +43,33 @@
               %tr
                 %td.layout-sitemap-profile
                   - if @profile.persisted?
-                    = "#{Profile.model_name.human}: "
+                    #{Profile.model_name.human}:
                     = link_to @profile.name, [@profile, :databases]
                 %td.layout-sitemap-database
                   - if @database
-                    = "DB: "
+                    DB:
                     = link_to @database.name, [@profile, @database]
 
                 %td.layout-sitemap-table
                   - if @table
-                    = "#{@table.model_name.human}: "
+                    #{@table.model_name.human}:
                     = link_to @table.name, [@profile, @database, @table]
                 %td.layout-sitemap-column-or-index
                   - if @column
-                    = "#{@column.model_name.human}: "
+                    #{@column.model_name.human}:
                     = link_to @column.name, [@profile, @database, @table, @column]
                   - if @index
-                    = "#{@index.model_name.human}: "
+                    #{@index.model_name.human}:
                     = link_to @index.name, [@profile, @database, @table, @index]
 
         .row
           .col-md-2
             .hidden-sm-down
               - if @database
-                = bb_panel link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu", controls: bb_new_btn([:new, @profile, @database, :table], mini: true, can: Baza::Table) do
+                = bb_panel link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu" do |panel|
+
+                  - panel.controls << bb_new_btn([:new, @profile, @database, :table], mini: true, can: Baza::Table)
+
                   %tbody
                     - @database.tables.each do |table|
                       %tr

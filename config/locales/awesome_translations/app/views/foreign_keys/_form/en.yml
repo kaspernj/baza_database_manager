@@ -1,0 +1,8 @@
+---
+en:
+  foreign_keys:
+    form:
+      name: Name
+      local_column: Local column
+      table_name: Table name
+      column_name: Column name
