@@ -16,12 +16,14 @@ class IndexesController < ApplicationController
 
   def create
     with_db do
-      @table.create_indexes([
-                              {
-                                name: params[:index][:name],
-                                columns: column_names_array
-                              }
-                            ])
+      @table.create_indexes(
+        [
+          {
+            name: params[:index][:name],
+            columns: column_names_array
+          }
+        ]
+      )
 
       redirect_to profile_database_table_index_path(@profile, @database.name, @table.name, params[:index][:name])
     end
@@ -36,12 +38,14 @@ class IndexesController < ApplicationController
   def update
     with_db do
       @index.drop
-      @table.create_indexes([
-                              {
-                                name: params[:index][:name],
-                                columns: column_names_array
-                              }
-                            ])
+      @table.create_indexes(
+        [
+          {
+            name: params[:index][:name],
+            columns: column_names_array
+          }
+        ]
+      )
 
       redirect_to profile_database_table_index_path(@profile, @database.name, @table.name, params[:index][:name])
     end
