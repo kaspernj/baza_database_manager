@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 BazaModels::Model.extend Devise::Models
 
 class User < BazaModels::Model

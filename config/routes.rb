@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 Rails.application.routes.draw do
   mount AwesomeTranslations::Engine => "/awesome_translations" if Rails.env.development?
 

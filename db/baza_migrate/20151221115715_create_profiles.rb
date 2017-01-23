@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class CreateProfiles < BazaMigrations::Migration
   def change
     create_table :profiles do |t|

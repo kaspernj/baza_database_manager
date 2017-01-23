@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class CreateExports < BazaMigrations::Migration
   def change
     create_table :exports do |t|

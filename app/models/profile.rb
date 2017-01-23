@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class Profile < BazaModels::Model
   validates :name, :database_type, presence: true
 
