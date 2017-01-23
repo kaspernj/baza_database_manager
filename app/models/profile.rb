@@ -27,11 +27,11 @@ class Profile < BazaModels::Model
         argument[:input_html][:autocomplete] = "off"
         argument[:input_html][:value] = connect_option_value(argument.fetch(:name))
 
-        argument[:as] = if argument.fetch(:name) == "pass"
-                          :password
-                        else
-                          :string
-                        end
+        if argument.fetch(:name) == "pass"
+          argument[:as] = :password
+        else
+          argument[:as] = :string
+        end
 
         argument
       end
