@@ -1,0 +1,4 @@
+= simple_form_for [@profile, @database, @export] do |f|
+  = f.input :database_name, autofocus: true
+  = f.input :driver_for_export, collection: Profile.translated_database_types
+  = f.button :submit

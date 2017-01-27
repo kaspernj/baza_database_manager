@@ -1,0 +1,5 @@
+---
+en:
+  exports:
+    show:
+      show_export: 'Show export: %{id}'

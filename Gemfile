@@ -3,6 +3,9 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "auto_autoloader", "0.0.5"
 gem "awesome_translations", "0.0.38"
+gem "baza", "0.0.24"
+gem "baza_migrations", "0.0.2"
+gem "baza_models", "0.0.9"
 gem "bootstrap_builders", "0.0.30"
 gem "cancancan", "1.15.0"
 gem "coffee-rails", "~> 4.1.0"
@@ -20,16 +23,6 @@ gem "simple_form", "3.3.1"
 gem "sqlite3", "1.3.12"
 gem "twitter-bootstrap-rails"
 gem "will_paginate", "3.1.5"
-
-# path = ["/Users/kaspernj/Ruby"].find { |path_i| File.exist?(path_i) }
-
-# gem "baza", path: "#{path}/baza"
-# gem "baza_migrations", path: "#{path}/baza_migrations"
-# gem "baza_models", path: "#{path}/baza_models"
-
-gem "baza", "0.0.23"
-gem "baza_migrations", github: "kaspernj/baza_migrations"
-gem "baza_models", github: "kaspernj/baza_models"
 
 group :development, :test do
   gem "best_practice_project", "0.0.10"

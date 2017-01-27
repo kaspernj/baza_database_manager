@@ -1,4 +1,6 @@
 class Profile < BazaModels::Model
+  has_many :exports, dependent: :destroy
+
   validates :name, :database_type, presence: true
 
   def self.translated_database_types

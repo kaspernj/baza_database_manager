@@ -1,0 +1,5 @@
+---
+da:
+  exports:
+    show:
+      show_export: 'Vis eksport: %{id}'
