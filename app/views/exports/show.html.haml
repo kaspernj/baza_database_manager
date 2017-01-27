@@ -1,5 +1,9 @@
 - content_for(:header_title) { t(".show_export", id: @export.id) }
 
-= box t("details"), table: true do
+= bb_panel t("details"), table: true do |panel|
+  - panel.controls << bb_btn([@profile, @database, @export, format: :sql], :mini, icon: "download")
+  - panel.controls << bb_edit_btn([:edit, @profile, @database, @export], :mini)
+  - panel.controls << bb_destroy_btn([@profile, @database, @export], :mini)
+
   %tbody
-    = bs_attribute_rows :database_name
+    = bb_attribute_rows @export, [:database_name, :driver_for_export]
