@@ -9,7 +9,7 @@ class ImportsController < ApplicationController
 
   def create
     with_db do
-      @database.import_file! params[:import][:file]
+      @database.import_file! params[:import][:file].path
 
       flash[:success] = controller_t(".the_file_was_imported")
       redirect_to [@profile, @database]
