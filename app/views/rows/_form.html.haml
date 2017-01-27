@@ -1,4 +1,4 @@
-= simple_form_for :row, method: (@row ? "patch" : "post"), url: (@row ? [@profile, @database, @table, @row] : [@profile, @database, @table, :rows]) do |f|
+= simple_form_for :row, method: (@row ? "patch" : "post"), url: (@row ? profile_database_table_row_path(@profile, @database, @table, @row.id) : [@profile, @database, @table, :rows]) do |f|
   - @table.columns.each do |column|
     = f.input column.name, label: column.name, required: false, input_html: {value: @row.try(:[], column.name.to_sym)}
 

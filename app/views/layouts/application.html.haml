@@ -4,11 +4,14 @@
     %title
       - if content_for?(:header_title)
         = content_for(:header_title)
+      - elsif content_for?(:header_title_only)
+        = content_for(:header_title_only)
       - else
         BazaDatabaseManager
 
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application", defer: true
+    = favicon_link_tag "favicon.png", type: "image/png"
     = csrf_meta_tags
 
   %body{class: ["controller_#{controller_name}", "action_#{action_name}"]}
@@ -32,44 +35,48 @@
               %li= link_to t(".sign_in"), new_user_session_path
     .container
       .starter-template
-        - flash.to_hash.each_value do |value|
-          .alert.alert-dismissible.alert-danger= value
+        = bootstrap_flash
 
         - if @profile
-          = bs_box t(".sitemap"), table: true, class: "layout-sitemap" do
+          = bb_panel t(".sitemap"), table: true, class: "layout-sitemap" do
             %tbody
               %tr
                 %td.layout-sitemap-profile
-                  = "#{Profile.model_name.human}: "
-                  = link_to @profile.name, @profile
+                  - if @profile.persisted?
+                    #{Profile.model_name.human}:
+                    = link_to @profile.name, [@profile, :databases]
                 %td.layout-sitemap-database
                   - if @database
-                    = "DB: "
+                    DB:
                     = link_to @database.name, [@profile, @database]
 
                 %td.layout-sitemap-table
                   - if @table
-                    = "#{@table.model_name.human}: "
+                    #{@table.model_name.human}:
                     = link_to @table.name, [@profile, @database, @table]
                 %td.layout-sitemap-column-or-index
                   - if @column
-                    = "#{@column.model_name.human}: "
+                    #{@column.model_name.human}:
                     = link_to @column.name, [@profile, @database, @table, @column]
                   - if @index
-                    = "#{@index.model_name.human}: "
+                    #{@index.model_name.human}:
                     = link_to @index.name, [@profile, @database, @table, @index]
 
         .row
           .col-md-2
-            - if @database
-              = bs_box link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu", right: bs_new_btn(url: [:new, @profile, @database, :table], mini: true, label: false, can: Baza::Table) do
-                %tbody
-                  - @database.tables.each do |table|
-                    %tr
-                      %td.table-show-icon= bs_edit_btn(url: [@profile, @database, table], mini: true, label: false)
-                      %td.table-name= link_to table.name, [@profile, @database, table, :rows]
+            .hidden-sm-down
+              - if @database
+                = bb_panel link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu" do |panel|
+
+                  - panel.controls << bb_new_btn([:new, @profile, @database, :table], mini: true, can: Baza::Table)
+
+                  %tbody
+                    - @database.tables.each do |table|
+                      %tr
+                        %td.table-show-icon= bb_edit_btn [@profile, @database, table], mini: true
+                        %td.table-name= link_to table.name, [@profile, @database, table, :rows]
           .col-md-10
-            - if content_for?(:header_title)
+            - if content_for?(:header_title) || content_for?(:header_right)
               .row
                 .col-md-8
                   %h1= content_for(:header_title)

@@ -4,3 +4,4 @@ en:
     index:
       rows: Rows
       rows_for_table: Rows in %{table_name}
+      table: Table

@@ -1,0 +1,6 @@
+---
+en:
+  sql_executions:
+    form:
+      sql: SQL
+      execute: Execute

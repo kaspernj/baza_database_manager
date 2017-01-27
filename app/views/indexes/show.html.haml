@@ -1,10 +1,9 @@
-
-- content_for(:header_title) { t(".show_index", name: @index.name) }
+- content_for(:header_title_only) { t(".show_index", name: @index.name) }
 - content_for(:header_right) do
-  = bs_edit_btn url: [:edit, @profile, @database, @table, @index], mini: true
-  = bs_destroy_btn url: [@profile, @database, @table, @index], mini: true, class: "delete-index"
+  = bb_edit_btn [:edit, @profile, @database, @table, @index], mini: true
+  = bb_destroy_btn [@profile, @database, @table, @index], mini: true, class: "delete-index"
 
-= bs_box t("details"), table: true do
+= bb_panel t(".show_index", name: @index.name), table: true do
   %tbody
     %tr
       %th= t(".database")

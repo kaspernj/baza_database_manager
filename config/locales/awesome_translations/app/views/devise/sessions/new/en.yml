@@ -1,0 +1,6 @@
+---
+en:
+  devise:
+    sessions:
+      new:
+        sign_in: Sign in

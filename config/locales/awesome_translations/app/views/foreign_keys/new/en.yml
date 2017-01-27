@@ -1,0 +1,5 @@
+---
+en:
+  foreign_keys:
+    new:
+      add_new_foreign_key: Add foreign key

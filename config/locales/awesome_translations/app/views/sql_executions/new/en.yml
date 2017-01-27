@@ -1,0 +1,5 @@
+---
+en:
+  sql_executions:
+    new:
+      execute_sql: Execute SQL

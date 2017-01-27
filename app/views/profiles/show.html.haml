@@ -1,10 +1,10 @@
 - content_for(:header_title) { t(".show_profile", name: @profile.name) }
 - content_for(:header_right) do
   = link_to t(".databases"), [@profile, :databases], class: ["btn", "btn-default", "btn-xs"]
-  = bs_destroy_btn url: @profile, mini: true
-  = bs_edit_btn url: [:edit, @profile], mini: true
+  = bb_destroy_btn @profile, mini: true
+  = bb_edit_btn [:edit, @profile], mini: true
 
-= bs_box t("details"), table: true do
+= bb_panel t("details"), table: true do
   %tbody
     %tr
       %th= Profile.human_attribute_name(:database_type)

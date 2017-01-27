@@ -16,32 +16,79 @@ private
     @profile.with_db(args) do |db|
       @db = db
 
-      @database = @db.databases[params[:database_id]] if params[:database_id]
-      @table = @database.table(params[:table_id]) if params[:table_id]
-      @column = @table.column(params[:column_id]) if params[:column_id]
-      @index = @table.index(params[:index_id]) if params[:index_id]
-      @row = @table.row(params[:row_id]) if params[:row_id]
-
+      set_db_instance_variables
       set_object_by_params_id
 
       yield
     end
   end
 
+  def set_db_instance_variables
+    set_database_from_param
+    set_table_from_param
+    set_column_from_param
+    set_foreign_key_from_param
+    set_index_from_param
+    set_row_from_param
+  end
+
+  def set_database_from_param
+    @database = @db.databases[params[:database_id]] if params[:database_id]
+  end
+
+  def set_table_from_param
+    @table = @database.table(params[:table_id]) if params[:table_id]
+  end
+
+  def set_column_from_param
+    @column = @table.column(params[:column_id]) if params[:column_id]
+  end
+
+  def set_foreign_key_from_param
+    @foreign_key = @table.foreign_key(params[:foreign_key_id]) if params[:foreign_key_id]
+  end
+
+  def set_index_from_param
+    @index = @table.index(params[:index_id]) if params[:index_id]
+  end
+
+  def set_row_from_param
+    @row = @table.row(params[:row_id]) if params[:row_id]
+  end
+
   def set_object_by_params_id
     return unless params[:id]
 
-    if controller_name == "databases"
-      @database = @db.databases[params[:id]]
-    elsif controller_name == "tables"
-      @table = @database.table(params[:id])
-    elsif controller_name == "columns"
-      @column = @table.column(params[:id])
-    elsif controller_name == "indexes"
-      @index = @table.index(params[:id])
-    elsif controller_name == "rows"
-      @row = @table.row(params[:id])
-    end
+    set_database_from_controller
+    set_table_from_controller
+    set_column_from_controller
+    set_foreign_key_from_controller
+    set_index_from_controller
+    set_row_from_controller
+  end
+
+  def set_database_from_controller
+    @database = @db.databases[params[:id]] if controller_name == "databases"
+  end
+
+  def set_table_from_controller
+    @table = @database.table(params[:id]) if controller_name == "tables"
+  end
+
+  def set_column_from_controller
+    @column = @table.column(params[:id]) if controller_name == "columns"
+  end
+
+  def set_foreign_key_from_controller
+    @foreign_key = @table.foreign_key(params[:id]) if controller_name == "foreign_keys"
+  end
+
+  def set_index_from_controller
+    @index = @table.index(params[:id]) if controller_name == "indexes"
+  end
+
+  def set_row_from_controller
+    @row = @table.row(params[:id]) if controller_name == "rows"
   end
 
   def can_can_access_denied

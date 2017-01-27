@@ -5,3 +5,4 @@ da:
       show_database: 'Vis database: %{name}'
       tables: Tabeller
       name: Navn
+      execute_sql: Kør SQL

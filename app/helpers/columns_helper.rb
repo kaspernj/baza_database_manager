@@ -1,11 +1,11 @@
 module ColumnsHelper
   def column_types_collection
     {
-      t(".varchar") => "varchar",
-      t(".text") => "text",
-      t(".integer") => "int",
-      t(".date") => "date",
-      t(".datetime") => "datetime"
+      helper_t(".varchar") => "varchar",
+      helper_t(".text") => "text",
+      helper_t(".integer") => "int",
+      helper_t(".date") => "date",
+      helper_t(".datetime") => "datetime"
     }
   end
 end

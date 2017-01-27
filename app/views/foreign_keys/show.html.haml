@@ -1,0 +1,9 @@
+- content_for(:header_title) { @foreign_key.name }
+
+= bb_panel table: true do
+  %tr
+    %th= t(".table")
+    %td= link_to @foreign_key.table_name, [@profile, @database, @table]
+  %tr
+    %th= t(".column")
+    %td= link_to @foreign_key.column_name, [@profile, @database, @table, @foreign_key.column]

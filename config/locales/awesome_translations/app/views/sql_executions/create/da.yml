@@ -1,0 +1,6 @@
+---
+da:
+  sql_executions:
+    create:
+      execute_sql: Kør SQL
+      query_was_interruped_after_30_results: Forespørgsel blev afbrudt efter 30 resultater.

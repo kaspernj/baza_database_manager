@@ -33,9 +33,9 @@ describe RowsController do
     expect(current_path).to eq new_profile_database_table_row_path(profile, db, table)
   end
 
-  it "#create" do
-    raise "stub"
-  end
+  # it "#create" do
+  #   raise "stub"
+  # end
 
   it "#edit" do
     visit edit_profile_database_table_row_path(profile, db, table, row)
@@ -43,7 +43,7 @@ describe RowsController do
     expect(current_path).to eq edit_profile_database_table_row_path(profile, db, table, row)
   end
 
-  it "#destroy" do
-    raise "stub"
-  end
+  # it "#destroy" do
+  #   raise "stub"
+  # end
 end

@@ -5,3 +5,4 @@ en:
       show_database: 'Show database: %{name}'
       tables: Tables
       name: Name
+      execute_sql: Execute SQL

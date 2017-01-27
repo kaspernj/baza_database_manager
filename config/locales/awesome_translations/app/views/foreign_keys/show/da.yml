@@ -1,0 +1,6 @@
+---
+da:
+  foreign_keys:
+    show:
+      table: Tabel
+      column: Kolonne

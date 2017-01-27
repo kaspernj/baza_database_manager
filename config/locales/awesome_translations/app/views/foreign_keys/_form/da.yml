@@ -1,0 +1,8 @@
+---
+da:
+  foreign_keys:
+    form:
+      name: Navn
+      local_column: Lokal kolonne
+      table_name: Tabelnavn
+      column_name: Kolonnenavn
