@@ -80,7 +80,7 @@ private
 
     zlib_writer = Zlib::GzipWriter.new(tempfile)
 
-    dumper = Baza::Dump.new(db: @db, db_type: @export.driver_for_export, debug: true)
+    dumper = Baza::Dump.new(db: @db, db_type: @export.driver_for_export, debug: false)
     dumper.dump(zlib_writer)
 
     zlib_writer.close
