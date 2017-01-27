@@ -15,12 +15,7 @@ class ExportsController < ApplicationController
       respond_to do |format|
         format.html { render }
         format.sql do
-          @database.use
-          dump = Baza::Dump.new(db: @db, debug: true)
-          str_io = StringIO.new
-          dump.dump(str_io)
-
-          send_data str_io.string, filename: "#{@export.database_name}.sql"
+          send_file dump_to_tempfile.path, filename: "#{@export.database_name}.sql.gz"
         end
       end
     end
@@ -75,5 +70,22 @@ private
 
   def export_params
     params.require(:export).permit(:database_name, :driver_for_export)
+  end
+
+  def dump_to_tempfile
+    @database.use
+
+    tempfile = Tempfile.new(["baza-database-manager-export", ".sql.gz"])
+    tempfile.binmode
+
+    zlib_writer = Zlib::GzipWriter.new(tempfile)
+
+    dumper = Baza::Dump.new(db: @db, db_type: @export.driver_for_export, debug: true)
+    dumper.dump(zlib_writer)
+
+    zlib_writer.close
+    tempfile.close
+
+    tempfile
   end
 end
