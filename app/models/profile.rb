@@ -59,6 +59,8 @@ class Profile < BazaModels::Model
       .merge(parsed_connect_options.symbolize_keys)
       .merge(args)
 
+    db_args.delete(:pass) if db_args[:pass].blank?
+
     Baza::Db.new(db_args) do |db|
       yield db
     end
