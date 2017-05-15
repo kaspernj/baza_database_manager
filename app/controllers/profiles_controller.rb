@@ -2,7 +2,10 @@ class ProfilesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @ransack = Profile.ransack(params[:q])
+    ransack_params = params[:q] || {}
+    ransack_params[:s] ||= "name asc"
+
+    @ransack = Profile.ransack(ransack_params)
     @profiles = @ransack
       .result
       .accessible_by(current_ability)
