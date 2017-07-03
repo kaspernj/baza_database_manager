@@ -46,6 +46,8 @@ describe ExportsController do
 
       visit new_profile_database_export_path(profile, db)
 
+      select "Pg", from: Export.human_attribute_name(:driver_for_export)
+
       expect { find("input[type=submit]").click }.to change(Export, :count).by(1)
 
       created_export = Export.last
