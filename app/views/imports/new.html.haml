@@ -1,0 +1,5 @@
+- content_for(:title) { t(".import") }
+
+= simple_form_for :import, url: [@profile, @database, :imports] do |f|
+  = f.input :file, as: :file, label: t(".file")
+  = f.button :submit

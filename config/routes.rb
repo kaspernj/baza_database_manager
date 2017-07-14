@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :databases do
       resources :exports
+      resources :imports, only: [:new, :create]
       resources :tables, except: :index do
         resources :columns, except: :index
         resources :foreign_keys, except: :index

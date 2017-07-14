@@ -1,0 +1,6 @@
+---
+en:
+  imports:
+    new:
+      import: Import
+      file: File
