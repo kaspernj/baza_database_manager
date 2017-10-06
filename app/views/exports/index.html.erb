@@ -1,0 +1,26 @@
+<% content_for(:header_title) { Export.model_name.human(count: 2) } %>
+<%= bs_box Export.model_name.human(count: 2), table: true, right: bs_new_btn(url: [:new, @profile, @database, :export], mini: true, can: Export) do %>
+  <thead>
+    <tr>
+      <th>
+        <%= bm_sort_link @ransack, :created_at %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exports.each do |export| %>
+      <tr>
+        <td>
+          <%= link_to l(export.created_at, format: :short), [@profile, export] %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @exports.empty? %>
+      <tr>
+        <td colspan="1">
+          <%= t("no_results") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>

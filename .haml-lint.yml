@@ -1,6 +1,0 @@
-linters:
-  SpaceInsideHashAttributes:
-    style: no_space
-
-  LineLength:
-    max: 188

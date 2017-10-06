@@ -1,0 +1,17 @@
+<% content_for(:header_title_only) { t(".show_database", name: @database.name) } %>
+<%= bb_panel t(".show_database", name: @database.name), table: true do |panel| %>
+  <% panel.controls << bb_btn([:new, @profile, @database, :export, export: {database_name: @database.name, driver_for_export: @profile.database_type}], :mini, can: Export, icon: "download") %>
+  <% panel.controls << bb_btn([:new, @profile, @database, :import], :mini, icon: "upload") %>
+  <% panel.controls << bb_btn([:new, @profile, @database, :sql_execution], title: t(".execute_sql"), icon: "retweet", mini: true) %>
+  <% panel.controls << bb_edit_btn([:edit, @profile, @database], mini: true) %>
+  <tbody>
+    <tr>
+      <th>
+        <%= t("name") %>
+      </th>
+      <td>
+        <%= @database.name %>
+      </td>
+    </tr>
+  </tbody>
+<% end %>

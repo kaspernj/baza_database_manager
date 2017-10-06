@@ -1,0 +1,10 @@
+<%= simple_form_for profile, html: {autocomplete: "off"} do |f| %>
+  <%= f.input :name, autofocus: true %>
+  <%= f.input :database_type, collection: Profile.translated_database_types %>
+  <%= simple_fields_for :database_options do |f_opts| %>
+    <% profile.driver_options.each do |arg| %>
+      <%= f_opts.input arg.delete(:name), arg %>
+    <% end %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>

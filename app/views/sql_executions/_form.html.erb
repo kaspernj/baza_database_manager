@@ -1,0 +1,6 @@
+<%= bb_panel t(".sql") do %>
+  <%= simple_form_for :sql_execution, method: :post, url: [@profile, @database, :sql_executions] do |f| %>
+    <%= f.input :sql, as: :text, label: t(".sql"), autofocus: true, input_html: {value: @values[:sql]} %>
+    <%= f.button :submit, t(".execute") %>
+  <% end %>
+<% end %>

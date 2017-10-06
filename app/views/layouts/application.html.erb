@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <title>
+      <% if content_for?(:header_title) %>
+        <%= content_for(:header_title) %>
+      <% elsif content_for?(:header_title_only) %>
+        <%= content_for(:header_title_only) %>
+      <% else %>
+        BazaDatabaseManager
+      <% end %>
+    </title>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application", defer: true %>
+    <%= favicon_link_tag "favicon.png", type: "image/png" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="<%= ["controller_#{controller_name}", "action_#{action_name}"] %>">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to t(".baza_database_manager"), root_url, class: "navbar-brand" %>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <%= link_to t(".home"), root_url %>
+            </li>
+            <% if can? :index, Profile %>
+              <li>
+                <%= link_to Profile.model_name.human(count: 2), profiles_path %>
+              </li>
+            <% end %>
+            <% if signed_in? %>
+              <li>
+                <%= link_to t(".sign_out"), destroy_user_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to t(".sign_in"), new_user_session_path %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="starter-template">
+        <%= bootstrap_flash %>
+        <% if @profile %>
+          <%= bb_panel t(".sitemap"), table: true, class: "layout-sitemap" do %>
+            <tbody>
+              <tr>
+                <td class="layout-sitemap-profile">
+                  <% if @profile.persisted? %>
+                    <%= "#{Profile.model_name.human}:" %>
+                    <%= link_to @profile.name, [@profile, :databases] %>
+                  <% end %>
+                </td>
+                <td class="layout-sitemap-database">
+                  <% if @database %>
+                    DB:
+                    <%= link_to @database.name, [@profile, @database] %>
+                  <% end %>
+                </td>
+                <td class="layout-sitemap-table">
+                  <% if @table %>
+                    <%= "#{@table.model_name.human}:" %>
+                    <%= link_to @table.name, [@profile, @database, @table] %>
+                  <% end %>
+                </td>
+                <td class="layout-sitemap-column-or-index">
+                  <% if @column %>
+                    <%= "#{@column.model_name.human}:" %>
+                    <%= link_to @column.name, [@profile, @database, @table, @column] %>
+                  <% end %>
+                  <% if @index %>
+                    <%= "#{@index.model_name.human}:" %>
+                    <%= link_to @index.name, [@profile, @database, @table, @index] %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
+        <% end %>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="hidden-sm-down">
+              <% if @database %>
+                <%= bb_panel link_to(t(".tables"), [@profile, @database]), table: true, class: "tables-quick-menu" do |panel| %>
+                  <% panel.controls << bb_new_btn([:new, @profile, @database, :table], mini: true, can: Baza::Table) %>
+                  <tbody>
+                    <% @database.tables.each do |table| %>
+                      <tr>
+                        <td class="table-show-icon">
+                          <%= bb_edit_btn [@profile, @database, table], mini: true %>
+                        </td>
+                        <td class="table-name">
+                          <%= link_to table.name, [@profile, @database, table, :rows] %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <% if content_for?(:header_title) || content_for?(:header_right) %>
+              <div class="row">
+                <div class="col-md-8">
+                  <h1>
+                    <%= content_for(:header_title) %>
+                  </h1>
+                </div>
+                <div class="col-md-4">
+                  <div class="pull-right">
+                    <%= content_for(:header_right) %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

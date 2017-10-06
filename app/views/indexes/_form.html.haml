@@ -1,8 +1,0 @@
-= simple_form_for :index, method: @index ? "patch" : "post", url: @index ? [@profile, @database, @table, @index] : [@profile, @database, @table, :indexes] do |f|
-  = f.input :name, autofocus: true
-
-  = simple_fields_for :columns do |f_columns|
-    - @table.columns.count.times do |count|
-      = f_columns.input "column_name_#{count}", label: t(".column_name"), collection: @table.columns.map(&:name), selected: @index.try(:columns).try(:[], count), include_blank: true
-
-  = f.button :submit

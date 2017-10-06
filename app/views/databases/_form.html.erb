@@ -1,0 +1,4 @@
+<%= simple_form_for :database, url: @database ? [@profile, @database] : [@profile, :databases], method: @database ? "patch" : "post" do |f| %>
+  <%= f.input :name, label: t(".name"), autofocus: true %>
+  <%= f.button :submit %>
+<% end %>

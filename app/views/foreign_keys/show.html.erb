@@ -1,0 +1,19 @@
+<% content_for(:header_title) { @foreign_key.name } %>
+<%= bb_panel table: true do %>
+  <tr>
+    <th>
+      <%= t(".table") %>
+    </th>
+    <td>
+      <%= link_to @foreign_key.table_name, [@profile, @database, @table] %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <%= t(".column") %>
+    </th>
+    <td>
+      <%= link_to @foreign_key.column_name, [@profile, @database, @table, @foreign_key.column] %>
+    </td>
+  </tr>
+<% end %>

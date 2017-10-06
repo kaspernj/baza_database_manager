@@ -1,0 +1,46 @@
+<% content_for(:header_title_only) { t(".show_index", name: @index.name) } %>
+<% content_for(:header_right) do %>
+  <%= bb_edit_btn [:edit, @profile, @database, @table, @index], mini: true %>
+  <%= bb_destroy_btn [@profile, @database, @table, @index], mini: true, class: "delete-index" %>
+<% end %>
+<%= bb_panel t(".show_index", name: @index.name), table: true do %>
+  <tbody>
+    <tr>
+      <th>
+        <%= t(".database") %>
+      </th>
+      <td>
+        <%= link_to @database.name, [@profile, @database] %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= t(".table") %>
+      </th>
+      <td>
+        <%= link_to @table.name, [@profile, @database, @table] %>
+      </td>
+    </tr>
+    <% @index.data.each do |key, value| %>
+      <% next if key == :columns %>
+      <tr>
+        <th>
+          <%= key %>
+        </th>
+        <td>
+          <%= value %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <th>
+        <%= t(".columns") %>
+      </th>
+      <td>
+        <% @index.columns.each do |column| %>
+          <%= link_to column, [@profile, @database, @table, :column, id: column] %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+<% end %>

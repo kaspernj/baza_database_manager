@@ -1,0 +1,40 @@
+<% content_for(:header_title) { t(".show_profile", name: @profile.name) } %>
+<% content_for(:header_right) do %>
+  <%= link_to t(".databases"), [@profile, :databases], class: ["btn", "btn-default", "btn-xs"] %>
+  <%= bb_destroy_btn @profile, mini: true %>
+  <%= bb_edit_btn [:edit, @profile], mini: true %>
+<% end %>
+<%= bb_panel t("details"), table: true do %>
+  <tbody>
+    <tr>
+      <th>
+        <%= Profile.human_attribute_name(:database_type) %>
+      </th>
+      <td>
+        <%= @profile.translated_database_type %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= Profile.human_attribute_name(:created_at) %>
+      </th>
+      <td>
+        <%= l(@profile.created_at, format: :long) %>
+      </td>
+    </tr>
+    <% @profile.parsed_connect_options.each do |key, value| %>
+      <tr>
+        <th>
+          <%= key %>
+        </th>
+        <td>
+          <% if key == "password" || key == "pass" %>
+            [HIDDEN]
+          <% else %>
+            <%= value %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>

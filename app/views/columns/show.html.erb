@@ -1,0 +1,35 @@
+<% content_for(:header_title_only) { t(".show_column", name: @column.name) } %>
+<% content_for(:header_right) do %>
+  <%= bb_edit_btn [:edit, @profile, @database, @table, @column], mini: true %>
+  <%= bb_destroy_btn [@profile, @database, @table, @column], mini: true, class: "delete-column-btn" %>
+<% end %>
+<%= bb_panel t(".show_column", name: @column.name), table: true do %>
+  <tbody>
+    <tr>
+      <th>
+        <%= t(".database") %>
+      </th>
+      <td>
+        <%= link_to @database.name, [@profile, @database] %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= t(".table") %>
+      </th>
+      <td>
+        <%= link_to @table.name, [@profile, @database, @table] %>
+      </td>
+    </tr>
+    <% @column.data.each do |key, value| %>
+      <tr>
+        <th>
+          <%= key %>
+        </th>
+        <td>
+          <%= value %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>

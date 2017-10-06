@@ -1,0 +1,15 @@
+<% content_for(:header_title) { t(".show_row") } %>
+<%= bb_panel t("details"), table: true do %>
+  <tbody>
+    <% @row.data.each do |key, value| %>
+      <tr>
+        <th>
+          <%= key %>
+        </th>
+        <td>
+          <%= value %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>

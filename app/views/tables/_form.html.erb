@@ -1,0 +1,33 @@
+<%= simple_form_for :table, method: @table ? "patch" : "post", url: @table ? [@profile, @database, @table] : [@profile, @database, :tables] do |f| %>
+  <%= f.input :name, autofocus: true, input_html: {value: @table.try(:name)} %>
+  <%= simple_fields_for :columns do |f_columns| %>
+    <% (@table.try(:columns).try(:count) || 2).times do |count| %>
+      <h4>
+        <%= t(".column_number_x", number: count) %>
+      </h4>
+      <div class="row">
+        <%= f_columns.simple_fields_for "column_#{count}" do |f_column| %>
+          <div class="col-md-2">
+            <%= f_column.input :name, input_html: {value: @table.try(:columns).try(:[], count).try(:name)} %>
+          </div>
+          <div class="col-md-2">
+            <%= f_column.input :type, selected: @table.try(:columns).try(:[], count).try(:type).to_s, collection: %w(int varchar text datetime date) %>
+          </div>
+          <div class="col-md-2">
+            <%= f_column.input :default %>
+          </div>
+          <div class="col-md-2">
+            <%= f_column.input :maxlength %>
+          </div>
+          <div class="col-md-2">
+            <%= f_column.input :primarykey, as: :boolean %>
+          </div>
+          <div class="col-md-2">
+            <%= f_column.input :autoincr, as: :boolean %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>

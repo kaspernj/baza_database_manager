@@ -1,0 +1,34 @@
+<% content_for(:header_title) { t(".databases") } %>
+<% content_for(:header_right) { bb_new_btn [:new, @profile, :database], can: Baza::Database, mini: true } %>
+<%= bb_panel t(".databases"), table: true do %>
+  <thead>
+    <tr>
+      <th>
+        <%= t(".name") %>
+      </th>
+      <th class="text-right">
+        <%= t("actions") %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @databases.each do |database| %>
+      <tr>
+        <td>
+          <%= link_to database.name, profile_database_path(@profile, database.name) %>
+        </td>
+        <td class="text-right">
+          <%= bb_edit_btn [:edit, @profile, database], mini: true %>
+          <%= bb_destroy_btn [@profile, database], mini: true %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @databases.empty? %>
+      <tr>
+        <td colspan="2">
+          <%= t("no_results") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>

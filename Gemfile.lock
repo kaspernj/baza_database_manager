@@ -279,7 +279,7 @@ GEM
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-commands-rails_server (0.0.1)
-      spring (>= 0.0.0)
+      spring
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     spring-commands-rubocop (0.2.0)
@@ -330,7 +330,6 @@ DEPENDENCIES
   devise
   factory_girl_rails (= 4.8.0)
   forgery (= 0.6.0)
-  haml-rails (= 0.9.0)
   haml_lint
   jquery-rails
   mysql (= 2.9.1)
@@ -355,4 +354,4 @@ DEPENDENCIES
   will_paginate (= 3.1.5)
 
 BUNDLED WITH
-   1.13.7
+   1.15.4

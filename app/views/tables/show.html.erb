@@ -1,0 +1,154 @@
+<% content_for(:header_title_only) { t(".show_table", name: @table.name) } %>
+<%= bb_panel t(".show_table", name: @table.name), table: true do |panel| %>
+  <% panel.controls << link_to(t(".rows"), [@profile, @database, @table, :rows], class: ["btn", "btn-default", "btn-xs"]) if can? :index, Baza::Row %>
+  <% panel.controls << bb_edit_btn([:edit, @profile, @database, @table], mini: true, can: @table) %>
+  <% panel.controls << bb_destroy_btn([@profile, @database, @table], mini: true, can: @table) %>
+  <tbody>
+    <tr>
+      <th>
+        <%= t(".database") %>
+      </th>
+      <td>
+        <%= link_to @database.name, profile_database_path(@profile, @database.name) %>
+      </td>
+    </tr>
+  </tbody>
+<% end %>
+<%= bb_panel t(".columns"), controls: bb_new_btn([:new, @profile, @database, @table, :column], can: Baza::Column, mini: true), table: true do %>
+  <thead>
+    <tr>
+      <th>
+        <%= t(".name") %>
+      </th>
+      <th class="hidden-xs-down">
+        <%= t(".type") %>
+      </th>
+      <th class="hidden-md-down">
+        <%= t(".maxlength") %>
+      </th>
+      <th class="hidden-xs-down">
+        <%= t(".null") %>
+      </th>
+      <th class="hidden-md-down">
+        <%= t(".default") %>
+      </th>
+      <th class="text-right">
+        <%= t("actions") %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @table.columns do |column| %>
+      <tr>
+        <td>
+          <%= link_to column.name, [@profile, @database, @table, column] %>
+        </td>
+        <td class="hidden-xs-down">
+          <%= column.type %>
+        </td>
+        <td class="hidden-md-down">
+          <%= column.maxlength %>
+        </td>
+        <td class="hidden-xs-down">
+          <%= column.null? ? t("yes") : t("no") %>
+        </td>
+        <td class="hidden-md-down">
+          <%= column.default %>
+        </td>
+        <td class="text-right">
+          <%= bb_edit_btn [:edit, @profile, @database, @table, column], mini: true %>
+          <%= bb_destroy_btn [@profile, @database, @table, column], mini: true %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @table.columns.empty? %>
+      <tr>
+        <td colspan="5">
+          <%= t("no_results") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>
+<%= bb_panel t(".indexes"), controls: bb_new_btn([:new, @profile, @database, @table, :index], can: Baza::Index, mini: true), table: true do %>
+  <thead>
+    <tr>
+      <th>
+        <%= t(".name") %>
+      </th>
+      <th>
+        <%= t(".columns") %>
+      </th>
+      <th class="hidden-xs-down">
+        <%= t(".unique") %>
+      </th>
+      <th class="text-right">
+        <%= t("actions") %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @table.indexes do |index| %>
+      <tr>
+        <td>
+          <%= link_to index.name, [@profile, @database, @table, index] %>
+        </td>
+        <td>
+          <% index.columns.each do |column_name| %>
+            <%= link_to column_name, [@profile, @database, @table, :column, id: column_name], class: ["btn", "btn-default", "btn-xs"] %>
+          <% end %>
+        </td>
+        <td class="hidden-xs-down">
+          <%= index.unique? ? t(".yes") : t(".no") %>
+        </td>
+        <td class="text-right">
+          <%= bb_edit_btn [:edit, @profile, @database, @table, index], mini: true %>
+          <%= bb_destroy_btn [@profile, @database, @table, index], mini: true %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @table.indexes.empty? %>
+      <tr>
+        <td colspan="4">
+          <%= t("no_results") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>
+<% if @db.driver.foreign_key_support? %>
+  <%= bb_panel t(".foreign_keys"), table: true do |panel| %>
+    <% panel.controls << bb_new_btn([:new, @profile, @database, @table, :foreign_key], :mini) %>
+    <thead>
+      <tr>
+        <th>
+          <%= t(".name") %>
+        </th>
+        <th>
+          <%= t(".table") %>
+        </th>
+        <th>
+          <%= t(".column") %>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @table.foreign_keys do |foreign_key| %>
+      <tr>
+        <td>
+          <%= link_to foreign_key.name, [@profile, @database, @table, foreign_key] %>
+        </td>
+        <td>
+          <%= link_to foreign_key.table_name, [@profile, @database, foreign_key.table] %>
+        </td>
+        <td>
+          <%= link_to foreign_key.column_name, [@profile, @database, foreign_key.table, foreign_key.column] %>
+        </td>
+        <td class="text-nowrap text-right">
+          <%= bb_edit_btn [:edit, @profile, @database, @table, foreign_key], :mini %>
+          <%= bb_destroy_btn [@profile, @database, @table, foreign_key], :mini %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+<% end %>

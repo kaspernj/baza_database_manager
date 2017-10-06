@@ -1,0 +1,35 @@
+<% content_for(:header_title) { t(".execute_sql") } %>
+<%= render "form" %>
+<%= bb_table do %>
+  <% count = 0 %>
+  <% @query.each do |row| %>
+    <% count += 1 %>
+    <% if count == 1 %>
+      <thead>
+        <tr>
+          <% row.each_key do |key| %>
+            <th>
+              <%= key %>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    <% end %>
+    <tr>
+      <% row.each_value do |value| %>
+        <td>
+          <%= value %>
+        </td>
+      <% end %>
+    </tr>
+    <% if count >= 30 %>
+      <tr>
+        <td colspan="<%= row.length %>">
+          <%= t(".query_was_interruped_after_30_results") %>
+        </td>
+      </tr>
+      <% break %>
+    <% end %>
+  <% end %>
+<% end %>
