@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :profiles do
     resources :databases do
+      resources :copies, controller: "databases/copies", only: [:new, :create]
       resources :exports
       resources :imports, only: [:new, :create]
       resources :tables, except: :index do

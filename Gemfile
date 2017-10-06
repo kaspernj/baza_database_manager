@@ -8,9 +8,7 @@ gem "baza_migrations", "0.0.2"
 gem "baza_models", "0.0.9"
 gem "bootstrap_builders", "0.0.30"
 gem "cancancan", "1.15.0"
-gem "coffee-rails", "~> 4.1.0"
 gem "devise"
-gem "jquery-rails"
 gem "mysql", "2.9.1"
 gem "mysql2", "0.4.5"
 gem "pg", "0.19.0"
@@ -20,7 +18,6 @@ gem "ransack", "1.8.2"
 gem "sass-rails", "~> 5.0"
 gem "simple_form", "3.3.1"
 gem "sqlite3", "1.3.12"
-gem "twitter-bootstrap-rails"
 gem "will_paginate", "3.1.5"
 
 group :development, :test do
@@ -39,8 +36,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "spring", "2.0.1"
-  gem "spring-commands-rails_server", "0.0.1"
-  gem "spring-commands-rspec", "1.0.4"
-  gem "spring-commands-rubocop", "0.2.0"
+  gem "spring", "2.0.1", require: false
+  gem "spring-commands-rails_server", "0.0.1", require: false
+  gem "spring-commands-rspec", "1.0.4", require: false
 end

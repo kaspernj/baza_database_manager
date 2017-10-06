@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -9,6 +10,9 @@
         BazaDatabaseManager
       <% end %>
     </title>
+
+    <%= render "/layouts/assets" %>
+
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application", defer: true %>
     <%= favicon_link_tag "favicon.png", type: "image/png" %>
@@ -51,7 +55,7 @@
     </nav>
     <div class="container">
       <div class="starter-template">
-        <%= bootstrap_flash %>
+        <%= bb_flash %>
         <% if @profile %>
           <%= bb_panel t(".sitemap"), table: true, class: "layout-sitemap" do %>
             <tbody>
