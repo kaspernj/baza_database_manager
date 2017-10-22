@@ -11,10 +11,13 @@ git clone https://github.com/kaspernj/baza_database_manager.git
 cd baza_database_manager
 bundle
 bundle exec rake baza:db:migrate
+bundle exec rake db:seed
 bundle exec rails s
 ```
 
 Go to `http://localhost:300` in your browser.
+
+Log in with "admin@example.com" with password "admin".
 
 
 This README would normally document whatever steps are necessary to get the
