@@ -50,7 +50,7 @@
           </td>
         <% end %>
         <td class="text-right">
-          <% if row.id.present? && can?(:edit, Baza::Row) %>
+          <% if row.data.key?(:id) && row.id.present? && can?(:edit, Baza::Row) %>
             <%= bb_edit_btn [:edit, @profile, @database, @table, :row, id: row.id], mini: true, can: Baza::Row %>
             <%= bb_destroy_btn [@profile, @database, @table, :row, id: row.id], mini: true, can: Baza::Row %>
           <% end %>
