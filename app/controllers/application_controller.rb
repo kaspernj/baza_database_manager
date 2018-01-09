@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   include AwesomeTranslations::ControllerTranslateFunctionality
 
+  before_action do
+    puts "URL: #{url_for}"
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -94,7 +98,7 @@ private
   def can_can_access_denied
     if signed_in?
       flash[:error] = controller_t(".you_dont_have_access_to_that_page")
-      redirect_to :back
+      redirect_to :root
     else
       flash[:notice] = controller_t(".please_sign_in_first")
       session[:user_return_to] = request.original_url
