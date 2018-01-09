@@ -16,10 +16,6 @@ class ForeignKeysController < ApplicationController
   def create
     with_db do
       begin
-        local_column = @table.column(foreign_key_params[:local_column_name])
-        table = @db.tables[foreign_key_params[:table_name]]
-        column = table.column(foreign_key_params[:column_name])
-
         local_column.create_foreign_key(
           name: foreign_key_params[:name],
           column: column
@@ -54,5 +50,17 @@ private
 
   def foreign_key_params
     params.require(:foreign_key).permit(:name, :local_column_name, :table_name, :column_name)
+  end
+
+  def local_column
+    @table.column(foreign_key_params[:local_column_name])
+  end
+
+  def table
+    @db.tables[foreign_key_params[:table_name]]
+  end
+
+  def column
+    table.column(foreign_key_params[:column_name])
   end
 end

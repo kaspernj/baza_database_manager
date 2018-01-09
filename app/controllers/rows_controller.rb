@@ -64,7 +64,7 @@ private
       type = filter_data.fetch(:type)
       value = filter_data.fetch(:value)
 
-      next if !column.present? || !type.present? || !value.present?
+      next if column.blank? || type.blank? || value.blank?
       next unless ALLOWED_FILTERS.include?(type)
 
       sql = "#{@db.sep_table}#{@db.escape_table(@table.name)}#{@db.sep_table}"
