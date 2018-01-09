@@ -1,14 +1,3 @@
-PATH
-  remote: /home/dev/Ruby/baza_models
-  specs:
-    baza_models (0.0.10)
-      array_enumerator (>= 0.0.10)
-      auto_autoloader (>= 0.0.1)
-      baza (~> 0.0.21)
-      html_gen (>= 0.0.12)
-      simple_delegate (>= 0.0.2)
-      string-cases (>= 0.0.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,6 +70,13 @@ GEM
       auto_autoloader
       baza (~> 0.0.20)
       string-cases (~> 0.0.1)
+    baza_models (0.0.11)
+      array_enumerator (>= 0.0.10)
+      auto_autoloader (>= 0.0.1)
+      baza (~> 0.0.21)
+      html_gen (>= 0.0.12)
+      simple_delegate (>= 0.0.2)
+      string-cases (>= 0.0.3)
     bcrypt (3.1.11)
     best_practice_project (0.0.10)
       auto_autoloader (>= 0.0.5)
@@ -293,7 +289,7 @@ DEPENDENCIES
   awesome_translations (= 0.0.53)
   baza (= 0.0.30)
   baza_migrations (= 0.0.2)
-  baza_models!
+  baza_models (= 0.0.11)
   best_practice_project (= 0.0.10)
   bootstrap_builders (= 0.0.61)
   cancancan (= 2.1.2)
