@@ -61,7 +61,7 @@ class ExportsController < ApplicationController
         redirect_to [@profile, @database]
       else
         flash[:error] = @export.errors.full_messages.join(". ")
-        redirect_to :back
+        redirect_back(fallback_location: :root)
       end
     end
   end

@@ -41,10 +41,7 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    unless @profile.destroy
-      flash[:error] = @profile.errors.full_messages.join(". ")
-    end
-
+    flash[:error] = @profile.errors.full_messages.join(". ") unless @profile.destroy
     redirect_to :profiles
   end
 
@@ -56,6 +53,6 @@ private
 
   def assign_driver_options
     return unless params[:database_options]
-    @profile.connect_options = YAML.dump(params[:database_options].to_hash)
+    @profile.connect_options = YAML.dump(params[:database_options].permit!.to_hash)
   end
 end

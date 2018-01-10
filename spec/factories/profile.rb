@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :profile do
     sequence(:name) { |n| "Profile #{n}" }
     database_type "sqlite3"

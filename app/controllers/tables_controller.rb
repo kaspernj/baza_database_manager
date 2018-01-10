@@ -54,8 +54,8 @@ private
 
   def columns
     columns = []
-    params[:columns].each_value do |column_data|
-      next unless column_data.fetch(:name).present?
+    params[:columns].each do |_column_key, column_data| # rubocop:disable Performance/HashEachMethods
+      next if column_data.fetch(:name).blank?
 
       column = {
         name: column_data.fetch(:name),
