@@ -1,4 +1,5 @@
 <% content_for(:header_title_only) { t(".show_database", name: @database.name) } %>
+
 <%= bb_panel t(".show_database", name: @database.name), table: true do |panel| %>
   <% panel.controls << bb_btn([:new, @profile, @database, :export, export: {database_name: @database.name, driver_for_export: @profile.database_type}], :mini, can: Export, icon: "download") %>
   <% panel.controls << bb_btn([:new, @profile, @database, :import], :mini, icon: "upload") %>
@@ -13,5 +14,30 @@
         <%= @database.name %>
       </td>
     </tr>
+  </tbody>
+<% end %>
+
+<%= bb_panel t("shared.tables"), :table do %>
+  <thead>
+    <tr>
+      <th>
+        <%= t("shared.name") %>
+      </th>
+      <th class="text-right">
+        <%= t("shared.rows") %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @database.tables.each do |table| %>
+      <tr>
+        <td>
+          <%= table.name %>
+        </td>
+        <td class="text-right">
+          <%= table.rows_count rescue "Error" %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 <% end %>
