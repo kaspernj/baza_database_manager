@@ -94,7 +94,7 @@ private
   def can_can_access_denied
     if signed_in?
       flash[:error] = controller_t(".you_dont_have_access_to_that_page")
-      redirect_to :back
+      redirect_to :root
     else
       flash[:notice] = controller_t(".please_sign_in_first")
       session[:user_return_to] = request.original_url

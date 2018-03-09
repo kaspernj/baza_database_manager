@@ -7,7 +7,7 @@ class DatabasesController < ApplicationController
 
       redirect_to [@profile, @databases.first] if !@db.supports_multiple_databases? && @databases.length == 1
     end
-  rescue => e
+  rescue => e # rubocop:disable Style/RescueStandardError
     flash[:error] = "#{e.class.name}: #{e.message}"
     redirect_to @profile
   end

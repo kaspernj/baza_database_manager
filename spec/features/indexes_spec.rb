@@ -54,7 +54,7 @@ describe IndexesController do
     expect(current_path).to eq profile_database_table_index_path(profile, db, table, "new_name_index")
 
     renamed_index = table.index("new_name_index")
-    expect(renamed_index.columns).to eq %w(name id)
+    expect(renamed_index.columns).to eq %w[name id]
   end
 
   it "#destroy" do
