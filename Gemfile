@@ -8,6 +8,7 @@ gem "baza_migrations", "0.0.2"
 gem "baza_models", "0.0.12"
 gem "bootstrap_builders", "0.0.61"
 gem "cancancan", "2.1.2"
+gem "coffee-script", "2.4.1", require: false
 gem "devise", "4.4.0"
 gem "mysql", "2.9.1"
 gem "mysql2", "0.4.10"
