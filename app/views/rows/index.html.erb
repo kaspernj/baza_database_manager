@@ -1,8 +1,10 @@
 <% content_for(:header_title) { t(".rows_for_table", table_name: @table.name) } %>
+
 <% content_for(:header_right) do %>
   <%= bb_new_btn [:new, @profile, @database, @table, :row], can: Baza::Row, mini: true %>
   <%= bb_show_btn [@profile, @database, @table], mini: true, label: t(".table") %>
 <% end %>
+
 <%= bb_panel t("filter") do %>
   <div class="rows-filter">
     <%= simple_form_for :filter, url: [@profile, @database, @table, :rows], method: :get do |f| %>
@@ -25,9 +27,9 @@
     <% end %>
   </div>
 <% end %>
-<h2>
-  <%= t("list") %>
-</h2>
+
+<h2><%= t("list") %></h2>
+
 <%= bb_table do %>
   <thead>
     <tr>
@@ -59,3 +61,5 @@
     <% end %>
   </tbody>
 <% end %>
+
+<%= will_paginate @query %>
