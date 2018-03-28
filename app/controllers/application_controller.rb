@@ -12,6 +12,7 @@ private
   def with_db
     args = {debug: false}
     args[:db] = params[:database_id] if params[:database_id]
+    args[:db] = params[:id] if params[:id].present? && controller_name == "databases" && action_name == "show"
 
     @profile.with_db(args) do |db|
       @db = db
