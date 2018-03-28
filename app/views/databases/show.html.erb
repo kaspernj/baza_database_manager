@@ -4,14 +4,27 @@
   <% panel.controls << bb_btn([:new, @profile, @database, :import], :mini, icon: "upload") %>
   <% panel.controls << bb_btn([:new, @profile, @database, :sql_execution], title: t(".execute_sql"), icon: "retweet", mini: true) %>
   <% panel.controls << bb_edit_btn([:edit, @profile, @database], mini: true) %>
-  <tbody>
+
+  <thead>
     <tr>
       <th>
-        <%= t("name") %>
+        <%= t("shared.name") %>
       </th>
-      <td>
-        <%= @database.name %>
-      </td>
+      <th class="text-right">
+        <%= t("shared.rows") %>
+      </th>
     </tr>
+  </thead>
+  <tbody>
+    <% @database.tables.each do |table| %>
+      <tr>
+        <td>
+          <%= table.name %>
+        </td>
+        <td class="text-right">
+          <%= number_with_delimiter(table.rows_count) %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 <% end %>
