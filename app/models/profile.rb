@@ -9,6 +9,7 @@ class Profile < BazaModels::Model
       types[driver.fetch(:camel_name)] = driver.fetch(:snake_name)
     end
 
+    types.delete("Mysql")
     types
   end
 
