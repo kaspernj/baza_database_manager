@@ -1,9 +1,8 @@
 source "https://rubygems.org"
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "auto_autoloader", "0.0.5"
-gem "awesome_translations", "0.0.53"
-gem "baza", "0.0.32"
+gem "awesome_translations", "0.0.54"
+gem "baza", "0.0.33"
 gem "baza_migrations", "0.0.2"
 gem "baza_models", "0.0.12"
 gem "bootstrap_builders", "0.0.61"

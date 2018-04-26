@@ -1,0 +1,6 @@
+---
+da:
+  databases:
+    show:
+      show_database: 'Vis database: %{name}'
+      execute_sql: Kør SQL

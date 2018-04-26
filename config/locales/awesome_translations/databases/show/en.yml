@@ -1,0 +1,6 @@
+---
+en:
+  databases:
+    show:
+      show_database: 'Show database: %{name}'
+      execute_sql: Execute SQL
