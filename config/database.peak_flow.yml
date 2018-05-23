@@ -1,6 +1,6 @@
 test:
   adapter: mysql2
   encoding: utf8
-  database: shippa
+  database: peak_flow_test
   pool: 5
-  username: shippa
+  username: peak_flow
