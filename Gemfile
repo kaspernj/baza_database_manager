@@ -5,6 +5,7 @@ gem "awesome_translations", "0.0.54"
 gem "baza", "0.0.33"
 gem "baza_migrations", "0.0.2"
 gem "baza_models", "0.0.12"
+gem "bootsnap", "1.3.0"
 gem "bootstrap_builders", "0.0.61"
 gem "cancancan", "2.1.2"
 gem "coffee-rails", "4.2.2", require: false
@@ -31,10 +32,4 @@ group :development, :test do
   gem "rubocop", "0.52.1", require: false
   gem "scss_lint", "0.56.0", require: false
   gem "sdoc", "~> 0.4.0", group: :doc
-end
-
-group :development do
-  gem "spring", "2.0.2", require: false
-  gem "spring-commands-rails_server", "0.0.2", require: false
-  gem "spring-commands-rspec", "1.0.4", require: false
 end
