@@ -1,5 +1,3 @@
-[![Build Status](https://img.shields.io/shippable/5676f3b41895ca447466ade8.svg)](https://app.shippable.com/projects/5676f3b41895ca447466ade8/builds/latest)
-
 # README
 
 A database management tool written in Ruby on Rails with Bootstrap for the UI and Baza as the framework for communicating with the databases.
