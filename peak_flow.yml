@@ -1,0 +1,7 @@
+script:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS peak_flow_test;'
+  - cp config/database.peak_flow.yml config/database.yml
+  - RAILS_ENV=test bundle exec rake db:schema:load
+  - RAILS_ENV=test bundle exec rake baza:db:migrate
+  - bundle exec rspec
+  - bundle exec rake best_practice_project:run

@@ -1,0 +1,4 @@
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: peak_flow_test
