@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
 
 private
 
+  helper_method :current_path_with_params
+  def current_path_with_params(args = {})
+    url_for(request.query_parameters.merge(args))
+  end
+
   def with_db
     args = {debug: false}
     args[:db] = params[:database_id] if params[:database_id]

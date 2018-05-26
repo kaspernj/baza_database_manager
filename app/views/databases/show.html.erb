@@ -14,6 +14,7 @@
       <th class="text-right">
         <%= t("shared.rows") %>
       </th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -25,30 +26,9 @@
         <td class="text-right">
           <%= number_with_delimiter(table.rows_count) %>
         </td>
-      </tr>
-    <% end %>
-  </tbody>
-<% end %>
-
-<%= bb_panel t("shared.tables"), :table do %>
-  <thead>
-    <tr>
-      <th>
-        <%= t("shared.name") %>
-      </th>
-      <th class="text-right">
-        <%= t("shared.rows") %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @database.tables.each do |table| %>
-      <tr>
-        <td>
-          <%= table.name %>
-        </td>
-        <td class="text-right">
-          <%= table.rows_count rescue "Error" %>
+        <td class="text-nowrap text-right">
+          <%= bb_edit_btn([:edit, @profile, @database, table, redirect_to: current_path_with_params], :mini, can: @table) %>
+          <%= bb_destroy_btn([@profile, @database, table, redirect_to: current_path_with_params], :mini, can: @table) %>
         </td>
       </tr>
     <% end %>

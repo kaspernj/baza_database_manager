@@ -1,5 +1,8 @@
 <%= simple_form_for :table, method: @table ? "patch" : "post", url: @table ? [@profile, @database, @table] : [@profile, @database, :tables] do |f| %>
+  <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
+
   <%= f.input :name, autofocus: true, input_html: {value: @table.try(:name)} %>
+
   <%= simple_fields_for :columns do |f_columns| %>
     <% (@table.try(:columns).try(:count) || 2).times do |count| %>
       <h4>
@@ -29,5 +32,6 @@
       </div>
     <% end %>
   <% end %>
+
   <%= f.button :submit %>
 <% end %>
