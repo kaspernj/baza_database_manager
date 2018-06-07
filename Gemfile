@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "auto_autoloader", "0.0.5"
 gem "awesome_translations", "0.0.54"
-gem "baza", "0.0.33"
+gem "baza", "0.0.35"
 gem "baza_migrations", "0.0.2"
 gem "baza_models", "0.0.12"
 gem "bootsnap", "1.3.0"

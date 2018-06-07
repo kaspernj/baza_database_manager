@@ -40,7 +40,11 @@ class DatabasesController < ApplicationController
 
   def update
     with_db do
-      @database.rename(params[:database][:name]) unless params[:database][:name] == @database.name
+      unless params[:database][:name] == @database.name
+        @database.name = params[:database][:name]
+        @database.save!
+      end
+
       redirect_to [@profile, @database]
     end
   end
