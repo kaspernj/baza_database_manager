@@ -19,6 +19,7 @@ gem "sass-rails", "5.0.7"
 gem "simple_form", "3.5.0"
 gem "sprockets-es6", "0.9.2"
 gem "sqlite3", "1.3.13"
+gem "tzinfo-data"
 gem "will_paginate", "3.1.6"
 
 group :development, :test do
