@@ -13,15 +13,15 @@ GIT
 
 GIT
   remote: https://github.com/kaspernj/baza_models.git
-  revision: 4892011fe558282e2f7da7a4af5a078412ff818d
+  revision: 8d72703c42e361e3677abaa11cab20eeb7a4e58b
   specs:
-    baza_models (0.0.12)
-      array_enumerator (>= 0.0.10)
-      auto_autoloader (>= 0.0.1)
-      baza (~> 0.0.31)
-      html_gen (>= 0.0.12)
-      simple_delegate (>= 0.0.2)
-      string-cases (>= 0.0.3)
+    baza_models (0.0.13)
+      array_enumerator
+      auto_autoloader
+      baza
+      html_gen
+      simple_delegate
+      string-cases
 
 GEM
   remote: https://rubygems.org/
