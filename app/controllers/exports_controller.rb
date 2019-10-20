@@ -46,7 +46,7 @@ class ExportsController < ApplicationController
 
   def update
     with_db do
-      if @export.update_attributes(export_params)
+      if @export.update(export_params)
         redirect_to [@profile, @database, @export]
       else
         flash[:error] = @export.errors.full_messages.join(". ")

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :profile do
     sequence(:name) { |n| "Profile #{n}" }
-    database_type "sqlite3"
+    database_type { "sqlite3" }
     connect_options do |profile|
       tempfile = Tempfile.new([profile.name, ".sqlite3"])
       path = tempfile.path

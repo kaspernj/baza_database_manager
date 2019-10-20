@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe ProfilesController do
+describe "profiles" do
   let(:user) { create :user }
   let(:profile) { create :profile }
 
@@ -12,19 +12,19 @@ describe ProfilesController do
     it "#index" do
       visit profiles_path
       expect(page).to have_http_status(:success)
-      expect(current_path).to eq profiles_path
+      expect(page).to have_current_path profiles_path, ignore_query: true
     end
 
     it "#show" do
       visit profile_path(profile)
       expect(page).to have_http_status(:success)
-      expect(current_path).to eq profile_path(profile)
+      expect(page).to have_current_path profile_path(profile), ignore_query: true
     end
 
     it "#new" do
       visit new_profile_path
       expect(page).to have_http_status(:success)
-      expect(current_path).to eq new_profile_path
+      expect(page).to have_current_path new_profile_path, ignore_query: true
     end
 
     it "#create" do
@@ -42,7 +42,7 @@ describe ProfilesController do
     it "#edit" do
       visit edit_profile_path(profile)
       expect(page).to have_http_status(:success)
-      expect(current_path).to eq edit_profile_path(profile)
+      expect(page).to have_current_path edit_profile_path(profile), ignore_query: true
     end
 
     it "#update" do
@@ -65,6 +65,6 @@ describe ProfilesController do
   it "redirects to sign in if access is denied" do
     visit profile_path(profile)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq new_user_session_path
+    expect(page).to have_current_path new_user_session_path, ignore_query: true
   end
 end
