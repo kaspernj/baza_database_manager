@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe ColumnsController do
+describe "columns" do
   let!(:user) { create :user }
   let!(:profile) { create :profile }
   let(:db_inst) { profile.database_instance }
@@ -15,13 +15,13 @@ describe ColumnsController do
   it "#show" do
     visit profile_database_table_column_path(profile, db, table, column)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq profile_database_table_column_path(profile, db, table, column)
+    expect(page).to have_current_path profile_database_table_column_path(profile, db, table, column), ignore_query: true
   end
 
   it "#new" do
     visit new_profile_database_table_column_path(profile, db, table)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq new_profile_database_table_column_path(profile, db, table)
+    expect(page).to have_current_path new_profile_database_table_column_path(profile, db, table), ignore_query: true
   end
 
   it "#create" do
@@ -36,13 +36,13 @@ describe ColumnsController do
     expect(new_column.type).to eq :varchar
 
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq profile_database_table_column_path(profile, db, table, new_column)
+    expect(page).to have_current_path profile_database_table_column_path(profile, db, table, new_column), ignore_query: true
   end
 
   it "#edit" do
     visit edit_profile_database_table_column_path(profile, db, table, column)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq edit_profile_database_table_column_path(profile, db, table, column)
+    expect(page).to have_current_path edit_profile_database_table_column_path(profile, db, table, column), ignore_query: true
   end
 
   it "#update" do
@@ -55,7 +55,7 @@ describe ColumnsController do
     expect(changed_column.name).to eq "new_id"
 
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq profile_database_table_column_path(profile, db, table, changed_column)
+    expect(page).to have_current_path profile_database_table_column_path(profile, db, table, changed_column), ignore_query: true
   end
 
   it "#destroy" do

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe DatabasesController do
+describe "databases" do
   let!(:user) { create :user }
   let!(:profile) { create :profile }
   let(:db_inst) { profile.database_instance }
@@ -16,33 +16,24 @@ describe DatabasesController do
     expect(page).to have_http_status(:success)
 
     # Should redirect because SQLite3 doesn't support multiple databases
-    expect(current_path).to eq profile_database_path(profile, db)
+    expect(page).to have_current_path profile_database_path(profile, db), ignore_query: true
   end
 
   it "#show" do
     visit profile_database_path(profile, db)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq profile_database_path(profile, db)
+    expect(page).to have_current_path profile_database_path(profile, db), ignore_query: true
   end
 
   it "#new" do
     visit new_profile_database_path(profile)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq new_profile_database_path(profile)
-  end
-
-  it "#create" do
+    expect(page).to have_current_path new_profile_database_path(profile), ignore_query: true
   end
 
   it "#edit" do
     visit edit_profile_database_path(profile, db)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq edit_profile_database_path(profile, db)
-  end
-
-  it "#update" do
-  end
-
-  it "#destroy" do
+    expect(page).to have_current_path edit_profile_database_path(profile, db), ignore_query: true
   end
 end

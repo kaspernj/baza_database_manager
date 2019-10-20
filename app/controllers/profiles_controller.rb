@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
   def update
     assign_driver_options
 
-    if @profile.update_attributes(profile_params)
+    if @profile.update(profile_params)
       redirect_to @profile
     else
       flash[:error] = @profile.errors.full_messages.join(". ")
@@ -53,6 +53,7 @@ private
 
   def assign_driver_options
     return unless params[:database_options]
+
     @profile.connect_options = YAML.dump(params[:database_options].permit!.to_hash)
   end
 end

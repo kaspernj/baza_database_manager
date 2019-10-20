@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe ImportsController do
+describe "imports" do
   let(:db) { db_inst.databases["Main"] }
   let(:db_inst) { profile.database_instance }
   let(:profile) { create :profile }
@@ -14,7 +14,7 @@ describe ImportsController do
       visit new_profile_database_path(profile, db)
 
       expect(page).to have_http_status :success
-      expect(current_path).to eq new_profile_database_path(profile, db)
+      expect(page).to have_current_path new_profile_database_path(profile, db), ignore_query: true
     end
   end
 
@@ -29,7 +29,7 @@ describe ImportsController do
       find("input[type=submit]").click
 
       expect(page).to have_http_status :success
-      expect(current_path).to eq profile_database_path(profile, db)
+      expect(page).to have_current_path profile_database_path(profile, db), ignore_query: true
     end
   end
 end

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe TablesController do
+describe "tables" do
   let!(:user) { create :user }
   let!(:profile) { create :profile }
   let(:db_inst) { profile.database_instance }
@@ -14,13 +14,13 @@ describe TablesController do
   it "#show" do
     visit profile_database_table_path(profile, db, table)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq profile_database_table_path(profile, db, table)
+    expect(page).to have_current_path profile_database_table_path(profile, db, table), ignore_query: true
   end
 
   it "#new" do
     visit new_profile_database_table_path(profile, db)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq new_profile_database_table_path(profile, db)
+    expect(page).to have_current_path new_profile_database_table_path(profile, db), ignore_query: true
   end
 
   it "#create" do
@@ -31,13 +31,13 @@ describe TablesController do
     find("#columns_column_0_type").select("int")
     find("form.table input[type=submit]").click
 
-    expect(current_path).to eq profile_database_table_path(profile, db, "new_table")
+    expect(page).to have_current_path profile_database_table_path(profile, db, "new_table"), ignore_query: true
   end
 
   it "#edit" do
     visit edit_profile_database_table_path(profile, db, table)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq edit_profile_database_table_path(profile, db, table)
+    expect(page).to have_current_path edit_profile_database_table_path(profile, db, table), ignore_query: true
 
     expect(find("#table_name").value).to eq "test_table"
     expect(find("#columns_column_0_name").value).to eq "id"
@@ -56,7 +56,7 @@ describe TablesController do
     new_column = new_table.column("new_id")
     expect(new_column.name).to eq "new_id"
 
-    expect(current_path).to eq profile_database_table_path(profile, db, "new_name")
+    expect(page).to have_current_path profile_database_table_path(profile, db, "new_name"), ignore_query: true
   end
 
   it "#destroy" do

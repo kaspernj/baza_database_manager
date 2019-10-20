@@ -23,7 +23,7 @@ gem "tzinfo-data"
 gem "will_paginate"
 
 group :development, :test do
-  gem "best_practice_project"
+  gem "best_practice_project", git: "https://github.com/kaspernj/best_practice_project.git"
   gem "capybara"
   gem "factory_bot_rails"
   gem "forgery"
@@ -31,5 +31,8 @@ group :development, :test do
   gem "rails_best_practices", require: false
   gem "rspec-rails"
   gem "rubocop", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
   gem "scss_lint", require: false
 end
