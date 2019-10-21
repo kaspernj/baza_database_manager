@@ -13,7 +13,7 @@ describe "databases" do
 
   it "#index" do
     visit profile_databases_path(profile)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
 
     # Should redirect because SQLite3 doesn't support multiple databases
     expect(page).to have_current_path profile_database_path(profile, db), ignore_query: true
@@ -21,19 +21,19 @@ describe "databases" do
 
   it "#show" do
     visit profile_database_path(profile, db)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path profile_database_path(profile, db), ignore_query: true
   end
 
   it "#new" do
     visit new_profile_database_path(profile)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path new_profile_database_path(profile), ignore_query: true
   end
 
   it "#edit" do
     visit edit_profile_database_path(profile, db)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path edit_profile_database_path(profile, db), ignore_query: true
   end
 end

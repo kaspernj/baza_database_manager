@@ -14,7 +14,7 @@ describe "exports" do
 
       visit profile_database_export_path(profile, db, export)
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path profile_database_export_path(profile, db, export), ignore_query: true
     end
 
@@ -23,9 +23,9 @@ describe "exports" do
 
       visit profile_database_export_path(profile, db, export, format: :sql)
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path profile_database_export_path(profile, db, export, format: :sql), ignore_query: true
-      expect(page.response_headers["Content-Disposition"]).to eq "attachment; filename=\"Main.sql.gz\""
+      expect(page.response_headers["Content-Disposition"]).to eq "attachment; filename=\"Main.sql.gz\"; filename*=UTF-8''Main.sql.gz"
     end
   end
 
@@ -35,7 +35,7 @@ describe "exports" do
 
       visit new_profile_database_export_path(profile, db)
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path new_profile_database_export_path(profile, db), ignore_query: true
     end
   end
@@ -52,7 +52,7 @@ describe "exports" do
 
       created_export = Export.last
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path profile_database_export_path(profile, db, created_export), ignore_query: true
     end
   end
@@ -63,7 +63,7 @@ describe "exports" do
 
       visit edit_profile_database_export_path(profile, db, export)
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path edit_profile_database_export_path(profile, db, export), ignore_query: true
     end
   end
@@ -76,7 +76,7 @@ describe "exports" do
 
       find("input[type=submit]").click
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path profile_database_export_path(profile, db, export), ignore_query: true
     end
   end
@@ -91,7 +91,7 @@ describe "exports" do
         find(".btn-danger").click
       end.to change(Export, :count).by(-1)
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path profile_database_path(profile, db), ignore_query: true
     end
   end
