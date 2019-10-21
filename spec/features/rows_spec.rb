@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe RowsController do
+describe "rows" do
   let!(:user) { create :user }
   let!(:profile) { create :profile }
   let(:db_inst) { profile.database_instance }
@@ -18,19 +18,19 @@ describe RowsController do
   it "#index" do
     visit profile_database_table_rows_path(profile, db, table)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq profile_database_table_rows_path(profile, db, table)
+    expect(page).to have_current_path profile_database_table_rows_path(profile, db, table), ignore_query: true
   end
 
   it "#show" do
     visit profile_database_table_row_path(profile, db, table, row)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq profile_database_table_row_path(profile, db, table, row)
+    expect(page).to have_current_path profile_database_table_row_path(profile, db, table, row), ignore_query: true
   end
 
   it "#new" do
     visit new_profile_database_table_row_path(profile, db, table)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq new_profile_database_table_row_path(profile, db, table)
+    expect(page).to have_current_path new_profile_database_table_row_path(profile, db, table), ignore_query: true
   end
 
   # it "#create" do
@@ -40,7 +40,7 @@ describe RowsController do
   it "#edit" do
     visit edit_profile_database_table_row_path(profile, db, table, row)
     expect(page).to have_http_status(:success)
-    expect(current_path).to eq edit_profile_database_table_row_path(profile, db, table, row)
+    expect(page).to have_current_path edit_profile_database_table_row_path(profile, db, table, row), ignore_query: true
   end
 
   # it "#destroy" do

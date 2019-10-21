@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= "test"
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "spec_helper"
@@ -49,7 +49,7 @@ RSpec.configure do |config|
     Warden.test_mode!
   end
 
-  config.before(:each) do
+  config.before do
     Capybara.reset_sessions!
     Warden.test_reset!
     BazaModels::TestDatabaseCleaner.clean
