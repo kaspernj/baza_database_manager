@@ -13,7 +13,7 @@ describe "imports" do
 
       visit new_profile_database_path(profile, db)
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path new_profile_database_path(profile, db), ignore_query: true
     end
   end
@@ -28,7 +28,7 @@ describe "imports" do
 
       find("input[type=submit]").click
 
-      expect(page).to have_http_status :success
+      expect(page).to have_http_status(:ok)
       expect(page).to have_current_path profile_database_path(profile, db), ignore_query: true
     end
   end

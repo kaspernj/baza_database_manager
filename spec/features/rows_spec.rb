@@ -17,19 +17,19 @@ describe "rows" do
 
   it "#index" do
     visit profile_database_table_rows_path(profile, db, table)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path profile_database_table_rows_path(profile, db, table), ignore_query: true
   end
 
   it "#show" do
     visit profile_database_table_row_path(profile, db, table, row)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path profile_database_table_row_path(profile, db, table, row), ignore_query: true
   end
 
   it "#new" do
     visit new_profile_database_table_row_path(profile, db, table)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path new_profile_database_table_row_path(profile, db, table), ignore_query: true
   end
 
@@ -39,7 +39,7 @@ describe "rows" do
 
   it "#edit" do
     visit edit_profile_database_table_row_path(profile, db, table, row)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path edit_profile_database_table_row_path(profile, db, table, row), ignore_query: true
   end
 

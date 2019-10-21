@@ -13,13 +13,13 @@ describe "tables" do
 
   it "#show" do
     visit profile_database_table_path(profile, db, table)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path profile_database_table_path(profile, db, table), ignore_query: true
   end
 
   it "#new" do
     visit new_profile_database_table_path(profile, db)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path new_profile_database_table_path(profile, db), ignore_query: true
   end
 
@@ -36,7 +36,7 @@ describe "tables" do
 
   it "#edit" do
     visit edit_profile_database_table_path(profile, db, table)
-    expect(page).to have_http_status(:success)
+    expect(page).to have_http_status(:ok)
     expect(page).to have_current_path edit_profile_database_table_path(profile, db, table), ignore_query: true
 
     expect(find("#table_name").value).to eq "test_table"
