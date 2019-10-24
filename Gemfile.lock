@@ -23,13 +23,6 @@ GIT
       simple_delegate
       string-cases
 
-GIT
-  remote: https://github.com/kaspernj/best_practice_project.git
-  revision: b3e009139e4cd5c0cf5801ae3de0a54bd46bfe4c
-  specs:
-    best_practice_project (0.0.11)
-      auto_autoloader (>= 0.0.5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -116,6 +109,8 @@ GEM
       baza (~> 0.0.20)
       string-cases (~> 0.0.1)
     bcrypt (3.1.13)
+    best_practice_project (0.0.11)
+      auto_autoloader (>= 0.0.5)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     bootstrap_builders (0.0.61)
@@ -352,7 +347,7 @@ DEPENDENCIES
   baza!
   baza_migrations
   baza_models!
-  best_practice_project!
+  best_practice_project
   bootsnap
   bootstrap_builders
   cancancan
