@@ -23,7 +23,7 @@ gem "tzinfo-data"
 gem "will_paginate"
 
 group :development, :test do
-  gem "best_practice_project", git: "https://github.com/kaspernj/best_practice_project.git"
+  gem "best_practice_project"
   gem "capybara"
   gem "factory_bot_rails"
   gem "forgery"
