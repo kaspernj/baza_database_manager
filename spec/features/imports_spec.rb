@@ -24,7 +24,7 @@ describe "imports" do
 
       visit new_profile_database_import_path(profile, db)
 
-      attach_file "File", Rails.root.join("spec", "test_files", "test.sql")
+      attach_file "File", Rails.root.join("spec/test_files/test.sql")
 
       find("input[type=submit]").click
 
