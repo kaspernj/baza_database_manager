@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kaspernj/baza.git
-  revision: 24a17d06503357355b47c43cc2abe7fa13673788
+  revision: e6470ec7c3b1631fb03d0f76db55a8a700e0a4a4
   specs:
     baza (0.0.36)
       array_enumerator (~> 0.0.10)
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/kaspernj/baza_models.git
-  revision: 316a29fb31bbe5443909b78ec87b7aff975fa436
+  revision: 9ad7e430bc454ac743976fd95127a4f9aa73db32
   specs:
     baza_models (0.0.13)
       array_enumerator
@@ -178,7 +178,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.13.0)
     msgpack (1.3.1)
-    mysql2 (0.5.2)
+    mysql2 (0.5.3)
     nio4r (2.5.2)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
@@ -267,7 +267,7 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
-    rubocop (0.76.0)
+    rubocop (0.77.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.6)
