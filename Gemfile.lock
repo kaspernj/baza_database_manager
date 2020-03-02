@@ -111,7 +111,7 @@ GEM
       auto_autoloader (>= 0.0.5)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    bootstrap_builders (0.0.61)
+    bootstrap_builders (1.0.4)
       html_gen (>= 0.0.16)
       rails (>= 4.0.0)
     builder (3.2.4)
