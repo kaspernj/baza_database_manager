@@ -300,7 +300,7 @@ GEM
       sass (~> 3.5, >= 3.5.5)
     sexp_processor (4.14.1)
     simple_delegate (0.0.2)
-    simple_form (5.0.1)
+    simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     sprockets (4.0.0)
