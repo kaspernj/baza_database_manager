@@ -1,7 +1,17 @@
 before_install:
   - gem install bundler -v 2.1.2
+rvm: true
+services:
+  mysql:
+    environment:
+      - MYSQL_USER=build
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=database-name
+    image: mysql:5.7.29
+    expose:
+      - 3306
 script:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS peak_flow_test;'
+  - mysql -h mysql -u build -Ppassword -e 'CREATE DATABASE IF NOT EXISTS peak_flow_test;'
   - cp config/database.peak_flow.yml config/database.yml
   - RAILS_ENV=test bundle exec rake db:schema:load
   - RAILS_ENV=test bundle exec rake baza:db:migrate
