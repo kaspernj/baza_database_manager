@@ -6,7 +6,7 @@ services:
     environment:
       - MYSQL_USER=build
       - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=database-name
+      - MYSQL_DATABASE=baza_database_manager_test
     image: mysql:5.7.29
     expose:
       - 3306
