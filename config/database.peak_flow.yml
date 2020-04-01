@@ -1,4 +1,7 @@
 test:
   adapter: mysql2
   encoding: utf8
-  database: peak_flow_test
+  host: mysql
+  username: build
+  password: password
+  database: baza_database_manager_test
