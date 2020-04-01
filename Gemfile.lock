@@ -115,7 +115,7 @@ GEM
       html_gen (>= 0.0.16)
       rails (>= 4.0.0)
     builder (3.2.4)
-    cancancan (3.0.2)
+    cancancan (3.1.0)
     capybara (3.32.0)
       addressable
       mini_mime (>= 0.1.3)
