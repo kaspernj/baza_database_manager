@@ -11,7 +11,6 @@ services:
     expose:
       - 3306
 script:
-  - mysql -h mysql -u build -Ppassword -e 'CREATE DATABASE IF NOT EXISTS peak_flow_test;'
   - cp config/database.peak_flow.yml config/database.yml
   - RAILS_ENV=test bundle exec rake db:schema:load
   - RAILS_ENV=test bundle exec rake baza:db:migrate
