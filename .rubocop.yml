@@ -25,8 +25,14 @@ Layout/EmptyLines:
 Layout/EmptyLinesAroundArguments:
   Enabled: false
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
 Layout/EndAlignment:
   EnforcedStyleAlignWith: variable
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
 
 Layout/LineLength:
   Max: 160
@@ -42,6 +48,15 @@ Layout/ParameterAlignment:
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
 
 Lint/RaiseException:
   Enabled: true
@@ -101,6 +116,18 @@ RSpec/NamedSubject:
 RSpec/NestedGroups:
   Enabled: false
 
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/ArrayCoercion:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/CaseLikeIf:
+  Enabled: true
+
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
@@ -110,6 +137,9 @@ Style/ConditionalAssignment:
 Style/Documentation:
   Enabled: false
 
+Style/ExponentialNotation:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -117,7 +147,13 @@ Style/FrozenStringLiteralComment:
 Style/GuardClause:
   Enabled: false
 
+Style/HashAsLastArrayItem:
+  Enabled: false
+
 Style/HashEachMethods:
+  Enabled: true
+
+Style/HashLikeCase:
   Enabled: true
 
 Style/HashTransformKeys:
@@ -135,6 +171,21 @@ Style/LambdaCall:
 Style/MultipleComparison:
   Enabled: false
 
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: true
+
 Style/RegexpLiteral:
   Enabled: false
 
@@ -149,6 +200,9 @@ Style/NilComparison:
 
 Style/SignalException:
   EnforcedStyle: only_raise
+
+Style/SlicingWithRange:
+  Enabled: true
 
 Style/SymbolArray:
   Enabled: false
