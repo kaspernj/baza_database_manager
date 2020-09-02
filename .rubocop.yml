@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - db/schema.rb
     - spec/dummy/db/schema.rb
+  NewCops: enable
 
 require:
   - rubocop-performance

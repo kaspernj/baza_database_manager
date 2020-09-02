@@ -7,7 +7,7 @@ describe "rows" do
   let(:table) { db_inst.tables["test_table"] }
   let(:db) { db_inst.databases["Main"] }
   let(:row) do
-    table.insert(id: 5, name: "Test")
+    table.insert(id: 5, name: "Test") # rubocop:disable Rails/SkipsModelValidations
     table.row(5)
   end
 
