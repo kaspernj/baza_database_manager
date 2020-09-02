@@ -55,16 +55,14 @@ class Profile < BazaModels::Model
     parsed_connect_options[option_name.to_s]
   end
 
-  def with_db(args = {})
+  def with_db(args = {}, &blk)
     db_args = {type: database_type}
       .merge(parsed_connect_options.symbolize_keys)
       .merge(args)
 
     db_args.delete(:pass) if db_args[:pass].blank?
 
-    Baza::Db.new(db_args) do |db|
-      yield db
-    end
+    Baza::Db.new(db_args, &blk)
   end
 
   def database_instance(args = {})
