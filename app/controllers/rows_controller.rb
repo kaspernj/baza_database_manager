@@ -28,7 +28,7 @@ class RowsController < ApplicationController
 
   def create
     with_db do
-      @table.insert(params[:row])
+      @table.insert(params[:row]) # rubocop:disable Rails/SkipsModelValidations
       redirect_to [@profile, @database, @table, :rows]
     end
   end
