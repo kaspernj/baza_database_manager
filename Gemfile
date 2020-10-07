@@ -20,6 +20,7 @@ gem "simple_form"
 gem "sprockets-es6"
 gem "sqlite3"
 gem "tzinfo-data"
+gem "webpacker"
 gem "will_paginate"
 
 group :development, :test do
