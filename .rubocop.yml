@@ -36,6 +36,9 @@ Layout/EndAlignment:
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
+Layout/SpaceBeforeBrackets:
+  Enabled: false
+
 Layout/LineLength:
   Max: 160
 
