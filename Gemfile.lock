@@ -13,9 +13,9 @@ GIT
 
 GIT
   remote: https://github.com/kaspernj/baza_models.git
-  revision: 5bc1ef00125ce5e127a59296846213f93d716d9e
+  revision: 924312faf24a03d8e17ad44376656b1a7bbc2138
   specs:
-    baza_models (0.0.13)
+    baza_models (0.0.14)
       array_enumerator
       auto_autoloader
       baza
