@@ -1,5 +1,5 @@
 before_install:
-  - gem install bundler -v 2.1.2
+  - sudo apt-get update && sudo apt-get install -y wait-for-it
 rvm: true
 services:
   mysql:
@@ -8,12 +8,14 @@ services:
       - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=baza_database_manager_test
-    image: mysql:5.7.29
     expose:
       - 3306
+    image: mysql:8.0.26
+    mem_limit: 4096m
 script:
   - yarn
   - cp config/database.peak_flow.yml config/database.yml
+  - wait-for-it mysql:3306
   - RAILS_ENV=test bundle exec rake db:schema:load
   - RAILS_ENV=test bundle exec rake baza:db:migrate
   - bin/webpack
