@@ -1,28 +1,3 @@
-GIT
-  remote: https://github.com/kaspernj/baza.git
-  revision: 4eca8440f254a90b0b85e93620690e712f68bd83
-  specs:
-    baza (0.0.37)
-      array_enumerator (~> 0.0.10)
-      auto_autoloader (~> 0.0.5)
-      datet (~> 0.0.25)
-      event_handler (~> 0.0.0)
-      simple_delegate (~> 0.0.2)
-      string-cases (~> 0.0.4)
-      wref (~> 0.0.8)
-
-GIT
-  remote: https://github.com/kaspernj/baza_models.git
-  revision: 4d0b57d4997a85249a83f3d9d83ea0a8a40dc0a8
-  specs:
-    baza_models (0.0.14)
-      array_enumerator
-      auto_autoloader
-      baza
-      html_gen
-      simple_delegate
-      string-cases
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,10 +81,25 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    baza (0.0.38)
+      array_enumerator (~> 0.0.10)
+      auto_autoloader (~> 0.0.5)
+      datet (~> 0.0.25)
+      event_handler (~> 0.0.0)
+      simple_delegate (~> 0.0.2)
+      string-cases (~> 0.0.4)
+      wref (~> 0.0.8)
     baza_migrations (0.0.2)
       auto_autoloader
       baza (~> 0.0.20)
       string-cases (~> 0.0.1)
+    baza_models (0.0.15)
+      array_enumerator
+      auto_autoloader
+      baza
+      html_gen
+      simple_delegate
+      string-cases
     bcrypt (3.1.16)
     best_practice_project (0.0.11)
       auto_autoloader (>= 0.0.5)
@@ -353,9 +343,9 @@ PLATFORMS
 DEPENDENCIES
   auto_autoloader
   awesome_translations
-  baza!
+  baza
   baza_migrations
-  baza_models!
+  baza_models
   best_practice_project
   bootsnap
   bootstrap_builders
