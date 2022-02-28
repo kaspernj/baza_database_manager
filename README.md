@@ -8,8 +8,7 @@ A database management tool written in Ruby on Rails with Bootstrap for the UI an
 git clone https://github.com/kaspernj/baza_database_manager.git
 cd baza_database_manager
 bundle
-bundle exec rake baza:db:migrate
-bundle exec rake db:seed
+bundle exec rails db:create db:schema:load baza:db:migrate db:seed
 bundle exec rails s
 ```
 
@@ -44,4 +43,3 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
-
