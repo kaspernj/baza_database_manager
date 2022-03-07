@@ -35,7 +35,7 @@ describe "profiles" do
 
       expect do
         click_on "Create Profile"
-        expect(flash_messages).to eq nil
+        expect(flash_messages).to be_nil
       end.to change(Profile, :count).by(1)
     end
 
