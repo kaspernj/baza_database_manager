@@ -23,10 +23,10 @@ class ForeignKeysController < ApplicationController
       flash[:success] = controller_t(".the_foreign_key_was_created")
       redirect_to [@profile, @database, @table]
     rescue Baza::Errors::TableNotFound
-      flash[:error] = controller_t(".no_such_table", table_name: foreign_key_params[:table_name])
+      flash.now[:error] = controller_t(".no_such_table", table_name: foreign_key_params[:table_name])
       render :new
     rescue Baza::Errors::ColumnNotFound
-      flash[:error] = controller_t(".no_such_column", column_name: foreign_key_params[:column_name])
+      flash.now[:error] = controller_t(".no_such_column", column_name: foreign_key_params[:column_name])
       render :new
     end
   end

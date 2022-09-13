@@ -32,7 +32,7 @@ class ExportsController < ApplicationController
       if @export.save
         redirect_to [@profile, @database, @export]
       else
-        flash[:error] = @export.errors.full_messages.join(". ")
+        flash.now[:error] = @export.errors.full_messages.join(". ")
         render :new
       end
     end
@@ -49,7 +49,7 @@ class ExportsController < ApplicationController
       if @export.update(export_params)
         redirect_to [@profile, @database, @export]
       else
-        flash[:error] = @export.errors.full_messages.join(". ")
+        flash.now[:error] = @export.errors.full_messages.join(". ")
         render :edit
       end
     end

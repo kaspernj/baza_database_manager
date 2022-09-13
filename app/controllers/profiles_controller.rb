@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to [:edit, @profile]
     else
-      flash[:error] = @profile.errors.full_messages.join(". ")
+      flash.now[:error] = @profile.errors.full_messages.join(". ")
       render :new
     end
   end
@@ -35,7 +35,7 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to @profile
     else
-      flash[:error] = @profile.errors.full_messages.join(". ")
+      flash.now[:error] = @profile.errors.full_messages.join(". ")
       render :edit
     end
   end
