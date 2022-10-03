@@ -94,6 +94,9 @@ Rails/FindEach:
 RSpec/AnyInstance:
   Enabled: false
 
+RSpec/Capybara/SpecificFinders:
+  Enabled: false
+
 RSpec/ContextWording:
   Enabled: false
 
