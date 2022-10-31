@@ -87,6 +87,16 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 10
 
+Rails/ActionOrder:
+  ExpectedOrder:
+    - index
+    - show
+    - new
+    - create
+    - edit
+    - update
+    - destroy
+
 # .find_each is not the same as .each
 Rails/FindEach:
   Enabled: false
