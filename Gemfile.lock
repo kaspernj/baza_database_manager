@@ -322,7 +322,7 @@ GEM
     semantic_range (3.0.0)
     sexp_processor (4.16.1)
     simple_delegate (0.0.4)
-    simple_form (5.1.0)
+    simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     sprockets (4.0.2)
