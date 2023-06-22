@@ -8,9 +8,17 @@ AllCops:
   NewCops: enable
 
 require:
+  - rubocop-capybara
+  - rubocop-factory_bot
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+
+Capybara/SpecificFinders:
+  Enabled: false
+
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false
 
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
@@ -101,10 +109,11 @@ Rails/ActionOrder:
 Rails/FindEach:
   Enabled: false
 
-RSpec/AnyInstance:
+# Disabled because it crashes
+Rails/UniqueValidationWithoutIndex:
   Enabled: false
 
-RSpec/Capybara/SpecificFinders:
+RSpec/AnyInstance:
   Enabled: false
 
 RSpec/ContextWording:
@@ -117,9 +126,6 @@ RSpec/DescribedClass:
   Enabled: false
 
 RSpec/ExampleLength:
-  Enabled: false
-
-RSpec/FactoryBot/ConsistentParenthesesStyle:
   Enabled: false
 
 RSpec/LetSetup:
