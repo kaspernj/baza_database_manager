@@ -73,7 +73,7 @@ GEM
     ast (2.4.2)
     auto_autoloader (0.0.5)
       string-cases
-    awesome_translations (0.0.62)
+    awesome_translations (0.0.63)
       active-record-transactioner (>= 0.0.7)
       array_enumerator (>= 0.0.10)
       auto_autoloader (>= 0.0.4)
