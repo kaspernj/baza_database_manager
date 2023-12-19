@@ -1,3 +1,5 @@
+environment:
+  - NODE_OPTIONS="--openssl-legacy-provider"
 rvm: true
 services:
   mysql:
