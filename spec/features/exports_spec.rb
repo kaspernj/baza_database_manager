@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "exports" do
-  let(:export) { create :export, profile: profile }
+  let(:export) { create :export, profile: }
   let(:user) { create :user }
   let!(:profile) { create :profile }
   let(:db_inst) { profile.database_instance }

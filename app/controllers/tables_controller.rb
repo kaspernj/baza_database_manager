@@ -15,7 +15,7 @@ class TablesController < ApplicationController
 
   def create
     with_db do
-      @db.tables.create(params[:table][:name], columns: columns)
+      @db.tables.create(params[:table][:name], columns:)
       redirect_to params[:redirect_to].presence || profile_database_table_path(@profile, @database.name, params[:table][:name])
     end
   end
