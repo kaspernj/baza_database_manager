@@ -17,7 +17,7 @@ class ForeignKeysController < ApplicationController
     with_db do
       local_column.create_foreign_key(
         name: foreign_key_params[:name],
-        column: column
+        column:
       )
 
       flash[:success] = controller_t(".the_foreign_key_was_created")
