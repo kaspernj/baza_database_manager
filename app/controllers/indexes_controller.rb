@@ -61,7 +61,7 @@ private
 
   def column_names_array
     column_names = []
-    params[:columns].each do |_column_key, column_name|
+    params[:columns].each_value do |column_name|
       next if column_name.blank?
 
       column_names << column_name
