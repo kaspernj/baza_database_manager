@@ -54,7 +54,7 @@ private
 
   def columns
     columns = []
-    params[:columns].each do |_column_key, column_data|
+    params[:columns].each_value do |column_data|
       next if column_data.fetch(:name).blank?
 
       column = {
