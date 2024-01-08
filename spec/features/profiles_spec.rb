@@ -34,7 +34,7 @@ describe "profiles" do
       select "Mysql2", from: Profile.human_attribute_name(:database_type)
 
       expect do
-        click_button "Create Profile"
+        click_link_or_button "Create Profile"
         expect(flash_messages).to be_nil
       end.to change(Profile, :count).by(1)
     end
@@ -49,7 +49,7 @@ describe "profiles" do
       visit edit_profile_path(profile)
 
       fill_in Profile.human_attribute_name(:name), with: "Test update profile"
-      click_button "Update Profile"
+      click_link_or_button "Update Profile"
 
       expect(profile.reload.name).to eq "Test update profile"
     end
