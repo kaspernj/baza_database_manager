@@ -119,7 +119,7 @@ GEM
     best_practice_project (0.0.12)
       auto_autoloader (>= 0.0.5)
     bigdecimal (3.1.8)
-    bootsnap (1.18.3)
+    bootsnap (1.18.4)
       msgpack (~> 1.2)
     bootstrap_builders (0.0.63)
       html_gen (>= 0.0.16)
