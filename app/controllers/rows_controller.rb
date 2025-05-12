@@ -1,6 +1,9 @@
 class RowsController < ApplicationController
   load_and_authorize_resource :profile
 
+  ALLOWED_FILTERS = ["=", "!=", ">=", "<=", ">", "<"].freeze
+  private_constant :ALLOWED_FILTERS
+
   def index
     with_db do
       @query = @db
@@ -55,7 +58,6 @@ class RowsController < ApplicationController
 
 private
 
-  ALLOWED_FILTERS = ["=", "!=", ">=", "<=", ">", "<"].freeze
   def apply_filters
     return unless params[:filter]
 
