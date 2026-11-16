@@ -1,23 +1,85 @@
 environment:
   - NODE_OPTIONS="--openssl-legacy-provider"
-rvm: true
-services:
-  mysql:
-    environment:
-      - MYSQL_USER=build
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=baza_database_manager_test
-    expose:
-      - 3306
-    image: mariadb:latest
-    mem_limit: 4096m
-script:
-  - yarn
-  - cp config/database.peak_flow.yml config/database.yml
-  - wait-for-it mysql:3306
-  - RAILS_ENV=test bundle exec rake db:schema:load
-  - RAILS_ENV=test bundle exec rake baza:db:migrate
-  - bin/webpack
-  - bundle exec rspec
-  - bundle exec rake best_practice_project:run
+builds:
+  backend:
+    paths:
+      - "app/**"
+      - "config/**"
+      - "db/**"
+      - "lib/**"
+      - "spec/**"
+      - "Gemfile"
+      - "Gemfile.lock"
+      - "Rakefile"
+      - "config.ru"
+      - "bin/**"
+      - ".ruby-version"
+      - ".github/**"
+      - ".rubocop.yml"
+      - ".scss-lint.yml"
+      - ".browserslistrc"
+      - "peak_flow.yml"
+      - "!app/assets/**"
+      - "!app/javascript/**"
+    rvm: true
+    services:
+      mysql:
+        environment:
+          - MYSQL_USER=build
+          - MYSQL_PASSWORD=password
+          - MYSQL_ROOT_PASSWORD=password
+          - MYSQL_DATABASE=baza_database_manager_test
+        expose:
+          - 3306
+        image: mariadb:latest
+        mem_limit: 4096m
+    script:
+      - yarn
+      - cp config/database.peak_flow.yml config/database.yml
+      - wait-for-it mysql:3306
+      - RAILS_ENV=test bundle exec rake db:schema:load
+      - RAILS_ENV=test bundle exec rake baza:db:migrate
+      - bin/webpack
+      - bundle exec rspec
+      - bundle exec rake best_practice_project:run
+  frontend:
+    paths:
+      - "app/assets/**"
+      - "app/javascript/**"
+      - "config/**"
+      - "Gemfile"
+      - "Gemfile.lock"
+      - "Rakefile"
+      - "config.ru"
+      - "bin/**"
+      - ".ruby-version"
+      - ".github/**"
+      - ".rubocop.yml"
+      - ".scss-lint.yml"
+      - ".browserslistrc"
+      - "babel.config.js"
+      - "package.json"
+      - "postcss.config.js"
+      - "yarn.lock"
+      - "peak_flow.yml"
+    rvm: true
+    services:
+      mysql:
+        environment:
+          - MYSQL_USER=build
+          - MYSQL_PASSWORD=password
+          - MYSQL_ROOT_PASSWORD=password
+          - MYSQL_DATABASE=baza_database_manager_test
+        expose:
+          - 3306
+        image: mariadb:latest
+        mem_limit: 4096m
+    script:
+      - yarn
+      - cp config/database.peak_flow.yml config/database.yml
+      - wait-for-it mysql:3306
+      - RAILS_ENV=test bundle exec rake db:schema:load
+      - RAILS_ENV=test bundle exec rake baza:db:migrate
+      - bin/webpack
+      - bundle exec rspec
+      - bundle exec rake best_practice_project:run
